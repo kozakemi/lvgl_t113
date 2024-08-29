@@ -1,0 +1,1 @@
+make CC=/home/taiji/tina-sdk/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc
