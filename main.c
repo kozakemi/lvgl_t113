@@ -14,7 +14,44 @@
 #include "calendar.h"
 #include "comment.h"
 #include "loading.h"
-/**
+static void hal_init(void);
+static int tick_thread(void *data);
+static lv_obj_t * HomePage_OBJ;
+static lv_obj_t  * Calender_OBJ;
+static lv_obj_t * two;
+/**********************
+ *  STATIC VARIABLES
+ **********************/
+
+/**********************
+ *      MACROS
+ **********************/
+
+/**********************
+ *   GLOBAL FUNCTIONS
+ **********************/
+
+/*********************
+ *      DEFINES
+ *********************/
+
+/**********************
+ *      TYPEDEFS
+ **********************/
+
+/**********************
+ *      VARIABLES
+ **********************/
+
+/**********************
+ *  STATIC PROTOTYPES
+ **********************/
+
+/**********************
+ *   GLOBAL FUNCTIONS
+ **********************/
+#define LV_COLOR_RED   LV_COLOR_MAKE32(0xFF, 0x00, 0x00)
+void my_display(void);/**
  * 初始化并显示一个矩形对象在屏幕上。
  */
 typedef struct _lv_clock
@@ -23,7 +60,23 @@ typedef struct _lv_clock
     lv_obj_t *date_label; // 日期标签
     lv_obj_t *weekday_label; // 星期标签
 }lv_clock_t;
-
+void lvgl_calendar_show_data_test(void)
+{
+    lv_calendar_date_t today;
+    lv_calendar_date_t* today_get;
+    today.year = 2021;
+    today.month = 2;
+    today.day = 20;
+ 
+    lv_obj_t* calendar = lv_calendar_create(lv_scr_act());
+    lv_obj_set_size(calendar, 300, 300);
+    lv_obj_align(calendar, LV_ALIGN_CENTER, 0, 0);
+ 
+    lv_calendar_set_today_date(calendar, today.year, today.month, today.day);
+    lv_calendar_set_showed_date(calendar, today.year, today.month);
+    today_get = lv_calendar_get_today_date(calendar);
+    printf("Y/M/D:%04d/%02d/%02d\n", today_get->year, today_get->month, today_get->day);
+}
 static void clock_date_task_callback(lv_timer_t *timer)
 {
     static const char *week_day[7] = { "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" };
@@ -64,86 +117,36 @@ static void clock_date_task_callback(lv_timer_t *timer)
         }
     }
 }
- 
- 
- 
-void my_display(void)
-{
-    lv_coord_t hor_res = lv_disp_get_hor_res(lv_disp_get_default());
-    lv_coord_t ver_res = lv_disp_get_ver_res(lv_disp_get_default());
-    // 声明图片资源
-    LV_IMG_DECLARE(mikuimg); // 确保mikuimg.c和mikuimg.h文件已经生成
-    /*miku IMG*/
-    // 创建一个用于显示图片的图片对象
-    lv_obj_t * img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
-    lv_img_set_src(img, &mikuimg);
-    lv_obj_align(img, LV_ALIGN_TOP_LEFT, 0, 0);
-    lv_coord_t rect_width = (lv_coord_t)((float)hor_res * 0.2f);//矩形宽度
+static void calender_img_clicked_callback(lv_event_t * e){
+    LV_LOG_USER("Clicked");
+    // CalenderPage();
+    lv_scr_load(Calender_OBJ);
+    // static uint32_t cnt = 1;
+    // lv_obj_t * btn = lv_event_get_target(e);
+    // lv_obj_t * label = lv_obj_get_child(btn, 0);
+    // lv_label_set_text_fmt(label, "%",PRIu32, cnt);
+    // cnt++;
 
-    /*底部装饰1*/
-    lv_obj_t* canvas = lv_canvas_create(lv_scr_act());
-    static lv_color_t canvasBuf[(32 * 480) / 8 * 480];
-    lv_canvas_set_buffer(canvas, canvasBuf, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
-    const lv_point_t polygonPoint[4] = { {0, ver_res-ver_res*0.1f}, {hor_res-rect_width, ver_res-ver_res*0.3f} , {hor_res-rect_width, ver_res} ,{0, ver_res} };
-    lv_draw_rect_dsc_t rect_dsc;
-    lv_draw_rect_dsc_init(&rect_dsc);
-    rect_dsc.bg_color = lv_color_hex(0x567c8c);
-    // rect_dsc.bg_opa=LV_OPA_10;
-    lv_canvas_draw_polygon(canvas, polygonPoint, 4, &rect_dsc);
-
-
-    /*底部装饰2*/
-    lv_obj_t* canvas1 = lv_canvas_create(lv_scr_act());
-    static lv_color_t canvasBuf1[(32 * 480) / 8 * 480];
-    lv_canvas_set_buffer(canvas1, canvasBuf1, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
-    const lv_point_t polygonPoint1[4] = { {0, ver_res-ver_res*0.25f}, {hor_res-rect_width, ver_res-ver_res*0.45f} , {hor_res-rect_width, ver_res-ver_res*0.3f} ,{0, ver_res-ver_res*0.1f} };
-    lv_draw_rect_dsc_t rect_dsc1;
-    lv_draw_rect_dsc_init(&rect_dsc1);
-    rect_dsc1.bg_color = lv_color_hex(0x000000);
-    rect_dsc1.bg_opa=LV_OPA_80;
-    lv_canvas_draw_polygon(canvas1, polygonPoint1, 4, &rect_dsc1);
-
-
-
-    /*右侧栏*/
-    static lv_style_t style_rect;
-    lv_obj_t * rect;
-    lv_color_t c = lv_color_hex(0xadc0c8); // 修改颜色值
-    lv_style_init(&style_rect);//初始化样式
-    lv_style_set_bg_color(&style_rect, c);//设置颜色
-    lv_style_set_width(&style_rect, rect_width);//设置宽度
-    lv_style_set_height(&style_rect, ver_res); //设置高度
-    lv_style_set_radius(&style_rect, 0);//设置圆角
-    // lv_style_set_opa(&style_rect,LV_OPA_COVER); //设置透明度
-    lv_style_set_shadow_width(&style_rect,25);//设置阴影宽度
-    lv_style_set_shadow_ofs_x(&style_rect,-3);//设置水平偏移
-    // lv_style_set_shadow_color(&style_rect,lv_palette_main(LV_PALETTE_NONE));//设置阴影颜色
-    lv_style_set_border_width(&style_rect,0);//设置边框宽度
-    // lv_style_set_opa(&style_rect,LV_OPA_90);  
-    // lv_obj_set_flex_flow(lv_scr_act(), LV_FLEX_FLOW_ROW);
-    // lv_obj_set_flex_align(lv_scr_act(), LV_FLEX_ALIGN_END, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
-    rect = lv_obj_create(lv_scr_act());
-    lv_obj_align(rect, LV_ALIGN_TOP_RIGHT, 0, 0);
-    lv_obj_add_style(rect, &style_rect, 0);
 }
 
+void HomePage(void) {
 
-void test(void) {
+    HomePage_OBJ = lv_obj_create(NULL);
+    lv_obj_set_size(HomePage_OBJ, LV_HOR_RES, LV_VER_RES);
     lv_coord_t hor_res = lv_disp_get_hor_res(lv_disp_get_default());
     lv_coord_t ver_res = lv_disp_get_ver_res(lv_disp_get_default());
     // 声明图片资源
     LV_IMG_DECLARE(mikuimg); // 确保mikuimg.c和mikuimg.h文件已经生成
     /*miku IMG*/
     // 创建一个用于显示图片的图片对象
-    lv_obj_t * img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
+    lv_obj_t * img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    
     lv_img_set_src(img, &mikuimg);
     lv_obj_align(img, LV_ALIGN_TOP_LEFT, 0, 0);
     lv_coord_t rect_width = (lv_coord_t)((float)hor_res * 0.2f);//矩形宽度
 
     /*底部装饰1*/
-    lv_obj_t* canvas = lv_canvas_create(lv_scr_act());
+    lv_obj_t* canvas = lv_canvas_create(HomePage_OBJ);
     static lv_color_t canvasBuf[(32 * 480) / 8 * 480];
     lv_canvas_set_buffer(canvas, canvasBuf, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
     const lv_point_t polygonPoint[4] = { {0, ver_res-ver_res*0.1f}, {hor_res-rect_width, ver_res-ver_res*0.3f} , {hor_res-rect_width, ver_res} ,{0, ver_res} };
@@ -155,7 +158,7 @@ void test(void) {
 
 
     /*底部装饰2*/
-    lv_obj_t* canvas1 = lv_canvas_create(lv_scr_act());
+    lv_obj_t* canvas1 = lv_canvas_create(HomePage_OBJ);
     static lv_color_t canvasBuf1[(32 * 480) / 8 * 480];
     lv_canvas_set_buffer(canvas1, canvasBuf1, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
     const lv_point_t polygonPoint1[4] = { {0, ver_res-ver_res*0.25f}, {hor_res-rect_width, ver_res-ver_res*0.45f} , {hor_res-rect_width, ver_res-ver_res*0.3f} ,{0, ver_res-ver_res*0.1f} };
@@ -182,40 +185,49 @@ void test(void) {
     // lv_style_set_shadow_color(&style_rect,lv_palette_main(LV_PALETTE_NONE));//设置阴影颜色
     lv_style_set_border_width(&style_rect,0);//设置边框宽度
     // lv_style_set_opa(&style_rect,LV_OPA_90);  
-    // lv_obj_set_flex_flow(lv_scr_act(), LV_FLEX_FLOW_ROW);
-    // lv_obj_set_flex_align(lv_scr_act(), LV_FLEX_ALIGN_END, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
-    rect = lv_obj_create(lv_scr_act());
+    // lv_obj_set_flex_flow(HomePage_OBJ, LV_FLEX_FLOW_ROW);
+    // lv_obj_set_flex_align(HomePage_OBJ, LV_FLEX_ALIGN_END, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    rect = lv_obj_create(HomePage_OBJ);
     lv_obj_align(rect, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_obj_add_style(rect, &style_rect, 0);
     
-        // 创建一个用于显示图片的图片对象
-    lv_obj_t * shezhi_img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
+    // 创建一个用于显示图片的图片对象
+    lv_obj_t * shezhi_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(shezhi_img, &shezhi);
-    // lv_img_set_zoom(shezhi_img,64);
     lv_obj_align(shezhi_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 1*ver_res/5.0-64/2);
 
-        // 创建一个用于显示图片的图片对象
-    lv_obj_t * calendar_img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
-    lv_img_set_src(calendar_img, &calendar);
-    // lv_img_set_zoom(shezhi_img,64);
-    lv_obj_align(calendar_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 2*ver_res/5.0-64/2);
+    // // 创建一个用于显示图片的图片对象
+    // lv_obj_t * calendar_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    // lv_img_set_src(calendar_img, &calendar);
+    // lv_obj_align(calendar_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 2*ver_res/5.0-64/2);
+    // lv_obj_add_event_cb(calendar_img, calender_img_clicked_callback, LV_EVENT_CLICKED, NULL);
 
-            // 创建一个用于显示图片的图片对象
-    lv_obj_t * comment_img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
+    lv_obj_t * calendar_img_btn = lv_imgbtn_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    // 设置正常状态下的图片
+    lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_RELEASED, &calendar, NULL,NULL);
+    // lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &calendar, NULL);
+    lv_obj_align(calendar_img_btn, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 2*ver_res/5.0-64/2);
+    lv_obj_set_size(calendar_img_btn, 64, 64);
+    lv_obj_add_event_cb(calendar_img_btn, calender_img_clicked_callback, LV_EVENT_CLICKED, NULL);
+
+    // lv_obj_t * btn = lv_btn_create(HomePage_OBJ);
+    // lv_obj_set_size(btn, 100, 50);
+    // lv_obj_center(btn);
+    // lv_obj_add_event_cb(btn, event_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_t * label = lv_label_create(btn);
+    // lv_label_set_text(label, "Click me!");
+    // lv_obj_center(label);
+
+    // 创建一个用于显示图片的图片对象
+    lv_obj_t * comment_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(comment_img, &comment);
-    // lv_img_set_zoom(shezhi_img,64);
     lv_obj_align(comment_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 3*ver_res/5.0-64/2);
 
 
 
-        // 创建一个用于显示图片的图片对象
-    lv_obj_t * loading_img = lv_img_create(lv_scr_act()); // 创建在当前活动的屏幕
-    // 设置图片对象的源为mikuimg
+    // 创建一个用于显示图片的图片对象
+    lv_obj_t * loading_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(loading_img, &loading);
-    // lv_img_set_zoom(shezhi_img,64);
     lv_obj_align(loading_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 4*ver_res/5.0-64/2);
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -250,39 +262,64 @@ void test(void) {
     
     static lv_clock_t lv_clock = { 0 };
  
-    lv_clock.time_label = lv_label_create(lv_scr_act()); // 基于time_obj对象创建时间显示标签对象 lv_clock.time_label
+    lv_clock.time_label = lv_label_create(HomePage_OBJ); // 基于time_obj对象创建时间显示标签对象 lv_clock.time_label
     lv_obj_add_style(lv_clock.time_label, &time_label_style, LV_STATE_DEFAULT); // 给对象 lv_clock.time_label添加样式
 
-    lv_clock.date_label = lv_label_create(lv_scr_act()); // 基于date_obj对象创建lv_clock.date_label日期显示对象
+    lv_clock.date_label = lv_label_create(HomePage_OBJ); // 基于date_obj对象创建lv_clock.date_label日期显示对象
     lv_obj_add_style(lv_clock.date_label, &date_label_style, LV_STATE_DEFAULT); // 给lv_clock.date_label对象添加样式
 
     /*Week display*/
-    lv_clock.weekday_label = lv_label_create(lv_scr_act()); // 基于date_obj对象创建星期显示lv_clock.weekday_label对象
+    lv_clock.weekday_label = lv_label_create(HomePage_OBJ); // 基于date_obj对象创建星期显示lv_clock.weekday_label对象
     lv_obj_add_style(lv_clock.weekday_label, &week_lable_style, LV_STATE_DEFAULT); // 给对象lv_clock.weekday_label添加样式
 
     lv_timer_t* task_timer = lv_timer_create(clock_date_task_callback, 200, (void *)&lv_clock); // 创建定时任务，200ms刷新一次
 
+}
+static void event_handler(lv_event_t * e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t * obj = lv_event_get_target(e);
 
-// ///////////////////////////////////////////////////
-//   lv_draw_label_dsc_t label_dsc;
-//   lv_draw_label_dsc_init(&label_dsc);
-//   label_dsc.color = lv_palette_main(LV_PALETTE_YELLOW);
-//   static lv_color_t cbuf[LV_CANVAS_BUF_SIZE_TRUE_COLOR(480, 480)];
-//   lv_obj_t * canvas23 = lv_canvas_create(lv_scr_act());
-//   lv_canvas_set_buffer(canvas23, cbuf, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
-//   lv_obj_center(canvas23);
-//   lv_canvas_draw_text(canvas23, 40, 20, 100, &label_dsc, "Some text on text canvas");
-//   static lv_color_t cbuf_tmp[480 * 480];
-//   memcpy(cbuf_tmp, cbuf, sizeof(cbuf_tmp));
-//   lv_img_dsc_t img23;
-//   img23.data = (void *)cbuf_tmp;
-//   img23.header.cf = LV_IMG_CF_TRUE_COLOR_ALPHA;
-//   img23.header.w = 480;
-//   img23.header.h = 480;
-//   // lv_canvas_fill_bg(canvas, lv_palette_lighten(LV_PALETTE_NONE, 3), LV_OPA_COVER);
-//   lv_canvas_transform(canvas23, &img23, 30, LV_IMG_ZOOM_NONE, 0, 0, 480 / 2, 480 / 2, true);
+    if(code == LV_EVENT_VALUE_CHANGED) {
+        lv_calendar_date_t date;
+        if(lv_calendar_get_pressed_date(obj, &date)) {
+            LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
+        }
+    }
+}
+void CalenderPage(void)
+{
+    Calender_OBJ = lv_obj_create(NULL);
+    lv_obj_t * calendar_obj = lv_calendar_create(Calender_OBJ);
+    // Calender_OBJ = lv_calendar_create(lv_scr_act());
+    // lv_obj_set_size(Calender_OBJ, LV_HOR_RES, LV_VER_RES);
+    lv_obj_set_size(calendar_obj, 185, 185);
+    lv_obj_align(calendar_obj, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_add_event_cb(calendar_obj, event_handler, LV_EVENT_ALL, NULL);
+    lv_calendar_set_today_date(calendar_obj, 2021, 02, 23);
+    lv_calendar_set_showed_date(calendar_obj, 2021, 02);
 
+    /*Highlight a few days*/
+    // static lv_calendar_date_t highlighted_days[3];       /*Only its pointer will be saved so should be static*/
+    // highlighted_days[0].year = 2021;
+    // highlighted_days[0].month = 02;
+    // highlighted_days[0].day = 6;
 
+    // highlighted_days[1].year = 2021;
+    // highlighted_days[1].month = 02;
+    // highlighted_days[1].day = 11;
+
+    // highlighted_days[2].year = 2022;
+    // highlighted_days[2].month = 02;
+    // highlighted_days[2].day = 22;
+
+    // lv_calendar_set_highlighted_dates(calendar_obj, highlighted_days, 3);
+
+// #if LV_USE_CALENDAR_HEADER_DROPDOWN
+    lv_calendar_header_dropdown_create(Calender_OBJ);
+// #elif LV_USE_CALENDAR_HEADER_ARROW
+    // lv_calendar_header_arrow_create(lv_scr_act(), Calender_OBJ, 25);
+// #endif
 }
 int main(int argc, char *argv[])
 {
@@ -361,7 +398,9 @@ int main(int argc, char *argv[])
         lv_demo_stress();
         break;
     case 5:
-        test();
+        HomePage();
+        CalenderPage();
+        lv_scr_load(HomePage_OBJ);
         break;
     default:
         free(buf);
