@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "mikuimg.h": "c"
+        "mikuimg.h": "c",
+        "check_device_status.h": "c"
     }
 }

@@ -14,6 +14,11 @@
 #include "calendar.h"
 #include "comment.h"
 #include "loading.h"
+#include "Wifi-1.h"
+#include "No_Wifi.h"
+#include "Bluetuth_OFF.h"
+#include "Bluetuth_ON.h"
+#include "check_device_status.h"
 static void hal_init(void);
 static int tick_thread(void *data);
 static lv_obj_t * HomePage_OBJ;
@@ -50,7 +55,10 @@ static lv_obj_t * two;
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-#define LV_COLOR_RED   LV_COLOR_MAKE32(0xFF, 0x00, 0x00)
+#define LV_COLOR_RED LV_COLOR_MAKE32(0xFF, 0x00, 0x00)
+lv_coord_t hor_res = 480;
+lv_coord_t ver_res = 480;
+lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f); // 矩形宽度
 void my_display(void);/**
  * 初始化并显示一个矩形对象在屏幕上。
  */
@@ -60,6 +68,11 @@ typedef struct _lv_clock
     lv_obj_t *date_label; // 日期标签
     lv_obj_t *weekday_label; // 星期标签
 }lv_clock_t;
+typedef struct _lv_status_lable
+{
+    lv_obj_t *wifi_label; // WIFI标签
+    lv_obj_t *blue_label; // 蓝牙标签
+} lv_status_lable_t;
 void lvgl_calendar_show_data_test(void)
 {
     lv_calendar_date_t today;
@@ -117,6 +130,41 @@ static void clock_date_task_callback(lv_timer_t *timer)
         }
     }
 }
+static void clock_wb_status_task_callback(lv_timer_t *timer)
+{
+    if (timer != NULL && timer->user_data != NULL)
+    {
+        lv_status_lable_t *status_lable = (lv_clock_t *)(timer->user_data);
+        if (status_lable->wifi_label != NULL)
+        {
+
+            if (0==check_wifi_state("wlan0"))
+            {
+                lv_img_set_src(status_lable->wifi_label, &Wifi_1);
+            }
+            else
+            {
+                lv_img_set_src(status_lable->wifi_label, &No_Wifi);
+            }
+
+            lv_obj_align(status_lable->wifi_label, LV_ALIGN_TOP_LEFT, (hor_res - rect_width) / 3, ver_res - ver_res * 0.28f);
+        }
+        if (status_lable->blue_label != NULL)
+        {
+
+            if (0)
+            {
+                lv_img_set_src(status_lable->blue_label, &Bluetuth_ON);
+            }
+            else
+            {
+                lv_img_set_src(status_lable->blue_label, &Bluetuth_OFF);
+            }
+
+            lv_obj_align(status_lable->blue_label, LV_ALIGN_TOP_LEFT, (hor_res - rect_width) / 3 * 2, ver_res - ver_res * 0.35f);
+        }
+    }
+}
 static void calender_img_clicked_callback(lv_event_t * e){
     LV_LOG_USER("Clicked");
     // CalenderPage();
@@ -129,72 +177,75 @@ static void calender_img_clicked_callback(lv_event_t * e){
 
 }
 
-void HomePage(void) {
+void HomePage(void)
+{
 
     HomePage_OBJ = lv_obj_create(NULL);
     lv_obj_set_size(HomePage_OBJ, LV_HOR_RES, LV_VER_RES);
-    lv_coord_t hor_res = lv_disp_get_hor_res(lv_disp_get_default());
-    lv_coord_t ver_res = lv_disp_get_ver_res(lv_disp_get_default());
     // 声明图片资源
     LV_IMG_DECLARE(mikuimg); // 确保mikuimg.c和mikuimg.h文件已经生成
     /*miku IMG*/
     // 创建一个用于显示图片的图片对象
-    lv_obj_t * img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
-    
+    lv_obj_t *img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+
     lv_img_set_src(img, &mikuimg);
     lv_obj_align(img, LV_ALIGN_TOP_LEFT, 0, 0);
-    lv_coord_t rect_width = (lv_coord_t)((float)hor_res * 0.2f);//矩形宽度
 
     /*底部装饰1*/
-    lv_obj_t* canvas = lv_canvas_create(HomePage_OBJ);
+    lv_obj_t *canvas = lv_canvas_create(HomePage_OBJ);
     static lv_color_t canvasBuf[(32 * 480) / 8 * 480];
     lv_canvas_set_buffer(canvas, canvasBuf, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
-    const lv_point_t polygonPoint[4] = { {0, ver_res-ver_res*0.1f}, {hor_res-rect_width, ver_res-ver_res*0.3f} , {hor_res-rect_width, ver_res} ,{0, ver_res} };
+    const lv_point_t polygonPoint[4] = {{0, ver_res - ver_res * 0.1f}, {hor_res - rect_width, ver_res - ver_res * 0.3f}, {hor_res - rect_width, ver_res}, {0, ver_res}};
     lv_draw_rect_dsc_t rect_dsc;
     lv_draw_rect_dsc_init(&rect_dsc);
     rect_dsc.bg_color = lv_color_hex(0x567c8c);
     // rect_dsc.bg_opa=LV_OPA_10;
     lv_canvas_draw_polygon(canvas, polygonPoint, 4, &rect_dsc);
 
-
     /*底部装饰2*/
-    lv_obj_t* canvas1 = lv_canvas_create(HomePage_OBJ);
+    lv_obj_t *canvas1 = lv_canvas_create(HomePage_OBJ);
     static lv_color_t canvasBuf1[(32 * 480) / 8 * 480];
     lv_canvas_set_buffer(canvas1, canvasBuf1, 480, 480, LV_IMG_CF_TRUE_COLOR_ALPHA);
-    const lv_point_t polygonPoint1[4] = { {0, ver_res-ver_res*0.25f}, {hor_res-rect_width, ver_res-ver_res*0.45f} , {hor_res-rect_width, ver_res-ver_res*0.3f} ,{0, ver_res-ver_res*0.1f} };
+    const lv_point_t polygonPoint1[4] = {{0, ver_res - ver_res * 0.25f}, {hor_res - rect_width, ver_res - ver_res * 0.45f}, {hor_res - rect_width, ver_res - ver_res * 0.3f}, {0, ver_res - ver_res * 0.1f}};
     lv_draw_rect_dsc_t rect_dsc1;
     lv_draw_rect_dsc_init(&rect_dsc1);
     rect_dsc1.bg_color = lv_color_hex(0x000000);
-    rect_dsc1.bg_opa=LV_OPA_80;
+    rect_dsc1.bg_opa = LV_OPA_80;
     lv_canvas_draw_polygon(canvas1, polygonPoint1, 4, &rect_dsc1);
 
-
+    static lv_status_lable_t status_lable = {0};
+    status_lable.wifi_label = lv_img_create(HomePage_OBJ);
+    status_lable.blue_label = lv_img_create(HomePage_OBJ);
+    lv_timer_t *wb_task_timer = lv_timer_create(clock_wb_status_task_callback, 1000, (void *)&status_lable); // 创建定时任务，1秒一次
+    // lv_obj_t * blu_obj = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    // lv_img_set_src(blu_obj, &Bluetuth_ON);
+    // lv_img_set_angle(wifi_1_obj,3600-120);
 
     /*右侧栏*/
     static lv_style_t style_rect;
-    lv_obj_t * rect;
-    lv_color_t c = lv_color_hex(0xadc0c8); // 修改颜色值
-    lv_style_init(&style_rect);//初始化样式
-    lv_style_set_bg_color(&style_rect, c);//设置颜色
-    lv_style_set_width(&style_rect, rect_width);//设置宽度
-    lv_style_set_height(&style_rect, ver_res); //设置高度
-    lv_style_set_radius(&style_rect, 0);//设置圆角
+    lv_obj_t *rect;
+    lv_color_t c = lv_color_hex(0xadc0c8);       // 修改颜色值
+    lv_style_init(&style_rect);                  // 初始化样式
+    lv_style_set_bg_color(&style_rect, c);       // 设置颜色
+    lv_style_set_width(&style_rect, rect_width); // 设置宽度
+    lv_style_set_height(&style_rect, ver_res);   // 设置高度
+    lv_style_set_radius(&style_rect, 0);         // 设置圆角
     // lv_style_set_opa(&style_rect,LV_OPA_COVER); //设置透明度
-    lv_style_set_shadow_width(&style_rect,25);//设置阴影宽度
-    lv_style_set_shadow_ofs_x(&style_rect,-3);//设置水平偏移
+    lv_style_set_shadow_width(&style_rect, 25); // 设置阴影宽度
+    lv_style_set_shadow_ofs_x(&style_rect, -3); // 设置水平偏移
     // lv_style_set_shadow_color(&style_rect,lv_palette_main(LV_PALETTE_NONE));//设置阴影颜色
-    lv_style_set_border_width(&style_rect,0);//设置边框宽度
-    // lv_style_set_opa(&style_rect,LV_OPA_90);  
+    lv_style_set_border_width(&style_rect, 0); // 设置边框宽度
+    // lv_style_set_opa(&style_rect,LV_OPA_90);
     // lv_obj_set_flex_flow(HomePage_OBJ, LV_FLEX_FLOW_ROW);
     // lv_obj_set_flex_align(HomePage_OBJ, LV_FLEX_ALIGN_END, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
     rect = lv_obj_create(HomePage_OBJ);
     lv_obj_align(rect, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_obj_add_style(rect, &style_rect, 0);
-    
+
     // 创建一个用于显示图片的图片对象
-    lv_obj_t * shezhi_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    lv_obj_t *shezhi_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(shezhi_img, &shezhi);
-    lv_obj_align(shezhi_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 1*ver_res/5.0-64/2);
+    lv_obj_align(shezhi_img, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, 1 * ver_res / 5.0 - 64 / 2);
 
     // // 创建一个用于显示图片的图片对象
     // lv_obj_t * calendar_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
@@ -202,11 +253,11 @@ void HomePage(void) {
     // lv_obj_align(calendar_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 2*ver_res/5.0-64/2);
     // lv_obj_add_event_cb(calendar_img, calender_img_clicked_callback, LV_EVENT_CLICKED, NULL);
 
-    lv_obj_t * calendar_img_btn = lv_imgbtn_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    lv_obj_t *calendar_img_btn = lv_imgbtn_create(HomePage_OBJ); // 创建在当前活动的屏幕
     // 设置正常状态下的图片
-    lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_RELEASED, &calendar, NULL,NULL);
+    lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_RELEASED, &calendar, NULL, NULL);
     // lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &calendar, NULL);
-    lv_obj_align(calendar_img_btn, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 2*ver_res/5.0-64/2);
+    lv_obj_align(calendar_img_btn, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, 2 * ver_res / 5.0 - 64 / 2);
     lv_obj_set_size(calendar_img_btn, 64, 64);
     lv_obj_add_event_cb(calendar_img_btn, calender_img_clicked_callback, LV_EVENT_CLICKED, NULL);
 
@@ -219,38 +270,36 @@ void HomePage(void) {
     // lv_obj_center(label);
 
     // 创建一个用于显示图片的图片对象
-    lv_obj_t * comment_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    lv_obj_t *comment_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(comment_img, &comment);
-    lv_obj_align(comment_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 3*ver_res/5.0-64/2);
-
-
+    lv_obj_align(comment_img, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, 3 * ver_res / 5.0 - 64 / 2);
 
     // 创建一个用于显示图片的图片对象
-    lv_obj_t * loading_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
+    lv_obj_t *loading_img = lv_img_create(HomePage_OBJ); // 创建在当前活动的屏幕
     lv_img_set_src(loading_img, &loading);
-    lv_obj_align(loading_img, LV_ALIGN_TOP_RIGHT, -1*rect_width/2.0+64/2, 4*ver_res/5.0-64/2);
+    lv_obj_align(loading_img, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, 4 * ver_res / 5.0 - 64 / 2);
 
-//////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
 
-    	/* Time font */
-    static lv_style_t time_label_style; // 时间标签样式
-    lv_style_init(&time_label_style); // 初始化样式
-    lv_style_set_text_color(&time_label_style , lv_color_white()); // 设置标签样式文本颜色
+    /* Time font */
+    static lv_style_t time_label_style;                                // 时间标签样式
+    lv_style_init(&time_label_style);                                  // 初始化样式
+    lv_style_set_text_color(&time_label_style, lv_color_white());      // 设置标签样式文本颜色
     lv_style_set_text_font(&time_label_style, &lv_font_montserrat_32); // 设置字体风格
-    lv_style_set_text_opa(&time_label_style, LV_OPA_COVER); // 设置字体透明度
-    lv_style_set_bg_opa(&time_label_style, LV_OPA_0); // 设置样式背景透明度
-    lv_style_set_text_color(&time_label_style,lv_color_hex(0xdba7af));
-    
+    lv_style_set_text_opa(&time_label_style, LV_OPA_COVER);            // 设置字体透明度
+    lv_style_set_bg_opa(&time_label_style, LV_OPA_0);                  // 设置样式背景透明度
+    lv_style_set_text_color(&time_label_style, lv_color_hex(0xdba7af));
+
     // lv_style_set_transform_angle(&time_label_style, 300);
-	/* Date font */
+    /* Date font */
     static lv_style_t date_label_style; // 日期标签样式
     lv_style_init(&date_label_style);
     lv_style_set_text_opa(&date_label_style, LV_OPA_COVER);
     lv_style_set_bg_opa(&date_label_style, LV_OPA_0);
-    lv_style_set_text_color(&date_label_style , lv_color_white());
+    lv_style_set_text_color(&date_label_style, lv_color_white());
     lv_style_set_text_font(&date_label_style, &lv_font_montserrat_20);
     // lv_style_set_transform_angle(&date_label_style, 300);
-	/* Week font */
+    /* Week font */
     static lv_style_t week_lable_style; // 日期标签样式
     lv_style_init(&week_lable_style);
     lv_style_set_text_opa(&week_lable_style, LV_OPA_COVER);
@@ -259,21 +308,20 @@ void HomePage(void) {
 
     // lv_style_set_transform_angle(&week_lable_style, 900);
     lv_style_set_text_font(&week_lable_style, &lv_font_montserrat_26);
-    
-    static lv_clock_t lv_clock = { 0 };
- 
-    lv_clock.time_label = lv_label_create(HomePage_OBJ); // 基于time_obj对象创建时间显示标签对象 lv_clock.time_label
+
+    static lv_clock_t lv_clock = {0};
+
+    lv_clock.time_label = lv_label_create(HomePage_OBJ);                        // 基于time_obj对象创建时间显示标签对象 lv_clock.time_label
     lv_obj_add_style(lv_clock.time_label, &time_label_style, LV_STATE_DEFAULT); // 给对象 lv_clock.time_label添加样式
 
-    lv_clock.date_label = lv_label_create(HomePage_OBJ); // 基于date_obj对象创建lv_clock.date_label日期显示对象
+    lv_clock.date_label = lv_label_create(HomePage_OBJ);                        // 基于date_obj对象创建lv_clock.date_label日期显示对象
     lv_obj_add_style(lv_clock.date_label, &date_label_style, LV_STATE_DEFAULT); // 给lv_clock.date_label对象添加样式
 
     /*Week display*/
-    lv_clock.weekday_label = lv_label_create(HomePage_OBJ); // 基于date_obj对象创建星期显示lv_clock.weekday_label对象
+    lv_clock.weekday_label = lv_label_create(HomePage_OBJ);                        // 基于date_obj对象创建星期显示lv_clock.weekday_label对象
     lv_obj_add_style(lv_clock.weekday_label, &week_lable_style, LV_STATE_DEFAULT); // 给对象lv_clock.weekday_label添加样式
 
-    lv_timer_t* task_timer = lv_timer_create(clock_date_task_callback, 200, (void *)&lv_clock); // 创建定时任务，200ms刷新一次
-
+    lv_timer_t *task_timer = lv_timer_create(clock_date_task_callback, 200, (void *)&lv_clock); // 创建定时任务，200ms刷新一次
 }
 static void event_handler(lv_event_t * e)
 {
