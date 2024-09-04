@@ -19,55 +19,23 @@
 #include "Bluetuth_OFF.h"
 #include "Bluetuth_ON.h"
 #include "check_device_status.h"
+#include "home.h"
 static void hal_init(void);
 static int tick_thread(void *data);
-static lv_obj_t * HomePage_OBJ;
-static lv_obj_t  * Calender_OBJ;
-static lv_obj_t * two;
-/**********************
- *  STATIC VARIABLES
- **********************/
-
-/**********************
- *      MACROS
- **********************/
-
-/**********************
- *   GLOBAL FUNCTIONS
- **********************/
-
-/*********************
- *      DEFINES
- *********************/
-
-/**********************
- *      TYPEDEFS
- **********************/
-
-/**********************
- *      VARIABLES
- **********************/
-
-/**********************
- *  STATIC PROTOTYPES
- **********************/
-
-/**********************
- *   GLOBAL FUNCTIONS
- **********************/
+static lv_obj_t *HomePage_OBJ;
+static lv_obj_t *Calender_OBJ;
+static lv_obj_t *two;
 #define LV_COLOR_RED LV_COLOR_MAKE32(0xFF, 0x00, 0x00)
 lv_coord_t hor_res = 480;
 lv_coord_t ver_res = 480;
 lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f); // 矩形宽度
-void my_display(void);/**
- * 初始化并显示一个矩形对象在屏幕上。
- */
+void my_display(void); 
 typedef struct _lv_clock
 {
-    lv_obj_t *time_label; // 时间标签
-    lv_obj_t *date_label; // 日期标签
+    lv_obj_t *time_label;    // 时间标签
+    lv_obj_t *date_label;    // 日期标签
     lv_obj_t *weekday_label; // 星期标签
-}lv_clock_t;
+} lv_clock_t;
 typedef struct _lv_status_lable
 {
     lv_obj_t *wifi_label; // WIFI标签
@@ -76,15 +44,15 @@ typedef struct _lv_status_lable
 void lvgl_calendar_show_data_test(void)
 {
     lv_calendar_date_t today;
-    lv_calendar_date_t* today_get;
+    lv_calendar_date_t *today_get;
     today.year = 2021;
     today.month = 2;
     today.day = 20;
- 
-    lv_obj_t* calendar = lv_calendar_create(lv_scr_act());
+
+    lv_obj_t *calendar = lv_calendar_create(lv_scr_act());
     lv_obj_set_size(calendar, 300, 300);
     lv_obj_align(calendar, LV_ALIGN_CENTER, 0, 0);
- 
+
     lv_calendar_set_today_date(calendar, today.year, today.month, today.day);
     lv_calendar_set_showed_date(calendar, today.year, today.month);
     today_get = lv_calendar_get_today_date(calendar);
@@ -92,41 +60,41 @@ void lvgl_calendar_show_data_test(void)
 }
 static void clock_date_task_callback(lv_timer_t *timer)
 {
-    static const char *week_day[7] = { "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" };
+    static const char *week_day[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static time_t unix_time;
     static struct tm *time_info;
- 
+
     unix_time = time(NULL);
     time_info = localtime(&unix_time);
- 
-    int year = time_info->tm_year+1900;
+
+    int year = time_info->tm_year + 1900;
     int month = time_info->tm_mon + 1;
     int day = time_info->tm_mday;
     int weekday = time_info->tm_wday;
     int hour = time_info->tm_hour;
     int minutes = time_info->tm_min;
     int second = time_info->tm_sec;
- 
+
     if (timer != NULL && timer->user_data != NULL)
     {
-        lv_clock_t * clock = (lv_clock_t *)(timer->user_data);
+        lv_clock_t *clock = (lv_clock_t *)(timer->user_data);
         if (clock->time_label != NULL)
         {
             lv_label_set_text_fmt(clock->time_label, "%02d:%02d:%02d", hour, minutes, second);
             lv_obj_align(clock->time_label, LV_ALIGN_BOTTOM_LEFT, 230, -15);
- 
-        if (clock->date_label != NULL)
-        {
-            lv_label_set_text_fmt(clock->date_label, "%d-%02d-%02d", year, month, day);
-            lv_obj_align(clock->date_label, LV_ALIGN_BOTTOM_MID, 50, -60);
-        }
- 
-         if (clock->weekday_label != NULL)
-         {
-            lv_label_set_text_fmt(clock->weekday_label, "%s", week_day[weekday]);
-            // lv_obj_align_to(clock->weekday_label, lv_obj_get_parent(clock->weekday_label), LV_ALIGN_BOTTOM_MID, -2, 0);
-            lv_obj_align(clock->weekday_label,LV_ALIGN_BOTTOM_MID,-110,-20);
-         }
+
+            if (clock->date_label != NULL)
+            {
+                lv_label_set_text_fmt(clock->date_label, "%d-%02d-%02d", year, month, day);
+                lv_obj_align(clock->date_label, LV_ALIGN_BOTTOM_MID, 50, -60);
+            }
+
+            if (clock->weekday_label != NULL)
+            {
+                lv_label_set_text_fmt(clock->weekday_label, "%s", week_day[weekday]);
+                // lv_obj_align_to(clock->weekday_label, lv_obj_get_parent(clock->weekday_label), LV_ALIGN_BOTTOM_MID, -2, 0);
+                lv_obj_align(clock->weekday_label, LV_ALIGN_BOTTOM_MID, -110, -20);
+            }
         }
     }
 }
@@ -152,7 +120,7 @@ static void clock_wb_status_task_callback(lv_timer_t *timer)
         if (status_lable->blue_label != NULL)
         {
 
-            if (0)
+            if (0==0)
             {
                 lv_img_set_src(status_lable->blue_label, &Bluetuth_ON);
             }
@@ -165,16 +133,11 @@ static void clock_wb_status_task_callback(lv_timer_t *timer)
         }
     }
 }
-static void calender_img_clicked_callback(lv_event_t * e){
+static void calender_img_clicked_callback(lv_event_t *e)
+{
     LV_LOG_USER("Clicked");
-    // CalenderPage();
-    lv_scr_load(Calender_OBJ);
-    // static uint32_t cnt = 1;
-    // lv_obj_t * btn = lv_event_get_target(e);
-    // lv_obj_t * label = lv_obj_get_child(btn, 0);
-    // lv_label_set_text_fmt(label, "%",PRIu32, cnt);
-    // cnt++;
-
+    // lv_scr_load(Calender_OBJ);
+    lv_scr_load_anim(Calender_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
 
 void HomePage(void)
@@ -323,51 +286,75 @@ void HomePage(void)
 
     lv_timer_t *task_timer = lv_timer_create(clock_date_task_callback, 200, (void *)&lv_clock); // 创建定时任务，200ms刷新一次
 }
-static void event_handler(lv_event_t * e)
+static void event_handler(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t * obj = lv_event_get_target(e);
+    lv_obj_t *obj = lv_event_get_target(e);
 
-    if(code == LV_EVENT_VALUE_CHANGED) {
+    if (code == LV_EVENT_VALUE_CHANGED)
+    {
         lv_calendar_date_t date;
-        if(lv_calendar_get_pressed_date(obj, &date)) {
+        if (lv_calendar_get_pressed_date(obj, &date))
+        {
             LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
         }
     }
 }
+void home_img_clicked_callback(lv_event_t *e){
+    LV_LOG_USER("Clicked");
+    // lv_scr_load(HomePage_OBJ);
+    lv_scr_load_anim(HomePage_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
+}
 void CalenderPage(void)
 {
+    static time_t unix_time;
+    static struct tm *time_info;
+    unix_time = time(NULL);
+    time_info = localtime(&unix_time);
+    uint32_t year = time_info->tm_year + 1900;
+    uint32_t month = time_info->tm_mon + 1;
+    uint32_t day = time_info->tm_mday;
+    printf("year:%d,month:%d,day:%d\n", year, month, day);
     Calender_OBJ = lv_obj_create(NULL);
-    lv_obj_t * calendar_obj = lv_calendar_create(Calender_OBJ);
-    // Calender_OBJ = lv_calendar_create(lv_scr_act());
-    // lv_obj_set_size(Calender_OBJ, LV_HOR_RES, LV_VER_RES);
-    lv_obj_set_size(calendar_obj, 185, 185);
-    lv_obj_align(calendar_obj, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_add_event_cb(calendar_obj, event_handler, LV_EVENT_ALL, NULL);
-    lv_calendar_set_today_date(calendar_obj, 2021, 02, 23);
-    lv_calendar_set_showed_date(calendar_obj, 2021, 02);
+    lv_obj_t *calendar_obj = lv_calendar_create(Calender_OBJ);
+    static lv_style_t style_rect_back;
+    lv_style_init(&style_rect_back);                  // 初始化样式
+    lv_style_set_bg_color(&style_rect_back, lv_color_hex(0xf0e6e8));
+    lv_obj_add_style(Calender_OBJ, &style_rect_back, 0);
+    lv_obj_set_size(calendar_obj, (ver_res-rect_width)*0.7, hor_res*0.7);
+    lv_obj_align(calendar_obj, LV_ALIGN_TOP_LEFT,(ver_res-rect_width-(ver_res-rect_width)*0.7)/2, (hor_res-hor_res*0.7)/2);
+    // lv_obj_add_event_cb(calendar_obj, event_handler, LV_EVENT_ALL, NULL);
+    lv_calendar_set_today_date(calendar_obj, year, month, day);
+    lv_calendar_set_showed_date(calendar_obj, year, month);
+    lv_calendar_header_dropdown_create(calendar_obj);
 
-    /*Highlight a few days*/
-    // static lv_calendar_date_t highlighted_days[3];       /*Only its pointer will be saved so should be static*/
-    // highlighted_days[0].year = 2021;
-    // highlighted_days[0].month = 02;
-    // highlighted_days[0].day = 6;
 
-    // highlighted_days[1].year = 2021;
-    // highlighted_days[1].month = 02;
-    // highlighted_days[1].day = 11;
 
-    // highlighted_days[2].year = 2022;
-    // highlighted_days[2].month = 02;
-    // highlighted_days[2].day = 22;
+    static lv_style_t style_rect;
+    lv_obj_t *rect;
+    lv_color_t c = lv_color_hex(0xb4848c);       // 修改颜色值
+    lv_style_init(&style_rect);                  // 初始化样式
+    lv_style_set_bg_color(&style_rect, c);       // 设置颜色
+    lv_style_set_width(&style_rect, rect_width); // 设置宽度
+    lv_style_set_height(&style_rect, ver_res);   // 设置高度
+    lv_style_set_radius(&style_rect, 0);         // 设置圆角
+    // lv_style_set_opa(&style_rect,LV_OPA_COVER); //设置透明度
+    lv_style_set_shadow_width(&style_rect, 25); // 设置阴影宽度
+    lv_style_set_shadow_ofs_x(&style_rect, -3); // 设置水平偏移
+    // lv_style_set_shadow_color(&style_rect,lv_palette_main(LV_PALETTE_NONE));//设置阴影颜色
+    lv_style_set_border_width(&style_rect, 0); // 设置边框宽度
+    rect = lv_obj_create(Calender_OBJ);
+    lv_obj_align(rect, LV_ALIGN_TOP_RIGHT, 0, 0);
+    lv_obj_add_style(rect, &style_rect, 0);
 
-    // lv_calendar_set_highlighted_dates(calendar_obj, highlighted_days, 3);
+    lv_obj_t *home_img_btn = lv_imgbtn_create(Calender_OBJ); // 创建在当前活动的屏幕
+    // 设置正常状态下的图片
+    lv_imgbtn_set_src(home_img_btn, LV_IMGBTN_STATE_RELEASED, &home, NULL, NULL);
+    // lv_imgbtn_set_src(calendar_img_btn, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &calendar, NULL);
+    lv_obj_align(home_img_btn, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, ver_res / 2.0 - 64 / 2);
+    lv_obj_set_size(home_img_btn, 64, 64);
+    lv_obj_add_event_cb(home_img_btn, home_img_clicked_callback, LV_EVENT_CLICKED, NULL);
 
-// #if LV_USE_CALENDAR_HEADER_DROPDOWN
-    lv_calendar_header_dropdown_create(Calender_OBJ);
-// #elif LV_USE_CALENDAR_HEADER_ARROW
-    // lv_calendar_header_arrow_create(lv_scr_act(), Calender_OBJ, 25);
-// #endif
 }
 int main(int argc, char *argv[])
 {
