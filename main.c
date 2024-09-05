@@ -137,6 +137,11 @@ static void calender_img_clicked_callback(lv_event_t *e)
 {
     LV_LOG_USER("Clicked");
     // lv_scr_load(Calender_OBJ);
+    // if (Calender_OBJ != NULL) {
+    //     lv_obj_del(Calender_OBJ);
+    //     Calender_OBJ = NULL;  // 确保指针重置
+    // }
+    // Calender_OBJ = lv_obj_create(NULL);  // 创建新的页面对象
     lv_scr_load_anim(Calender_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
 
@@ -305,8 +310,7 @@ void home_img_clicked_callback(lv_event_t *e){
     // lv_scr_load(HomePage_OBJ);
     lv_scr_load_anim(HomePage_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
-void CalenderPage(void)
-{
+static void clock_calender_task_callback(lv_timer_t *timer){
     static time_t unix_time;
     static struct tm *time_info;
     unix_time = time(NULL);
@@ -315,6 +319,28 @@ void CalenderPage(void)
     uint32_t month = time_info->tm_mon + 1;
     uint32_t day = time_info->tm_mday;
     printf("year:%d,month:%d,day:%d\n", year, month, day);
+    lv_obj_t *calendar_obj=(lv_obj_t *)(timer->user_data);
+    lv_calendar_set_today_date(calendar_obj, year, month, day);
+    lv_calendar_set_showed_date(calendar_obj, year, month);
+    printf("set date\n");
+}
+
+void CalenderPage(void)
+{
+    
+    static time_t unix_time;
+    static struct tm *time_info;
+    unix_time = time(NULL);
+    time_info = localtime(&unix_time);
+    uint32_t year = time_info->tm_year + 1900;
+    uint32_t month = time_info->tm_mon + 1;
+    uint32_t day = time_info->tm_mday;
+    printf("year:%d,month:%d,day:%d\n", year, month, day);
+    if (lv_obj_get_parent(Calender_OBJ)!=NULL) {
+        lv_obj_del(Calender_OBJ);
+        printf("del\n");
+        Calender_OBJ = NULL;  // 确保指针重置
+    }
     Calender_OBJ = lv_obj_create(NULL);
     lv_obj_t *calendar_obj = lv_calendar_create(Calender_OBJ);
     static lv_style_t style_rect_back;
@@ -327,8 +353,7 @@ void CalenderPage(void)
     lv_calendar_set_today_date(calendar_obj, year, month, day);
     lv_calendar_set_showed_date(calendar_obj, year, month);
     lv_calendar_header_dropdown_create(calendar_obj);
-
-
+    lv_timer_t *claender_task_timer = lv_timer_create(clock_calender_task_callback, 1000, calendar_obj); // 创建定时任务，200ms刷新一次 
 
     static lv_style_t style_rect;
     lv_obj_t *rect;
