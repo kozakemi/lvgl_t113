@@ -9,17 +9,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "lv_font.h"
-#include "mikuimg.h"
-#include "shezhi.h"
-#include "calendar.h"
-#include "comment.h"
-#include "loading.h"
-#include "Wifi-1.h"
-#include "No_Wifi.h"
-#include "Bluetuth_OFF.h"
-#include "Bluetuth_ON.h"
 #include "check_device_status.h"
-#include "home.h"
+#include "source/img/mikuimg.h"
+#include "source/img/shezhi.h"
+#include "source/img/calendar.h"
+#include "source/img/comment.h"
+#include "source/img/loading.h"
+#include "source/img/Wifi-1.h"
+#include "source/img/No_Wifi.h"
+#include "source/img/Bluetuth_OFF.h"
+#include "source/img/Bluetuth_ON.h"
+#include "source/img/home.h"
 static void hal_init(void);
 static int tick_thread(void *data);
 static lv_obj_t *HomePage_OBJ;

@@ -1,4 +1,7 @@
 #include "check_device_status.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 int check_wifi_state(char * interface) {
     FILE *fp;
     char operstate[10];
