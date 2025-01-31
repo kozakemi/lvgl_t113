@@ -1,1 +1,3 @@
-make CC=/home/taiji/tina-sdk/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc
+export STAGING_DIR=/home/taiji/tina-sdk/out/t113-pi/staging_dir
+make -j8 CC=/home/taiji/tina-sdk/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc
+# make -j8 CC="/home/taiji/tina-sdk/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc -I${STAGING_DIR}/target/usr/include -I${STAGING_DIR}/target/usr/include/lvgl" CFLAGS="-L${STAGING_DIR}/target/usr/lib"

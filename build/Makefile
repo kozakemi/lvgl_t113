@@ -9,9 +9,13 @@ LDFLAGS ?= -lm
 BIN = lv_taiji
 
 
+# 添加 libmosquitto 的头文件路径
+CFLAGS += -I${STAGING_DIR}/target/usr/include
+# 添加 libmosquitto 的库文件路径
+LDFLAGS += -L${STAGING_DIR}/target/usr/lib -lmosquitto -lcares
 
 #Collect the files to compile
-CSRCS = ../calender_page.c ../home_page.c ../message_page.c ../device/check_device_status.c
+CSRCS = ../page/calender_page.c ../page/home_page.c ../page/message_page.c ../device/check_device_status.c ../device/mqtt/mqtt_client.c
 IMGSRC = $(wildcard ../source/img/*.c)
 CSRCS += $(IMGSRC)
 MAINSRC = ../main.c

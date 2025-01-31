@@ -10,9 +10,11 @@
 #include <stdio.h>
 #include "lv_font.h"
 
-#include "home_page.h"
-#include "calender_page.h"
-#include "message_page.h"
+#include "page/home_page.h"
+#include "page/calender_page.h"
+#include "page/message_page.h"
+
+#include "device/mqtt/mqtt_client.h"
 
 static void hal_init(void);
 static int tick_thread(void *data);
@@ -103,6 +105,7 @@ int main(int argc, char *argv[])
         lv_demo_stress();
         break;
     case 5:
+        start_mqtt_client();
         HomePage();
         CalenderPage();  
         MessagePage();
