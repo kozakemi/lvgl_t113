@@ -9,7 +9,11 @@ LDFLAGS ?= -lm
 BIN = lv_taiji
 
 
+
 #Collect the files to compile
+CSRCS = ../calender_page.c ../home_page.c ../message_page.c ../device/check_device_status.c
+IMGSRC = $(wildcard ../source/img/*.c)
+CSRCS += $(IMGSRC)
 MAINSRC = ../main.c
 
 include $(LVGL_DIR)/lvgl/lvgl.mk
