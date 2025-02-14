@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__no___wifi_8h" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/source/img/No_Wifi.h 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/No_Wifi.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>No_Wifi.h 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_no___wifi_8h__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+此图展示该文件被哪些文件直接或间接地引用了:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_no___wifi_8h__dep__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>const lv_img_dsc_t <link linkend="__no___wifi_8h_1aa41fd59991ae8dc457e5ebc317d40c44">No_Wifi</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>变量说明</title>
+<anchor xml:id="__no___wifi_8h_1aa41fd59991ae8dc457e5ebc317d40c44"/><section>
+    <title>No_Wifi</title>
+<indexterm><primary>No_Wifi</primary><secondary>No_Wifi.h</secondary></indexterm>
+<indexterm><primary>No_Wifi.h</primary><secondary>No_Wifi</secondary></indexterm>
+<para><computeroutput>const lv_img_dsc_t No_Wifi<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="__no___wifi_8c_source">No_Wifi.c</link> 第 <link linkend="__no___wifi_8c_source_1l00183">183</link> 行定义.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mqtt__client_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/device/mqtt/mqtt_client.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/device/mqtt/mqtt_client.c</primary></indexterm>
+<para>
+
+<para>实现MQTT客户端的功能，包括初始化、连接、消息接收和断开连接等操作。 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;mosquitto.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;pthread.h&gt;<?linebreak?>#include &lt;unistd.h&gt;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?></programlisting>mqtt_client.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>宏定义    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_mqtt__client_8c_1aefca29d0e243e1ece4d2602425c1d11b">MQTT_USE_ID</link>&#160;&#160;&#160;&quot;703e13100a3d43b6b4abbb628b3c3d89&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_mqtt__client_8c_1a619e6f4f4bc00f5c2ca68a1aad382202">MQTT_BROKER_ADDR</link>&#160;&#160;&#160;&quot;119.91.109.180&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_mqtt__client_8c_1a8da4bdd90d82e2a8498f3fb429fed744">MQTT_BROKER_PORT</link>&#160;&#160;&#160;9501</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_mqtt__client_8c_1a8bc2da7c7590053c30af460864d008b1">on_connect_callback</link> (struct mosquitto *<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>, void *obj, int reason_code)</para>
+
+<para>连接成功回调 </para>
+</listitem>
+            <listitem><para>static void <link linkend="_mqtt__client_8c_1ab171d521e4936999f813bbdbdd934834">on_message_callback</link> (struct mosquitto *<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>, void *obj, const struct mosquitto_message *msg)</para>
+
+<para>接收消息回调 </para>
+</listitem>
+            <listitem><para>static void <link linkend="_mqtt__client_8c_1a85c88ba0fdee6f038ad885ebc443dfad">on_disconnect_callback</link> (struct mosquitto *<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>, void *obj, int reason_code)</para>
+
+<para>连接短肽回调 </para>
+</listitem>
+            <listitem><para>static int <link linkend="_mqtt__client_8c_1a5beb486bdbacfa4942a8bc03e72c323f">mqtt_init</link> ()</para>
+
+<para>初始化MQTT客户端。 </para>
+</listitem>
+            <listitem><para>*static void * <link linkend="_mqtt__client_8c_1ab7c2be9d4b53b90f7bac01a8a60a4265">mqtt_thread</link> (void *arg)</para>
+
+<para>mqtt线程 </para>
+</listitem>
+            <listitem><para>bool <link linkend="_mqtt__client_8c_1a51f5356faf09ba83de5688dcc29ad262">mqtt_is_connected</link> ()</para>
+
+<para>mqtt连接状态 </para>
+</listitem>
+            <listitem><para>int <link linkend="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994">start_mqtt_client</link> ()</para>
+
+<para>启动MQTT客户端。 </para>
+</listitem>
+            <listitem><para>void <link linkend="_mqtt__client_8c_1a69741ab56bdfd0319c18889194cc35b9">stop_mqtt_client</link> ()</para>
+
+<para>停止MQTT客户端。 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>struct mosquitto * <link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link> = NULL</para>
+</listitem>
+            <listitem><para>bool <link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">is_connected</link> = false</para>
+</listitem>
+            <listitem><para>pthread_t <link linkend="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f">mqtt_thread_id</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>实现MQTT客户端的功能，包括初始化、连接、消息接收和断开连接等操作。 </para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>初始化MQTT客户端。</para>
+</listitem><listitem>
+<para>连接到MQTT代理。</para>
+</listitem><listitem>
+<para>设置回调函数以处理连接、消息接收和断开连接事件。</para>
+</listitem><listitem>
+<para>启动一个线程来处理MQTT消息循环。</para>
+</listitem><listitem>
+<para>提供启动和停止MQTT客户端的接口。</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>调用 <computeroutput><link linkend="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994">start_mqtt_client()</link></computeroutput> 函数启动MQTT客户端。</para>
+</listitem><listitem>
+<para>调用 <computeroutput><link linkend="_mqtt__client_8c_1a69741ab56bdfd0319c18889194cc35b9">stop_mqtt_client()</link></computeroutput> 函数停止MQTT客户端。</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>初始版本，实现MQTT客户端的基本功能。 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 中定义.</para>
+</section>
+<section>
+<title>宏定义说明</title>
+<anchor xml:id="_mqtt__client_8c_1a619e6f4f4bc00f5c2ca68a1aad382202"/><section>
+    <title>MQTT_BROKER_ADDR</title>
+<indexterm><primary>MQTT_BROKER_ADDR</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>MQTT_BROKER_ADDR</secondary></indexterm>
+<para><computeroutput>#define MQTT_BROKER_ADDR&#160;&#160;&#160;&quot;119.91.109.180&quot;</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00038">38</link> 行定义.</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a8da4bdd90d82e2a8498f3fb429fed744"/><section>
+    <title>MQTT_BROKER_PORT</title>
+<indexterm><primary>MQTT_BROKER_PORT</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>MQTT_BROKER_PORT</secondary></indexterm>
+<para><computeroutput>#define MQTT_BROKER_PORT&#160;&#160;&#160;9501</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00039">39</link> 行定义.</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1aefca29d0e243e1ece4d2602425c1d11b"/><section>
+    <title>MQTT_USE_ID</title>
+<indexterm><primary>MQTT_USE_ID</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>MQTT_USE_ID</secondary></indexterm>
+<para><computeroutput>#define MQTT_USE_ID&#160;&#160;&#160;&quot;703e13100a3d43b6b4abbb628b3c3d89&quot;</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00037">37</link> 行定义.</para>
+</section>
+</section>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_mqtt__client_8c_1a5beb486bdbacfa4942a8bc03e72c323f"/><section>
+    <title>mqtt_init()</title>
+<indexterm><primary>mqtt_init</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>mqtt_init</secondary></indexterm>
+<para><computeroutput>static int mqtt_init ( )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>初始化MQTT客户端。 </para>
+</para>
+
+<para><formalpara><title>返回</title>
+
+<para>int 成功返回0，失败返回-1。 </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00089">89</link> 行定义.</para>
+函数调用图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a5beb486bdbacfa4942a8bc03e72c323f_cgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a5beb486bdbacfa4942a8bc03e72c323f_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a51f5356faf09ba83de5688dcc29ad262"/><section>
+    <title>mqtt_is_connected()</title>
+<indexterm><primary>mqtt_is_connected</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>mqtt_is_connected</secondary></indexterm>
+<para><computeroutput>bool mqtt_is_connected ( )</computeroutput></para><para>
+
+<para>mqtt连接状态 </para>
+</para>
+
+<para><formalpara><title>返回</title>
+
+<para>{true} </para>
+
+<para>{false} </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00136">136</link> 行定义.</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1ab7c2be9d4b53b90f7bac01a8a60a4265"/><section>
+    <title>mqtt_thread()</title>
+<indexterm><primary>mqtt_thread</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>mqtt_thread</secondary></indexterm>
+<para><computeroutput>*static void * mqtt_thread (void * arg)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>mqtt线程 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{type}</entry><entry>
+<para>arg </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>{void*} </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00120">120</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_ab7c2be9d4b53b90f7bac01a8a60a4265_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a8bc2da7c7590053c30af460864d008b1"/><section>
+    <title>on_connect_callback()</title>
+<indexterm><primary>on_connect_callback</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>on_connect_callback</secondary></indexterm>
+<para><computeroutput>static void on_connect_callback (struct mosquitto * mqtt, void * obj, int reason_code)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>连接成功回调 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{struct</entry><entry>
+<para>mosquitto *} mqtt </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{void</entry><entry>
+<para>*} obj </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{int}</entry><entry>
+<para>reason_code </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00048">48</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a8bc2da7c7590053c30af460864d008b1_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a85c88ba0fdee6f038ad885ebc443dfad"/><section>
+    <title>on_disconnect_callback()</title>
+<indexterm><primary>on_disconnect_callback</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>on_disconnect_callback</secondary></indexterm>
+<para><computeroutput>static void on_disconnect_callback (struct mosquitto * mqtt, void * obj, int reason_code)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>连接短肽回调 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{struct</entry><entry>
+<para>mosquitto *} mqtt </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{void</entry><entry>
+<para>*} obj </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{int}</entry><entry>
+<para>reason_code </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00078">78</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a85c88ba0fdee6f038ad885ebc443dfad_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1ab171d521e4936999f813bbdbdd934834"/><section>
+    <title>on_message_callback()</title>
+<indexterm><primary>on_message_callback</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>on_message_callback</secondary></indexterm>
+<para><computeroutput>static void on_message_callback (struct mosquitto * mqtt, void * obj, const struct mosquitto_message * msg)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>接收消息回调 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{struct</entry><entry>
+<para>mosquitto *} mqtt </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{void</entry><entry>
+<para>*} obj </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{const</entry><entry>
+<para>struct mosquitto_message *} msg </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00065">65</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_ab171d521e4936999f813bbdbdd934834_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994"/><section>
+    <title>start_mqtt_client()</title>
+<indexterm><primary>start_mqtt_client</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>start_mqtt_client</secondary></indexterm>
+<para><computeroutput>int start_mqtt_client ( )</computeroutput></para><para>
+
+<para>启动MQTT客户端。 </para>
+</para>
+
+<para><formalpara><title>返回</title>
+
+<para>int 成功返回0，失败返回-1。 </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00146">146</link> 行定义.</para>
+函数调用图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a74b98cae70d034ab84d2f569a619e994_cgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mqtt__client_8c_a74b98cae70d034ab84d2f569a619e994_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a69741ab56bdfd0319c18889194cc35b9"/><section>
+    <title>stop_mqtt_client()</title>
+<indexterm><primary>stop_mqtt_client</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>stop_mqtt_client</secondary></indexterm>
+<para><computeroutput>void stop_mqtt_client ( )</computeroutput></para><para>
+
+<para>停止MQTT客户端。 </para>
+</para>
+<para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00167">167</link> 行定义.</para>
+</section>
+</section>
+<section>
+<title>变量说明</title>
+<anchor xml:id="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42"/><section>
+    <title>is_connected</title>
+<indexterm><primary>is_connected</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>is_connected</secondary></indexterm>
+<para><computeroutput>bool is_connected = false</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00035">35</link> 行定义.</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e"/><section>
+    <title>mqtt</title>
+<indexterm><primary>mqtt</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>mqtt</secondary></indexterm>
+<para><computeroutput>struct mosquitto* mqtt = NULL</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00034">34</link> 行定义.</para>
+</section>
+<anchor xml:id="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f"/><section>
+    <title>mqtt_thread_id</title>
+<indexterm><primary>mqtt_thread_id</primary><secondary>mqtt_client.c</secondary></indexterm>
+<indexterm><primary>mqtt_client.c</primary><secondary>mqtt_thread_id</secondary></indexterm>
+<para><computeroutput>pthread_t mqtt_thread_id</computeroutput></para><para>
+在文件 <link linkend="_mqtt__client_8c_source">mqtt_client.c</link> 第 <link linkend="_mqtt__client_8c_source_1l00036">36</link> 行定义.</para>
+</section>
+</section>
+</section>

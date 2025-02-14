@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="zh">
+    <info>
+    <title>lvgl_t113</title>
+    </info>
+    <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="md__c_1_2_users_2kemik_2git_2lvgl__t113_2_r_e_a_d_m_e.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<chapter>
+    <title>结构体说明</title>
+    <xi:include href="struct__lv__clock.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct__lv__status__lable.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>文件说明</title>
+    <xi:include href="check__device__status_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="check__device__status_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="check__device__status_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="check__device__status_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mqtt__client_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mqtt__client_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mqtt__client_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mqtt__client_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="lv__conf_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="lv__conf_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="lv__drv__conf_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="lv__drv__conf_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="main_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="main_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calender__page_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calender__page_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calender__page_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calender__page_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home__page_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home__page_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home__page_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home__page_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message__page_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message__page_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message__page_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="message__page_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_f_f_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_f_f_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_f_f_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_f_f_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_n_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_n_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_n_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_bluetuth___o_n_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calendar_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calendar_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calendar_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="calendar_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="comment_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="comment_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="comment_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="comment_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="home_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loading_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loading_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loading_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="loading_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mikuimg_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mikuimg_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mikuimg_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="mikuimg_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_no___wifi_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_no___wifi_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_no___wifi_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_no___wifi_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="shezhi_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="shezhi_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="shezhi_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="shezhi_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi-1_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi-1_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi-1_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi-1_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

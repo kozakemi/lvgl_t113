@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_calendar_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/source/img/calendar.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/calendar.c</primary></indexterm>
+<para>
+
+<para>日历图标资源 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;calendar.h&quot;<?linebreak?>#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>calendar.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="calendar_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>宏定义    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_calendar_8c_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_calendar_8c_1a94aec04fe07ff0b10229d08806e3c9b8">LV_ATTRIBUTE_IMG_CALENDAR</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_lv__conf_8h_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link> <link linkend="_lv__conf_8h_1a9aa1f88eb217d43ff6f619e58b866d52">LV_ATTRIBUTE_LARGE_CONST</link> <link linkend="_calendar_8c_1a94aec04fe07ff0b10229d08806e3c9b8">LV_ATTRIBUTE_IMG_CALENDAR</link> uint8_t <link linkend="_calendar_8c_1a82cc7bf0030a88de907fc0149bb5e9ca">calendar_map</link> []</para>
+</listitem>
+            <listitem><para>const lv_img_dsc_t <link linkend="_calendar_8c_1a918fc536b2beb9a618b05b7cf6689cf0">calendar1</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>日历图标资源 </para>
+
+<para>主页图标资源</para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>日历图标资源 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>lv_img_dsc_t 使用方法 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>内容 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+<formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>主页图标资源 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>lv_img_dsc_t 使用方法 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>内容 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 中定义.</para>
+</section>
+<section>
+<title>宏定义说明</title>
+<anchor xml:id="_calendar_8c_1a94aec04fe07ff0b10229d08806e3c9b8"/><section>
+    <title>LV_ATTRIBUTE_IMG_CALENDAR</title>
+<indexterm><primary>LV_ATTRIBUTE_IMG_CALENDAR</primary><secondary>calendar.c</secondary></indexterm>
+<indexterm><primary>calendar.c</primary><secondary>LV_ATTRIBUTE_IMG_CALENDAR</secondary></indexterm>
+<para><computeroutput>#define LV_ATTRIBUTE_IMG_CALENDAR</computeroutput></para><para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 第 <link linkend="_calendar_8c_source_1l00039">39</link> 行定义.</para>
+</section>
+<anchor xml:id="_calendar_8c_1a6b77dcb22fcdc624952dc307331e5db6"/><section>
+    <title>LV_ATTRIBUTE_MEM_ALIGN</title>
+<indexterm><primary>LV_ATTRIBUTE_MEM_ALIGN</primary><secondary>calendar.c</secondary></indexterm>
+<indexterm><primary>calendar.c</primary><secondary>LV_ATTRIBUTE_MEM_ALIGN</secondary></indexterm>
+<para><computeroutput>#define LV_ATTRIBUTE_MEM_ALIGN</computeroutput></para><para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 第 <link linkend="_calendar_8c_source_1l00035">35</link> 行定义.</para>
+</section>
+</section>
+<section>
+<title>变量说明</title>
+<anchor xml:id="_calendar_8c_1a918fc536b2beb9a618b05b7cf6689cf0"/><section>
+    <title>calendar1</title>
+<indexterm><primary>calendar1</primary><secondary>calendar.c</secondary></indexterm>
+<indexterm><primary>calendar.c</primary><secondary>calendar1</secondary></indexterm>
+<para><computeroutput>const lv_img_dsc_t calendar1</computeroutput></para><emphasis role="strong">初始值:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;.header.cf&#32;=&#32;LV_IMG_CF_TRUE_COLOR_ALPHA,
+&#32;&#32;.header.always_zero&#32;=&#32;0,
+&#32;&#32;.header.reserved&#32;=&#32;0,
+&#32;&#32;.header.w&#32;=&#32;64,
+&#32;&#32;.header.h&#32;=&#32;64,
+&#32;&#32;.data_size&#32;=&#32;4096&#32;*&#32;LV_IMG_PX_SIZE_ALPHA_BYTE,
+&#32;&#32;.data&#32;=&#32;<link linkend="_calendar_8c_1a82cc7bf0030a88de907fc0149bb5e9ca">calendar_map</link>,
+}
+</programlisting><para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 第 <link linkend="_calendar_8c_source_1l00312">312</link> 行定义.</para>
+</section>
+<anchor xml:id="_calendar_8c_1a82cc7bf0030a88de907fc0149bb5e9ca"/><section>
+    <title>calendar_map</title>
+<indexterm><primary>calendar_map</primary><secondary>calendar.c</secondary></indexterm>
+<indexterm><primary>calendar.c</primary><secondary>calendar_map</secondary></indexterm>
+<para><computeroutput>const <link linkend="_lv__conf_8h_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link> <link linkend="_lv__conf_8h_1a9aa1f88eb217d43ff6f619e58b866d52">LV_ATTRIBUTE_LARGE_CONST</link> <link linkend="_calendar_8c_1a94aec04fe07ff0b10229d08806e3c9b8">LV_ATTRIBUTE_IMG_CALENDAR</link> uint8_t calendar_map[]</computeroutput></para><para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 第 <link linkend="_calendar_8c_source_1l00042">42</link> 行定义.</para>
+</section>
+</section>
+</section>

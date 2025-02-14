@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct__lv__status__lable" xml:lang="zh">
+<title>_lv_status_lable结构体 参考</title>
+<indexterm><primary>_lv_status_lable</primary></indexterm>
+<para>
+
+<para>结构体用于存储状态相关的标签对象 </para>
+ 
+</para>
+<simplesect>
+    <title>成员变量    </title>
+        <itemizedlist>
+            <listitem><para>lv_obj_t * <link linkend="_struct__lv__status__lable_1af30ac1a15a963a8e505cf60aba785fc6">wifi_label</link></para>
+</listitem>
+            <listitem><para>lv_obj_t * <link linkend="_struct__lv__status__lable_1a4bc5106a1be8ebf18c9cda1ea4acf47f">blue_label</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>结构体用于存储状态相关的标签对象 </para>
+
+
+
+<para>包含WIFI和蓝牙状态标签对象指针。 </para>
+<para>
+在文件 <link linkend="_home__page_8c_source">home_page.c</link> 第 <link linkend="_home__page_8c_source_1l00063">63</link> 行定义.</para>
+</section>
+<section>
+<title>结构体成员变量说明</title>
+<anchor xml:id="_struct__lv__status__lable_1a4bc5106a1be8ebf18c9cda1ea4acf47f"/><section>
+    <title>blue_label</title>
+<indexterm><primary>blue_label</primary><secondary>_lv_status_lable</secondary></indexterm>
+<indexterm><primary>_lv_status_lable</primary><secondary>blue_label</secondary></indexterm>
+<para><computeroutput>lv_obj_t* blue_label</computeroutput></para>
+<para>蓝牙标签 </para>
+<para>
+在文件 <link linkend="_home__page_8c_source">home_page.c</link> 第 <link linkend="_home__page_8c_source_1l00066">66</link> 行定义.</para>
+</section>
+<anchor xml:id="_struct__lv__status__lable_1af30ac1a15a963a8e505cf60aba785fc6"/><section>
+    <title>wifi_label</title>
+<indexterm><primary>wifi_label</primary><secondary>_lv_status_lable</secondary></indexterm>
+<indexterm><primary>_lv_status_lable</primary><secondary>wifi_label</secondary></indexterm>
+<para><computeroutput>lv_obj_t* wifi_label</computeroutput></para>
+<para>WIFI标签 </para>
+<para>
+在文件 <link linkend="_home__page_8c_source">home_page.c</link> 第 <link linkend="_home__page_8c_source_1l00065">65</link> 行定义.</para>
+</section>
+<para>
+该结构体的文档由以下文件生成:</para>
+C:/Users/kemik/git/lvgl_t113/page/<link linkend="_home__page_8c">home_page.c</link></section>
+</section>

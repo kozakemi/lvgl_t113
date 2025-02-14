@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_message__page_8h" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/page/message_page.h 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/page/message_page.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>message_page.h 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8h__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+此图展示该文件被哪些文件直接或间接地引用了:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8h__dep__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_message__page_8h_1a0b9d76090f4079ad3dc87e9caee66d14">MessagePage</link> ()</para>
+
+<para>消息页面 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>lv_obj_t * <link linkend="_message__page_8h_1a3d6660e007bb2eb9a05e2e1ef57cc760">MessagePage_OBJ</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_message__page_8h_1a0b9d76090f4079ad3dc87e9caee66d14"/><section>
+    <title>MessagePage()</title>
+<indexterm><primary>MessagePage</primary><secondary>message_page.h</secondary></indexterm>
+<indexterm><primary>message_page.h</primary><secondary>MessagePage</secondary></indexterm>
+<para><computeroutput>void MessagePage ( )</computeroutput></para><para>
+
+<para>消息页面 </para>
+</para>
+<para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00049">49</link> 行定义.</para>
+函数调用图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8h_a0b9d76090f4079ad3dc87e9caee66d14_cgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8h_a0b9d76090f4079ad3dc87e9caee66d14_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>变量说明</title>
+<anchor xml:id="_message__page_8h_1a3d6660e007bb2eb9a05e2e1ef57cc760"/><section>
+    <title>MessagePage_OBJ</title>
+<indexterm><primary>MessagePage_OBJ</primary><secondary>message_page.h</secondary></indexterm>
+<indexterm><primary>message_page.h</primary><secondary>MessagePage_OBJ</secondary></indexterm>
+<para><computeroutput>lv_obj_t* MessagePage_OBJ<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00033">33</link> 行定义.</para>
+</section>
+</section>
+</section>

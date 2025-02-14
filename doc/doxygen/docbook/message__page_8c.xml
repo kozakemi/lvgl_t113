@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_message__page_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/page/message_page.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/page/message_page.c</primary></indexterm>
+<para>
+
+<para>实现消息页面的功能，包括显示标题、内容以及返回主页按钮。 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;pthread.h&gt;<?linebreak?>#include &lt;time.h&gt;<?linebreak?>#include &lt;sys/time.h&gt;<?linebreak?>#include &quot;home_page.h&quot;<?linebreak?>#include &quot;source/img/home.h&quot;<?linebreak?></programlisting>message_page.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_message__page_8c_1ad6c20a41fc6c9c98512613498c0cba1d">home_img_clicked_callback</link> (lv_event_t *e)</para>
+
+<para>主页按键触发回调 </para>
+</listitem>
+            <listitem><para>void <link linkend="_message__page_8c_1a0b9d76090f4079ad3dc87e9caee66d14">MessagePage</link> ()</para>
+
+<para>消息页面 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>static lv_coord_t <link linkend="_message__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">hor_res</link> = 480</para>
+</listitem>
+            <listitem><para>static lv_coord_t <link linkend="_message__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link> = 480</para>
+</listitem>
+            <listitem><para>static lv_coord_t <link linkend="_message__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link> =(lv_coord_t)((float)480 * 0.2f)</para>
+</listitem>
+            <listitem><para>lv_obj_t * <link linkend="_message__page_8c_1a3d6660e007bb2eb9a05e2e1ef57cc760">MessagePage_OBJ</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>实现消息页面的功能，包括显示标题、内容以及返回主页按钮。 </para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>创建并显示消息页面。</para>
+</listitem><listitem>
+<para>显示标题和内容。</para>
+</listitem><listitem>
+<para>提供返回主页按钮，点击后返回主页。</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>调用 <computeroutput><link linkend="_message__page_8c_1a0b9d76090f4079ad3dc87e9caee66d14">MessagePage()</link></computeroutput> 函数初始化并显示消息页面。</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>初始版本，实现消息页面的基本功能。 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 中定义.</para>
+</section>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_message__page_8c_1ad6c20a41fc6c9c98512613498c0cba1d"/><section>
+    <title>home_img_clicked_callback()</title>
+<indexterm><primary>home_img_clicked_callback</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>home_img_clicked_callback</secondary></indexterm>
+<para><computeroutput>static void home_img_clicked_callback (lv_event_t * e)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>主页按键触发回调 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{lv_event_t</entry><entry>
+<para>*} e </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00040">40</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8c_ad6c20a41fc6c9c98512613498c0cba1d_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_message__page_8c_1a0b9d76090f4079ad3dc87e9caee66d14"/><section>
+    <title>MessagePage()</title>
+<indexterm><primary>MessagePage</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>MessagePage</secondary></indexterm>
+<para><computeroutput>void MessagePage ( )</computeroutput></para><para>
+
+<para>消息页面 </para>
+</para>
+<para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00049">49</link> 行定义.</para>
+函数调用图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_cgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="message__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>变量说明</title>
+<anchor xml:id="_message__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979"/><section>
+    <title>hor_res</title>
+<indexterm><primary>hor_res</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>hor_res</secondary></indexterm>
+<para><computeroutput>lv_coord_t hor_res = 480<computeroutput>[static]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00029">29</link> 行定义.</para>
+</section>
+<anchor xml:id="_message__page_8c_1a3d6660e007bb2eb9a05e2e1ef57cc760"/><section>
+    <title>MessagePage_OBJ</title>
+<indexterm><primary>MessagePage_OBJ</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>MessagePage_OBJ</secondary></indexterm>
+<para><computeroutput>lv_obj_t* MessagePage_OBJ</computeroutput></para><para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00033">33</link> 行定义.</para>
+</section>
+<anchor xml:id="_message__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885"/><section>
+    <title>rect_width</title>
+<indexterm><primary>rect_width</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>rect_width</secondary></indexterm>
+<para><computeroutput>lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00031">31</link> 行定义.</para>
+</section>
+<anchor xml:id="_message__page_8c_1a12265d0520ba942bc80ab4368bf451a2"/><section>
+    <title>ver_res</title>
+<indexterm><primary>ver_res</primary><secondary>message_page.c</secondary></indexterm>
+<indexterm><primary>message_page.c</primary><secondary>ver_res</secondary></indexterm>
+<para><computeroutput>lv_coord_t ver_res = 480<computeroutput>[static]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="_message__page_8c_source">message_page.c</link> 第 <link linkend="_message__page_8c_source_1l00030">30</link> 行定义.</para>
+</section>
+</section>
+</section>

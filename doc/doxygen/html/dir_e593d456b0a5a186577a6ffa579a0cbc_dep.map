@@ -1,0 +1,9 @@
+<map id="C:/Users/kemik/git/lvgl_t113/page" name="C:/Users/kemik/git/lvgl_t113/page">
+<area shape="rect" id="node1" href="dir_e593d456b0a5a186577a6ffa579a0cbc.html" title="page" alt="" coords="52,5,101,32"/>
+<area shape="rect" id="node2" href="dir_820b2b9dd608784780e51ab49715a98b.html" title="device" alt="" coords="5,80,65,107"/>
+<area shape="poly" id="edge1" href="dir_000003_000000.html" alt="" coords="71,34,52,68,47,65,67,31"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000000.html" title="1" alt="" coords="55,60,62,76"/>
+<area shape="rect" id="node3" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html" title="source" alt="" coords="89,80,149,107"/>
+<area shape="poly" id="edge2" href="dir_000003_000004.html" alt="" coords="86,31,106,65,102,68,81,34"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000004.html" title="12" alt="" coords="103,52,117,68"/>
+</map>

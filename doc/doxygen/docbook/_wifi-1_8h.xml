@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__wifi-1_8h" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/source/img/Wifi-1.h 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/Wifi-1.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>Wifi-1.h 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_wifi-1_8h__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+此图展示该文件被哪些文件直接或间接地引用了:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_wifi-1_8h__dep__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>const lv_img_dsc_t <link linkend="__wifi-1_8h_1a0a826f1f7a2c89fbde478cf81473245a">Wifi_1</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>变量说明</title>
+<anchor xml:id="__wifi-1_8h_1a0a826f1f7a2c89fbde478cf81473245a"/><section>
+    <title>Wifi_1</title>
+<indexterm><primary>Wifi_1</primary><secondary>Wifi-1.h</secondary></indexterm>
+<indexterm><primary>Wifi-1.h</primary><secondary>Wifi_1</secondary></indexterm>
+<para><computeroutput>const lv_img_dsc_t Wifi_1<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="__wifi-1_8c_source">Wifi-1.c</link> 第 <link linkend="__wifi-1_8c_source_1l00183">183</link> 行定义.</para>
+</section>
+</section>
+</section>

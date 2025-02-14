@@ -1,3 +1,20 @@
+/**
+ * @file Bluetuth_ON.c
+ * @brief 蓝牙图标资源_蓝牙关闭状态
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025  Kozakemi
+ * 
+ * @par   功能描述
+ * -# 蓝牙连接处于连接中图标资源
+ * @par   用法描述
+ * -# lv_img_dsc_t 使用方法
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi     <td>null
+ * </table>
+ */
 #include "Bluetuth_ON.h"
 #ifdef __has_include
     #if __has_include("lvgl.h")

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_check__device__status_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/device/check_device_status.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/device/check_device_status.c</primary></indexterm>
+<para>
+
+<para>设备工作状态检查 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;check_device_status.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting>check_device_status.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="check__device__status_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_check__device__status_8c_1adc92373bd6f952b9457fa57fa8c37fd6">check_wifi_state</link> (char *interface)</para>
+
+<para>检查WIFI的工作状态 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>设备工作状态检查 </para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 dongfang-wisdom</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>检查设备的工作状态 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para><computeroutput>int <link linkend="_check__device__status_8c_1adc92373bd6f952b9457fa57fa8c37fd6">check_wifi_state(char *interface)</link></computeroutput>检查wifi工作状态 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>wangh </para>
+</entry><entry>
+<para>内容 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_check__device__status_8c_source">check_device_status.c</link> 中定义.</para>
+</section>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_check__device__status_8c_1adc92373bd6f952b9457fa57fa8c37fd6"/><section>
+    <title>check_wifi_state()</title>
+<indexterm><primary>check_wifi_state</primary><secondary>check_device_status.c</secondary></indexterm>
+<indexterm><primary>check_device_status.c</primary><secondary>check_wifi_state</secondary></indexterm>
+<para><computeroutput>int check_wifi_state (char * interface)</computeroutput></para><para>
+
+<para>检查WIFI的工作状态 </para>
+</para>
+
+<para>该函数通过读取系统文件来检查指定WIFI接口的工作状态。 如果接口状态为&quot;up&quot;，则表示WIFI已连接；否则表示WIFI未连接。</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{char</entry><entry>
+<para>*} interface WIFI接口名称 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>0 表示WIFI已连接，1 表示WIFI未连接或读取失败 </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_check__device__status_8c_source">check_device_status.c</link> 第 <link linkend="_check__device__status_8c_source_1l00030">30</link> 行定义.</para>
+这是这个函数的调用关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="check__device__status_8c_adc92373bd6f952b9457fa57fa8c37fd6_icgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

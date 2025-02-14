@@ -1,0 +1,37 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="主程序入口函数" alt="" coords="5,280,55,307"/>
+<area shape="rect" id="Node000002" href="$calender__page_8c.html#a4c0b738e79ddcb7d36e655cfd5cd66d3" title="日历页面" alt="" coords="110,72,214,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="38,278,142,111,146,114,42,281"/>
+<area shape="rect" id="Node000005" href="$home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="119,248,205,275"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="54,285,103,273,104,278,56,290"/>
+<area shape="rect" id="Node000011" href="$message__page_8c.html#a0b9d76090f4079ad3dc87e9caee66d14" title="消息页面" alt="" coords="110,343,214,369"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="56,302,120,333,118,338,54,307"/>
+<area shape="rect" id="Node000013" href="$mqtt__client_8c.html#a74b98cae70d034ab84d2f569a619e994" title="启动MQTT客户端。" alt="" coords="103,424,221,451"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="44,305,105,380,136,411,132,415,101,383,39,309"/>
+<area shape="rect" id="Node000003" href="$calender__page_8c.html#a263dcd1679883713bbddf448c692c81c" title="时钟定时触发回调" alt="" coords="291,5,431,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="209,69,275,49,277,54,211,74"/>
+<area shape="rect" id="Node000004" href="$calender__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="269,72,453,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="214,83,254,83,254,88,214,88"/>
+<area shape="rect" id="Node000006" href="$home__page_8c.html#a761dc2dae7d83c28103f79fe2c3fc3de" title="日历按钮回调" alt="" coords="288,123,434,165"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="176,245,215,211,268,175,278,170,280,174,270,180,219,215,179,249"/>
+<area shape="rect" id="Node000007" href="$home__page_8c.html#a456e42045e6e1f37e290440030da0e81" title="时钟定时回调_切换时间" alt="" coords="276,189,447,216"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="205,245,268,225,294,218,295,223,270,231,206,250"/>
+<area shape="rect" id="Node000008" href="$home__page_8c.html#af9d2fddf920b9c48e54ed0a2773f7d37" title="时钟定时回调_检查设备运行状态" alt="" coords="286,240,437,283"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="205,259,270,259,270,264,205,264"/>
+<area shape="rect" id="Node000010" href="$home__page_8c.html#acc52990ad5556f0e35d0318bca98a722" title="消息按钮回调" alt="" coords="286,307,436,349"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="205,273,282,299,280,304,204,278"/>
+<area shape="rect" id="Node000009" href="$check__device__status_8c.html#adc92373bd6f952b9457fa57fa8c37fd6" title="检查WIFI的工作状态" alt="" coords="522,248,641,275"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="437,259,506,259,506,264,437,264"/>
+<area shape="rect" id="Node000012" href="$message__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="269,373,453,400"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="215,361,256,368,255,373,214,367"/>
+<area shape="rect" id="Node000014" href="$mqtt__client_8c.html#a5beb486bdbacfa4942a8bc03e72c323f" title="初始化MQTT客户端。" alt="" coords="326,424,397,451"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="222,435,310,435,310,440,222,440"/>
+<area shape="rect" id="Node000018" href="$mqtt__client_8c.html#ab7c2be9d4b53b90f7bac01a8a60a4265" title="mqtt线程" alt="" coords="316,475,406,501"/>
+<area shape="poly" id="edge17_Node000013_Node000018" title=" " alt="" coords="218,449,302,470,300,475,217,454"/>
+<area shape="rect" id="Node000015" href="$mqtt__client_8c.html#a8bc2da7c7590053c30af460864d008b1" title="连接成功回调" alt="" coords="510,373,653,400"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="397,427,505,401,506,407,398,432"/>
+<area shape="rect" id="Node000016" href="$mqtt__client_8c.html#a85c88ba0fdee6f038ad885ebc443dfad" title="连接短肽回调" alt="" coords="501,424,662,451"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="397,435,486,435,486,440,397,440"/>
+<area shape="rect" id="Node000017" href="$mqtt__client_8c.html#ab171d521e4936999f813bbdbdd934834" title="接收消息回调" alt="" coords="506,475,657,501"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="398,443,506,468,505,473,397,448"/>
+</map>

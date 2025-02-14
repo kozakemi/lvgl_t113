@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="zh">
+<title>结构体</title>
+这里列出了所有结构体，并附带简要说明:<link linkend="_struct__lv__clock">_lv_clock</link>
+<para>结构体用于存储时间相关的标签对象 </para>
+<link linkend="_struct__lv__status__lable">_lv_status_lable</link>
+<para>结构体用于存储状态相关的标签对象 </para>
+</section>

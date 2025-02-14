@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lvgl_t113: C:/Users/kemik/git/lvgl_t113/page/message_page.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">lvgl_t113<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">t113-s3 86盒的LVGL桌面时钟程序</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e593d456b0a5a186577a6ffa579a0cbc.html">page</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">message_page.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>实现消息页面的功能，包括显示标题、内容以及返回主页按钮。  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;sys/time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="home__page_8h_source.html">home_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="home_8h_source.html">source/img/home.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+message_page.c 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="message__page_8c__incl.gif" border="0" usemap="#a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2message__page_8c" alt=""/></div>
+<map name="a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2message__page_8c" id="a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2message__page_8c">
+<area shape="rect" title="实现消息页面的功能，包括显示标题、内容以及返回主页按钮。" alt="" coords="144,5,310,64"/>
+<area shape="rect" title=" " alt="" coords="5,112,81,139"/>
+<area shape="poly" title=" " alt="" coords="168,67,84,107,82,103,166,62"/>
+<area shape="rect" title=" " alt="" coords="105,112,162,139"/>
+<area shape="poly" title=" " alt="" coords="199,66,160,103,156,99,195,62"/>
+<area shape="rect" title=" " alt="" coords="186,112,268,139"/>
+<area shape="poly" title=" " alt="" coords="230,64,230,96,224,96,224,64"/>
+<area shape="rect" href="home__page_8h.html" title=" " alt="" coords="292,112,391,139"/>
+<area shape="poly" title=" " alt="" coords="266,62,315,100,312,104,262,66"/>
+<area shape="rect" href="home_8h.html" title=" " alt="" coords="416,112,548,139"/>
+<area shape="poly" title=" " alt="" coords="311,62,432,104,430,109,309,67"/>
+<area shape="rect" title=" " alt="" coords="373,187,449,213"/>
+<area shape="poly" title=" " alt="" coords="356,137,390,173,387,177,352,141"/>
+<area shape="poly" title=" " alt="" coords="471,141,436,177,432,174,467,137"/>
+</map>
+</div>
+</div>
+<p><a href="message__page_8c_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ad6c20a41fc6c9c98512613498c0cba1d" id="r_ad6c20a41fc6c9c98512613498c0cba1d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6c20a41fc6c9c98512613498c0cba1d">home_img_clicked_callback</a> (lv_event_t *e)</td></tr>
+<tr class="memdesc:ad6c20a41fc6c9c98512613498c0cba1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">主页按键触发回调  <br /></td></tr>
+<tr class="separator:ad6c20a41fc6c9c98512613498c0cba1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9d76090f4079ad3dc87e9caee66d14" id="r_a0b9d76090f4079ad3dc87e9caee66d14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b9d76090f4079ad3dc87e9caee66d14">MessagePage</a> ()</td></tr>
+<tr class="memdesc:a0b9d76090f4079ad3dc87e9caee66d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">消息页面  <br /></td></tr>
+<tr class="separator:a0b9d76090f4079ad3dc87e9caee66d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a359afaf9af8128c9e66b6d67e4bd5979" id="r_a359afaf9af8128c9e66b6d67e4bd5979"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a359afaf9af8128c9e66b6d67e4bd5979">hor_res</a> = 480</td></tr>
+<tr class="separator:a359afaf9af8128c9e66b6d67e4bd5979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12265d0520ba942bc80ab4368bf451a2" id="r_a12265d0520ba942bc80ab4368bf451a2"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12265d0520ba942bc80ab4368bf451a2">ver_res</a> = 480</td></tr>
+<tr class="separator:a12265d0520ba942bc80ab4368bf451a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3b89eb9d3a4f2eb77c7466afa6e885" id="r_a7c3b89eb9d3a4f2eb77c7466afa6e885"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</a> =(lv_coord_t)((float)480 * 0.2f)</td></tr>
+<tr class="separator:a7c3b89eb9d3a4f2eb77c7466afa6e885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6660e007bb2eb9a05e2e1ef57cc760" id="r_a3d6660e007bb2eb9a05e2e1ef57cc760"><td class="memItemLeft" align="right" valign="top">lv_obj_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d6660e007bb2eb9a05e2e1ef57cc760">MessagePage_OBJ</a></td></tr>
+<tr class="separator:a3d6660e007bb2eb9a05e2e1ef57cc760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>实现消息页面的功能，包括显示标题、内容以及返回主页按钮。 </p>
+<dl class="section author"><dt>作者</dt><dd>Kozakemi (<a href="#" onclick="location.href='mai'+'lto:'+'kem'+'ik'+'oza'+'@g'+'mai'+'l.'+'com'; return false;">kemik<span class="obfuscator">.nosp@m.</span>oza@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-02-14 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2025 Kozakemi</dd></dl>
+<dl class="section user"><dt>功能描述</dt><dd><ol type="1">
+<li>创建并显示消息页面。</li>
+<li>显示标题和内容。</li>
+<li>提供返回主页按钮，点击后返回主页。</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>用法描述</dt><dd><ol type="1">
+<li>调用 <code><a class="el" href="#a0b9d76090f4079ad3dc87e9caee66d14" title="消息页面">MessagePage()</a></code> 函数初始化并显示消息页面。</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>修改日志:</dt><dd><table class="doxtable">
+<tr>
+<th>Date </th><th>Version </th><th>Author </th><th>Description </th></tr>
+<tr>
+<td>2025-02-14 </td><td>1.0 </td><td>Kozakemi </td><td>初始版本，实现消息页面的基本功能。 </td></tr>
+</table>
+</dd></dl>
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 中定义.</p>
+</div><h2 class="groupheader">函数说明</h2>
+<a id="ad6c20a41fc6c9c98512613498c0cba1d" name="ad6c20a41fc6c9c98512613498c0cba1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c20a41fc6c9c98512613498c0cba1d">&#9670;&#160;</a></span>home_img_clicked_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void home_img_clicked_callback </td>
+          <td>(</td>
+          <td class="paramtype">lv_event_t *</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>主页按键触发回调 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{lv_event_t</td><td>*} e </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00040">40</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="message__page_8c_ad6c20a41fc6c9c98512613498c0cba1d_icgraph.gif" border="0" usemap="#amessage__page_8c_ad6c20a41fc6c9c98512613498c0cba1d_icgraph" alt=""/></div>
+<map name="amessage__page_8c_ad6c20a41fc6c9c98512613498c0cba1d_icgraph" id="amessage__page_8c_ad6c20a41fc6c9c98512613498c0cba1d_icgraph">
+<area shape="rect" title="主页按键触发回调" alt="" coords="255,5,439,32"/>
+<area shape="rect" href="message__page_8c.html#a0b9d76090f4079ad3dc87e9caee66d14" title="消息页面" alt="" coords="103,5,207,32"/>
+<area shape="poly" title=" " alt="" coords="239,21,207,21,207,16,239,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0b9d76090f4079ad3dc87e9caee66d14" name="a0b9d76090f4079ad3dc87e9caee66d14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b9d76090f4079ad3dc87e9caee66d14">&#9670;&#160;</a></span>MessagePage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MessagePage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>消息页面 </p>
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00049">49</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="message__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_cgraph.gif" border="0" usemap="#amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_cgraph" alt=""/></div>
+<map name="amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_cgraph" id="amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_cgraph">
+<area shape="rect" title="消息页面" alt="" coords="5,5,110,32"/>
+<area shape="rect" href="message__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="158,5,342,32"/>
+<area shape="poly" title=" " alt="" coords="110,16,142,16,142,21,110,21"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="message__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_icgraph.gif" border="0" usemap="#amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_icgraph" alt=""/></div>
+<map name="amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_icgraph" id="amessage__page_8c_a0b9d76090f4079ad3dc87e9caee66d14_icgraph">
+<area shape="rect" title="消息页面" alt="" coords="103,5,207,32"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">变量说明</h2>
+<a id="a359afaf9af8128c9e66b6d67e4bd5979" name="a359afaf9af8128c9e66b6d67e4bd5979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359afaf9af8128c9e66b6d67e4bd5979">&#9670;&#160;</a></span>hor_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t hor_res = 480</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00029">29</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3d6660e007bb2eb9a05e2e1ef57cc760" name="a3d6660e007bb2eb9a05e2e1ef57cc760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6660e007bb2eb9a05e2e1ef57cc760">&#9670;&#160;</a></span>MessagePage_OBJ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_obj_t* MessagePage_OBJ</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00033">33</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7c3b89eb9d3a4f2eb77c7466afa6e885" name="a7c3b89eb9d3a4f2eb77c7466afa6e885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3b89eb9d3a4f2eb77c7466afa6e885">&#9670;&#160;</a></span>rect_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00031">31</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a12265d0520ba942bc80ab4368bf451a2" name="a12265d0520ba942bc80ab4368bf451a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12265d0520ba942bc80ab4368bf451a2">&#9670;&#160;</a></span>ver_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t ver_res = 480</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="message__page_8c_source.html">message_page.c</a> 第 <a class="el" href="message__page_8c_source.html#l00030">30</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

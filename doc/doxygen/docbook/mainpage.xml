@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mainpage" xml:lang="zh">
+<title>T113-S3 86的LVGL桌面时钟程序</title>
+<indexterm><primary>T113-S3 86的LVGL桌面时钟程序</primary></indexterm>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+      <row >
+<entry>
+<para>Project </para>
+</entry><entry>
+<para>lvgl_t113 </para>
+</entry></row>
+      <row >
+<entry>
+<para>Author </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+<section xml:id="_index_1项目详细描述">
+<title>项目详细描述</title>
+<para>显示日期,时间,拥有MQTT Client功能(详细功能未开发,保留接口)</para>
+</section>
+<section xml:id="_index_1功能描述">
+<title>功能描述</title>
+<para><?linebreak?><orderedlist>
+<listitem>
+<para>lvgl 8.3.10</para>
+</listitem><listitem>
+<para>MQTT mosquitto</para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_index_1用法描述">
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>cd build &amp;&amp; ./build_lv_taiji</para>
+</listitem><listitem>
+<para>adb push lv_taiji /{path}</para>
+</listitem><listitem>
+<para>sh&gt; lv_taiji 5</para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_index_1固件更新">
+<title>固件更新</title>
+<para><informaltable frame="all">
+    <tgroup cols="5" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+      <colspec colname='c5'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>H_Version </para>
+</entry><entry>
+<para>S_Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description  </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025/02/14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>0.1 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>创建初始版本   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</chapter>

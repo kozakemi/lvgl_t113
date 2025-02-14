@@ -1,3 +1,20 @@
+/**
+ * @file loading.c
+ * @brief 加载中图标资源
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025  Kozakemi
+ * 
+ * @par   功能描述
+ * -# 加载中图标资源
+ * @par   用法描述
+ * -# lv_img_dsc_t 使用方法
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi     <td>内容
+ * </table>
+ */
 #include "loading.h"
 #ifdef __has_include
     #if __has_include("lvgl.h")

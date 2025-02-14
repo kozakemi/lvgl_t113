@@ -1,0 +1,5 @@
+<map id="MessagePage" name="MessagePage">
+<area shape="rect" id="Node000001" title="消息页面" alt="" coords="5,5,110,32"/>
+<area shape="rect" id="Node000002" href="$message__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="158,5,342,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,16,142,16,142,21,110,21"/>
+</map>

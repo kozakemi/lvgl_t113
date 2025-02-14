@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_calendar_8h" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/source/img/calendar.h 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/calendar.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>calendar.h 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="calendar_8h__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+此图展示该文件被哪些文件直接或间接地引用了:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="calendar_8h__dep__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>const lv_img_dsc_t <link linkend="_calendar_8h_1a918fc536b2beb9a618b05b7cf6689cf0">calendar1</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>变量说明</title>
+<anchor xml:id="_calendar_8h_1a918fc536b2beb9a618b05b7cf6689cf0"/><section>
+    <title>calendar1</title>
+<indexterm><primary>calendar1</primary><secondary>calendar.h</secondary></indexterm>
+<indexterm><primary>calendar.h</primary><secondary>calendar1</secondary></indexterm>
+<para><computeroutput>const lv_img_dsc_t calendar1<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+在文件 <link linkend="_calendar_8c_source">calendar.c</link> 第 <link linkend="_calendar_8c_source_1l00312">312</link> 行定义.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,96 @@
+\doxysection{calender\+\_\+page.\+c}
+\hypertarget{calender__page_8c_source}{}\label{calender__page_8c_source}\index{C:/Users/kemik/git/lvgl\_t113/page/calender\_page.c@{C:/Users/kemik/git/lvgl\_t113/page/calender\_page.c}}
+\mbox{\hyperlink{calender__page_8c}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}lvgl/lvgl.h"{}}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calender__page_8h}{calender\_page.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{home__page_8h}{home\_page.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{home_8h}{source/img/home.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00031}\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{00031}}\ lv\_obj\_t\ *\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}};}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00032}\mbox{\hyperlink{calender__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{00032}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{calender__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ =\ 480;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00033}\mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{00033}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ =\ 480;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00034}\mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{00034}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ =(lv\_coord\_t)((\textcolor{keywordtype}{float})480\ *\ 0.2f);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00040}\mbox{\hyperlink{calender__page_8c_ad6c20a41fc6c9c98512613498c0cba1d}{00040}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{calender__page_8c_ad6c20a41fc6c9c98512613498c0cba1d}{home\_img\_clicked\_callback}}(lv\_event\_t\ *e)\{}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00041}00041\ \ \ \ \ LV\_LOG\_USER(\textcolor{stringliteral}{"{}Clicked"{}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ lv\_scr\_load(HomePage\_OBJ);}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00043}00043\ \ \ \ \ lv\_scr\_load\_anim(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}},\ LV\_SCR\_LOAD\_ANIM\_FADE\_ON,\ 200,\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00050}\mbox{\hyperlink{calender__page_8c_a263dcd1679883713bbddf448c692c81c}{00050}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{calender__page_8c_a263dcd1679883713bbddf448c692c81c}{clock\_calender\_task\_callback}}(lv\_timer\_t\ *timer)\{}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{static}\ time\_t\ unix\_time;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }tm\ *time\_info;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00053}00053\ \ \ \ \ unix\_time\ =\ time(NULL);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00054}00054\ \ \ \ \ time\_info\ =\ localtime(\&unix\_time);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00055}00055\ \ \ \ \ uint32\_t\ year\ =\ time\_info-\/>tm\_year\ +\ 1900;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00056}00056\ \ \ \ \ uint32\_t\ month\ =\ time\_info-\/>tm\_mon\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00057}00057\ \ \ \ \ uint32\_t\ day\ =\ time\_info-\/>tm\_mday;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00058}00058\ \ \ \ \ printf(\textcolor{stringliteral}{"{}year:\%d,month:\%d,day:\%d\(\backslash\)n"{}},\ year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00059}00059\ \ \ \ \ lv\_obj\_t\ *calendar\_obj=(lv\_obj\_t\ *)(timer-\/>user\_data);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00060}00060\ \ \ \ \ lv\_calendar\_set\_today\_date(calendar\_obj,\ year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00061}00061\ \ \ \ \ lv\_calendar\_set\_showed\_date(calendar\_obj,\ year,\ month);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00062}00062\ \ \ \ \ printf(\textcolor{stringliteral}{"{}set\ date\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00068}\mbox{\hyperlink{calender__page_8c_a4c0b738e79ddcb7d36e655cfd5cd66d3}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{calender__page_8c_a4c0b738e79ddcb7d36e655cfd5cd66d3}{CalenderPage}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{static}\ time\_t\ unix\_time;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }tm\ *time\_info;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00073}00073\ \ \ \ \ unix\_time\ =\ time(NULL);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00074}00074\ \ \ \ \ time\_info\ =\ localtime(\&unix\_time);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00075}00075\ \ \ \ \ uint32\_t\ year\ =\ time\_info-\/>tm\_year\ +\ 1900;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00076}00076\ \ \ \ \ uint32\_t\ month\ =\ time\_info-\/>tm\_mon\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00077}00077\ \ \ \ \ uint32\_t\ day\ =\ time\_info-\/>tm\_mday;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00078}00078\ \ \ \ \ printf(\textcolor{stringliteral}{"{}year:\%d,month:\%d,day:\%d\(\backslash\)n"{}},\ year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (lv\_obj\_get\_parent(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}})!=NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ lv\_obj\_del(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}del\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}}\ =\ NULL;\ \ \textcolor{comment}{//\ 确保指针重置}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}}\ =\ lv\_obj\_create(NULL);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00085}00085\ \ \ \ \ lv\_obj\_t\ *calendar\_obj\ =\ lv\_calendar\_create(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00086}00086\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ style\_rect\_back;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00087}00087\ \ \ \ \ lv\_style\_init(\&style\_rect\_back);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 初始化样式}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00088}00088\ \ \ \ \ lv\_style\_set\_bg\_color(\&style\_rect\_back,\ lv\_color\_hex(0xf0e6e8));}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00089}00089\ \ \ \ \ lv\_obj\_add\_style(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}},\ \&style\_rect\_back,\ 0);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00090}00090\ \ \ \ \ lv\_obj\_set\_size(calendar\_obj,\ (\mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}-\/\mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}})*0.7,\ \mbox{\hyperlink{calender__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}*0.7);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00091}00091\ \ \ \ \ lv\_obj\_align(calendar\_obj,\ LV\_ALIGN\_TOP\_LEFT,(\mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}-\/\mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}-\/(\mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}-\/\mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}})*0.7)/2,\ (\mbox{\hyperlink{calender__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}-\/\mbox{\hyperlink{calender__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}*0.7)/2);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ lv\_obj\_add\_event\_cb(calendar\_obj,\ event\_handler,\ LV\_EVENT\_ALL,\ NULL);}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00093}00093\ \ \ \ \ lv\_calendar\_set\_today\_date(calendar\_obj,\ year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00094}00094\ \ \ \ \ lv\_calendar\_set\_showed\_date(calendar\_obj,\ year,\ month);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00095}00095\ \ \ \ \ lv\_calendar\_header\_dropdown\_create(calendar\_obj);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00096}00096\ \ \ \ \ lv\_timer\_t\ *claender\_task\_timer\ =\ lv\_timer\_create(\mbox{\hyperlink{calender__page_8c_a263dcd1679883713bbddf448c692c81c}{clock\_calender\_task\_callback}},\ 1000,\ calendar\_obj);\ \textcolor{comment}{//\ 创建定时任务，200ms刷新一次\ }}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00098}00098\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ style\_rect;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00099}00099\ \ \ \ \ lv\_obj\_t\ *rect;}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00100}00100\ \ \ \ \ lv\_color\_t\ c\ =\ lv\_color\_hex(0xb4848c);\ \ \ \ \ \ \ \textcolor{comment}{//\ 修改颜色值}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00101}00101\ \ \ \ \ lv\_style\_init(\&style\_rect);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 初始化样式}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00102}00102\ \ \ \ \ lv\_style\_set\_bg\_color(\&style\_rect,\ c);\ \ \ \ \ \ \ \textcolor{comment}{//\ 设置颜色}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00103}00103\ \ \ \ \ lv\_style\_set\_width(\&style\_rect,\ \mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}});\ \textcolor{comment}{//\ 设置宽度}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00104}00104\ \ \ \ \ lv\_style\_set\_height(\&style\_rect,\ \mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}});\ \ \ \textcolor{comment}{//\ 设置高度}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00105}00105\ \ \ \ \ lv\_style\_set\_radius(\&style\_rect,\ 0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 设置圆角}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ lv\_style\_set\_opa(\&style\_rect,LV\_OPA\_COVER);\ //设置透明度}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00107}00107\ \ \ \ \ lv\_style\_set\_shadow\_width(\&style\_rect,\ 25);\ \textcolor{comment}{//\ 设置阴影宽度}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00108}00108\ \ \ \ \ lv\_style\_set\_shadow\_ofs\_x(\&style\_rect,\ -\/3);\ \textcolor{comment}{//\ 设置水平偏移}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ lv\_style\_set\_shadow\_color(\&style\_rect,lv\_palette\_main(LV\_PALETTE\_NONE));//设置阴影颜色}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00110}00110\ \ \ \ \ lv\_style\_set\_border\_width(\&style\_rect,\ 0);\ \textcolor{comment}{//\ 设置边框宽度}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00111}00111\ \ \ \ \ rect\ =\ lv\_obj\_create(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00112}00112\ \ \ \ \ lv\_obj\_align(rect,\ LV\_ALIGN\_TOP\_RIGHT,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00113}00113\ \ \ \ \ lv\_obj\_add\_style(rect,\ \&style\_rect,\ 0);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00115}00115\ \ \ \ \ lv\_obj\_t\ *home\_img\_btn\ =\ lv\_imgbtn\_create(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ 设置正常状态下的图片}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00117}00117\ \ \ \ \ lv\_imgbtn\_set\_src(home\_img\_btn,\ LV\_IMGBTN\_STATE\_RELEASED,\ \&\mbox{\hyperlink{home_8c_add9fdc284488b009b5131bb28853976c}{home}},\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ lv\_imgbtn\_set\_src(calendar\_img\_btn,\ LV\_IMGBTN\_STATE\_CHECKED\_RELEASED,\ NULL,\ \&calendar,\ NULL);}}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00119}00119\ \ \ \ \ lv\_obj\_align(home\_img\_btn,\ LV\_ALIGN\_TOP\_RIGHT,\ -\/1\ *\ \mbox{\hyperlink{calender__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ /\ 2.0\ +\ 64\ /\ 2,\ \mbox{\hyperlink{calender__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ /\ 2.0\ -\/\ 64\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00120}00120\ \ \ \ \ lv\_obj\_set\_size(home\_img\_btn,\ 64,\ 64);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00121}00121\ \ \ \ \ lv\_obj\_add\_event\_cb(home\_img\_btn,\ \mbox{\hyperlink{calender__page_8c_ad6c20a41fc6c9c98512613498c0cba1d}{home\_img\_clicked\_callback}},\ LV\_EVENT\_CLICKED,\ NULL);}
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{calender__page_8c_source_l00123}00123\ \}}
+
+\end{DoxyCode}

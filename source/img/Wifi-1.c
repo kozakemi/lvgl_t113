@@ -1,4 +1,20 @@
-#include "Wifi-1.h"
+/**
+ * @file Wifi-1.c
+ * @brief WIFI图标资源_连接状态
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025  Kozakemi
+ * 
+ * @par   功能描述
+ * -# WIFI图标资源_连接状态
+ * @par   用法描述
+ * -# lv_img_dsc_t 使用方法
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>wangh     <td>内容
+ * </table>
+ */
 #ifdef __has_include
     #if __has_include("lvgl.h")
         #ifndef LV_LVGL_H_INCLUDE_SIMPLE

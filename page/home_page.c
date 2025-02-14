@@ -1,3 +1,26 @@
+/**
+ * @file home_page.c
+ * @brief 实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025 Kozakemi
+ * 
+ * @par 功能描述
+ * -# 创建并显示主页。
+ * -# 显示当前时间、日期和星期。
+ * -# 显示WIFI和蓝牙状态图标。
+ * -# 提供跳转到日历页面的按钮。
+ * -# 提供跳转到消息页面的按钮。
+ * 
+ * @par 用法描述
+ * -# 调用 `HomePage()` 函数初始化并显示主页。
+ * 
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi  <td>初始版本，实现主页的基本功能。
+ * </table>
+ */
 #include "lvgl/lvgl.h"
 #include <pthread.h>
 #include <time.h>
@@ -20,21 +43,38 @@
 
 #include "device/check_device_status.h"
 
+/**
+ * @brief 结构体用于存储时间相关的标签对象
+ * 
+ * 包含时间、日期和星期标签对象指针。
+ */
 typedef struct _lv_clock
 {
-    lv_obj_t *time_label;    // 时间标签
-    lv_obj_t *date_label;    // 日期标签
-    lv_obj_t *weekday_label; // 星期标签
+    lv_obj_t *time_label;    /**< 时间标签 */
+    lv_obj_t *date_label;    /**< 日期标签 */
+    lv_obj_t *weekday_label; /**< 星期标签 */
 } lv_clock_t;
+
+/**
+ * @brief 结构体用于存储状态相关的标签对象
+ * 
+ * 包含WIFI和蓝牙状态标签对象指针。
+ */
 typedef struct _lv_status_lable
 {
-    lv_obj_t *wifi_label; // WIFI标签
-    lv_obj_t *blue_label; // 蓝牙标签
+    lv_obj_t *wifi_label; /**< WIFI标签 */
+    lv_obj_t *blue_label; /**< 蓝牙标签 */
 } lv_status_lable_t;
 lv_obj_t *HomePage_OBJ;
 static lv_coord_t hor_res = 480;
 static lv_coord_t ver_res = 480;
 static lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f); // 矩形宽度
+
+/**
+ * @brief 时钟定时回调_切换时间
+ * 
+ * @param {lv_timer_t *} timer 
+ */
 static void clock_date_task_callback(lv_timer_t *timer)
 {
     static const char *week_day[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
@@ -75,6 +115,12 @@ static void clock_date_task_callback(lv_timer_t *timer)
         }
     }
 }
+
+/**
+ * @brief 时钟定时回调_检查设备运行状态
+ * 
+ * @param {lv_timer_t *} timer 
+ */
 static void clock_wb_status_task_callback(lv_timer_t *timer)
 {
     if (timer != NULL && timer->user_data != NULL)
@@ -111,6 +157,11 @@ static void clock_wb_status_task_callback(lv_timer_t *timer)
     }
 }
 
+/**
+ * @brief 日历按钮回调
+ * 
+ * @param {lv_event_t *} e 
+ */
 static void calender_img_clicked_callback(lv_event_t *e)
 {
     LV_LOG_USER("Clicked");
@@ -122,6 +173,12 @@ static void calender_img_clicked_callback(lv_event_t *e)
     // Calender_OBJ = lv_obj_create(NULL);  // 创建新的页面对象
     lv_scr_load_anim(Calender_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
+
+/**
+ * @brief 消息按钮回调
+ * 
+ * @param {lv_event_t *} e 
+ */
 static void message_img_clicked_callback(lv_event_t *e){
     LV_LOG_USER("Clicked");
     // lv_scr_load(MessageBox_OBJ);
@@ -133,7 +190,10 @@ static void message_img_clicked_callback(lv_event_t *e){
     lv_scr_load_anim(MessagePage_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
 
-
+/**
+ * @brief 主页面
+ * 
+ */
 void HomePage(void)
 {
     // 创建主页对象

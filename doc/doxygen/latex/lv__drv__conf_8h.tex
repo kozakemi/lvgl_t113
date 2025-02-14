@@ -1,0 +1,719 @@
+\doxysection{C\+:/\+Users/kemik/git/lvgl\+\_\+t113/lv\+\_\+drv\+\_\+conf.h 文件参考}
+\hypertarget{lv__drv__conf_8h}{}\label{lv__drv__conf_8h}\index{C:/Users/kemik/git/lvgl\_t113/lv\_drv\_conf.h@{C:/Users/kemik/git/lvgl\_t113/lv\_drv\_conf.h}}
+{\ttfamily \#include "{}lv\+\_\+conf.\+h"{}}\newline
+lv\+\_\+drv\+\_\+conf.\+h 的引用(Include)关系图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{lv__drv__conf_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_af29c29c0871fc429677780ebd10e2a6a}{LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+INCLUDE}}~$<$stdint.\+h$>$            /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_af2afccbd16788c917d3ade7bdd15f807}{LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+US}}(us)~/\texorpdfstring{$\ast$}{*}delay\+\_\+us(us)\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Delay the given number of microseconds\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a1d9574a67a7b5fb205d49d90964d0063}{LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+MS}}(ms)~/\texorpdfstring{$\ast$}{*}delay\+\_\+ms(ms)\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Delay the given number of milliseconds\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a124cb760870323d9c2902166287c6cd4}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+INCLUDE}}~$<$stdint.\+h$>$           /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a6ae0c0d20c4882197b7f41f97bbb194a}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+CMD\+\_\+\+DATA}}(val)~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/    /\texorpdfstring{$\ast$}{*}Set the command/data pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aec2f4ee11e8be6672317bcd863bcae76}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+RST}}(val)~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/    /\texorpdfstring{$\ast$}{*}Set the reset pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a9b2fc97f13c6061db25bd580c56b5aae}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+CS}}(val)~/\texorpdfstring{$\ast$}{*}spi\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the SPI\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aa9fa0dce12cdcf0608747403fb2e921f}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+WR\+\_\+\+BYTE}}(data)~/\texorpdfstring{$\ast$}{*}spi\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Write a byte the SPI bus\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ac4ab55e1e20b1a94e453a4ffe97064d3}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+WR\+\_\+\+ARRAY}}(adr,  n)~/\texorpdfstring{$\ast$}{*}spi\+\_\+wr\+\_\+mem(adr, n)\texorpdfstring{$\ast$}{*}/  /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}n\textquotesingle{} bytes to SPI bus from \textquotesingle{}adr\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a7f7bed402f029b089baf20981e3210ee}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+CS}}(val)~/\texorpdfstring{$\ast$}{*}par\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/   /\texorpdfstring{$\ast$}{*}Set the Parallel port\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a548addcf645b309b00ee5caf777e6fb1}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+SLOW}}~/\texorpdfstring{$\ast$}{*}par\+\_\+slow()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Set low speed on the parallel port\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a1f091368d33d438da548f074aa11ada8}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+FAST}}~/\texorpdfstring{$\ast$}{*}par\+\_\+fast()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Set high speed on the parallel port\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a38bef2fce0fc8c339b2832a0cef3e729}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+WR\+\_\+\+WORD}}(data)~/\texorpdfstring{$\ast$}{*}par\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Write a word to the parallel port\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ad6882526e88009acdefd107e0070d982}{LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+WR\+\_\+\+ARRAY}}(adr,  n)~/\texorpdfstring{$\ast$}{*}par\+\_\+wr\+\_\+mem(adr,n)\texorpdfstring{$\ast$}{*}/ /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}n\textquotesingle{} bytes to Parallel ports from \textquotesingle{}adr\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ab118aca7d8de99f8ea30c11f18ad8b67}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+INCLUDE}}~$<$stdint.\+h$>$             /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a84a8fce1b3b51292e999c26a5f96d680}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+RST}}(val)~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the reset pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a1b9686d7fd163fd89c5709389dc5276d}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+IRQ\+\_\+\+READ}}~0 /\texorpdfstring{$\ast$}{*}pn\+\_\+x\+\_\+read()\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Read the IRQ pin\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a2e3ea3a43ab70213ae0a5edb263e2b02}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+SPI\+\_\+\+CS}}(val)~/\texorpdfstring{$\ast$}{*}spi\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the SPI\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a2eb3dabb1b1992862d90f2b06cee7228}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+SPI\+\_\+\+XCHG\+\_\+\+BYTE}}(data)~0 /\texorpdfstring{$\ast$}{*}spi\+\_\+xchg(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}val\textquotesingle{} to SPI and give the read value\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a4e7a8dcfa33ad52d35fc7cf7fd05a827}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+START}}~/\texorpdfstring{$\ast$}{*}i2c\+\_\+start()\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Make an I2C start\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aa2ee58352c9ba8a31f8b4b03b9314c82}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+STOP}}~/\texorpdfstring{$\ast$}{*}i2c\+\_\+stop()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Make an I2C stop\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a2fcdb053f436dec17655df5648aa852e}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+RESTART}}~/\texorpdfstring{$\ast$}{*}i2c\+\_\+restart()\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Make an I2C restart\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a6c70809f29e117b062fa93de81616868}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+WR}}(data)~/\texorpdfstring{$\ast$}{*}i2c\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Write a byte to the I1C bus\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a61db3081c72b436f30c7ee8fc146eb53}{LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+READ}}(last\+\_\+read)~0 /\texorpdfstring{$\ast$}{*}i2c\+\_\+rd()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Read a byte from the I2C bud\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a44e36145e97d5121b38c95cb9b87059f}{USE\+\_\+\+SDL}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a46370f28da80ebc09d98aea5495dbd3a}{USE\+\_\+\+SDL\+\_\+\+GPU}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ad846e33fa77d9246e697aa1142e2bd5c}{USE\+\_\+\+MONITOR}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_af7bfe23cf121eb52ceec41625bca196f}{USE\+\_\+\+WINDOWS}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ae5b8577a82d70a48fbe8fe5c584dd31a}{USE\+\_\+\+WIN32\+DRV}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ac4b43c68077fef43afaa461792d6a0bb}{USE\+\_\+\+GTK}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ab75a44531b0c0a7329a9568e44085b37}{USE\+\_\+\+WAYLAND}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_adbc48f4500599eb95ef353fe7bce1056}{USE\+\_\+\+SSD1963}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ac35873063479c96b17442ae939dbad4e}{USE\+\_\+\+R61581}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a4f4bf7a13ee69bcf58f55a66df8ca240}{USE\+\_\+\+ST7565}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a3505a3c82785dded99433fddd58da76e}{USE\+\_\+\+GC9\+A01}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ac489aa0807b48051cf7386759c7ab1e7}{USE\+\_\+\+UC1610}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a15b028116a03bcbcc69e8d247f864aa1}{USE\+\_\+\+SHARP\+\_\+\+MIP}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a15b71b6ebf1fb67ee009445dc781f412}{USE\+\_\+\+ILI9341}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a9148738f7ba61c0ddf622c03f947b0c3}{USE\+\_\+\+FBDEV}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a097e4f5713ce455fad5dd2116ae7173e}{USE\+\_\+\+BSD\+\_\+\+FBDEV}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aa0687efcc3b1f7b467880fb9fd6be2d2}{USE\+\_\+\+SUNXIFB}}~1
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_acdd464c6699c54aeb33f27336b636f6e}{SUNXIFB\+\_\+\+PATH}}~"{}/dev/fb0"{}
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_af1fa47cd75f42c41fbe1caa2f7ba0006}{USE\+\_\+\+SUNXIFB\+\_\+\+DOUBLE\+\_\+\+BUFFER}}~1
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ab45508dfc830da53d78797276321d3cb}{USE\+\_\+\+DRM}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aed04f9e1f860acd98ea90ba2fac27d92}{USE\+\_\+\+XPT2046}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a6199488785006b1e8890431a40a8bfb7}{USE\+\_\+\+FT5406\+EE8}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a679096cb0d94481a6fa91c69d16c5dc7}{USE\+\_\+\+AD\+\_\+\+TOUCH}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a870d3ff9a36da913f95ff5b4c5afe75c}{USE\+\_\+\+MOUSE}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_af02ed91286a7d2f3cfffc6e2c06eb008}{USE\+\_\+\+MOUSEWHEEL}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a750129eabbf8e133a1b7022a2c0ab089}{USE\+\_\+\+LIBINPUT}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aa5ae5610c6158044366e7e46961de662}{USE\+\_\+\+BSD\+\_\+\+LIBINPUT}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a818c2a0b450425b4276a41cc4fb19897}{USE\+\_\+\+EVDEV}}~1
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a4a4597b973fb5fcb9ab0f702d00f2951}{USE\+\_\+\+BSD\+\_\+\+EVDEV}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a4c889ea0456025f291ef3d786105305c}{EVDEV\+\_\+\+NAME}}~"{}/dev/input/event1"{}        /\texorpdfstring{$\ast$}{*}You can use the "{}evtest"{} Linux tool to get the list of devices and test them\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_adb7fb5e0bce9226afc0526b4e375057c}{EVDEV\+\_\+\+SWAP\+\_\+\+AXES}}~0               /\texorpdfstring{$\ast$}{*}Swap the x and y axes of the touchscreen\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_ae8b948252bae8333c0ac58c40d719d6e}{EVDEV\+\_\+\+CALIBRATE}}~0               /\texorpdfstring{$\ast$}{*}Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis\texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_a6bae31eb4b566d636121c2a71b747d2f}{USE\+\_\+\+XKB}}~0
+\item 
+\#define \mbox{\hyperlink{lv__drv__conf_8h_aaff13e7f3c71f5d9799ad3d99b6a6c1e}{USE\+\_\+\+KEYBOARD}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Configuration file for v9.\+0.\+0-\/dev 
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 中定义.
+
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{lv__drv__conf_8h_ae8b948252bae8333c0ac58c40d719d6e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!EVDEV\_CALIBRATE@{EVDEV\_CALIBRATE}}
+\index{EVDEV\_CALIBRATE@{EVDEV\_CALIBRATE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{EVDEV\_CALIBRATE}{EVDEV\_CALIBRATE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ae8b948252bae8333c0ac58c40d719d6e} 
+\#define EVDEV\+\_\+\+CALIBRATE~0               /\texorpdfstring{$\ast$}{*}Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00468}{468}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a4c889ea0456025f291ef3d786105305c}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!EVDEV\_NAME@{EVDEV\_NAME}}
+\index{EVDEV\_NAME@{EVDEV\_NAME}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{EVDEV\_NAME}{EVDEV\_NAME}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a4c889ea0456025f291ef3d786105305c} 
+\#define EVDEV\+\_\+\+NAME~"{}/dev/input/event1"{}        /\texorpdfstring{$\ast$}{*}You can use the "{}evtest"{} Linux tool to get the list of devices and test them\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00465}{465}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_adb7fb5e0bce9226afc0526b4e375057c}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!EVDEV\_SWAP\_AXES@{EVDEV\_SWAP\_AXES}}
+\index{EVDEV\_SWAP\_AXES@{EVDEV\_SWAP\_AXES}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{EVDEV\_SWAP\_AXES}{EVDEV\_SWAP\_AXES}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_adb7fb5e0bce9226afc0526b4e375057c} 
+\#define EVDEV\+\_\+\+SWAP\+\_\+\+AXES~0               /\texorpdfstring{$\ast$}{*}Swap the x and y axes of the touchscreen\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00466}{466}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_af29c29c0871fc429677780ebd10e2a6a}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DELAY\_INCLUDE@{LV\_DRV\_DELAY\_INCLUDE}}
+\index{LV\_DRV\_DELAY\_INCLUDE@{LV\_DRV\_DELAY\_INCLUDE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DELAY\_INCLUDE}{LV\_DRV\_DELAY\_INCLUDE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_af29c29c0871fc429677780ebd10e2a6a} 
+\#define LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+INCLUDE~$<$stdint.\+h$>$            /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00021}{21}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a1d9574a67a7b5fb205d49d90964d0063}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DELAY\_MS@{LV\_DRV\_DELAY\_MS}}
+\index{LV\_DRV\_DELAY\_MS@{LV\_DRV\_DELAY\_MS}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DELAY\_MS}{LV\_DRV\_DELAY\_MS}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a1d9574a67a7b5fb205d49d90964d0063} 
+\#define LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+MS(\begin{DoxyParamCaption}\item[{}]{ms}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}delay\+\_\+ms(ms)\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Delay the given number of milliseconds\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00023}{23}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_af2afccbd16788c917d3ade7bdd15f807}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DELAY\_US@{LV\_DRV\_DELAY\_US}}
+\index{LV\_DRV\_DELAY\_US@{LV\_DRV\_DELAY\_US}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DELAY\_US}{LV\_DRV\_DELAY\_US}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_af2afccbd16788c917d3ade7bdd15f807} 
+\#define LV\+\_\+\+DRV\+\_\+\+DELAY\+\_\+\+US(\begin{DoxyParamCaption}\item[{}]{us}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}delay\+\_\+us(us)\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Delay the given number of microseconds\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00022}{22}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a6ae0c0d20c4882197b7f41f97bbb194a}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_CMD\_DATA@{LV\_DRV\_DISP\_CMD\_DATA}}
+\index{LV\_DRV\_DISP\_CMD\_DATA@{LV\_DRV\_DISP\_CMD\_DATA}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_CMD\_DATA}{LV\_DRV\_DISP\_CMD\_DATA}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a6ae0c0d20c4882197b7f41f97bbb194a} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+CMD\+\_\+\+DATA(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/    /\texorpdfstring{$\ast$}{*}Set the command/data pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00033}{33}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a124cb760870323d9c2902166287c6cd4}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_INCLUDE@{LV\_DRV\_DISP\_INCLUDE}}
+\index{LV\_DRV\_DISP\_INCLUDE@{LV\_DRV\_DISP\_INCLUDE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_INCLUDE}{LV\_DRV\_DISP\_INCLUDE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a124cb760870323d9c2902166287c6cd4} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+INCLUDE~$<$stdint.\+h$>$           /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00032}{32}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a7f7bed402f029b089baf20981e3210ee}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_PAR\_CS@{LV\_DRV\_DISP\_PAR\_CS}}
+\index{LV\_DRV\_DISP\_PAR\_CS@{LV\_DRV\_DISP\_PAR\_CS}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_PAR\_CS}{LV\_DRV\_DISP\_PAR\_CS}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a7f7bed402f029b089baf20981e3210ee} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+CS(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}par\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/   /\texorpdfstring{$\ast$}{*}Set the Parallel port\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00046}{46}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a1f091368d33d438da548f074aa11ada8}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_PAR\_FAST@{LV\_DRV\_DISP\_PAR\_FAST}}
+\index{LV\_DRV\_DISP\_PAR\_FAST@{LV\_DRV\_DISP\_PAR\_FAST}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_PAR\_FAST}{LV\_DRV\_DISP\_PAR\_FAST}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a1f091368d33d438da548f074aa11ada8} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+FAST~/\texorpdfstring{$\ast$}{*}par\+\_\+fast()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Set high speed on the parallel port\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00048}{48}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a548addcf645b309b00ee5caf777e6fb1}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_PAR\_SLOW@{LV\_DRV\_DISP\_PAR\_SLOW}}
+\index{LV\_DRV\_DISP\_PAR\_SLOW@{LV\_DRV\_DISP\_PAR\_SLOW}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_PAR\_SLOW}{LV\_DRV\_DISP\_PAR\_SLOW}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a548addcf645b309b00ee5caf777e6fb1} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+SLOW~/\texorpdfstring{$\ast$}{*}par\+\_\+slow()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Set low speed on the parallel port\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00047}{47}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ad6882526e88009acdefd107e0070d982}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_PAR\_WR\_ARRAY@{LV\_DRV\_DISP\_PAR\_WR\_ARRAY}}
+\index{LV\_DRV\_DISP\_PAR\_WR\_ARRAY@{LV\_DRV\_DISP\_PAR\_WR\_ARRAY}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_PAR\_WR\_ARRAY}{LV\_DRV\_DISP\_PAR\_WR\_ARRAY}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ad6882526e88009acdefd107e0070d982} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+WR\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{adr}{, }\item[{}]{n}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}par\+\_\+wr\+\_\+mem(adr,n)\texorpdfstring{$\ast$}{*}/ /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}n\textquotesingle{} bytes to Parallel ports from \textquotesingle{}adr\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00050}{50}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a38bef2fce0fc8c339b2832a0cef3e729}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_PAR\_WR\_WORD@{LV\_DRV\_DISP\_PAR\_WR\_WORD}}
+\index{LV\_DRV\_DISP\_PAR\_WR\_WORD@{LV\_DRV\_DISP\_PAR\_WR\_WORD}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_PAR\_WR\_WORD}{LV\_DRV\_DISP\_PAR\_WR\_WORD}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a38bef2fce0fc8c339b2832a0cef3e729} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+PAR\+\_\+\+WR\+\_\+\+WORD(\begin{DoxyParamCaption}\item[{}]{data}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}par\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Write a word to the parallel port\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00049}{49}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aec2f4ee11e8be6672317bcd863bcae76}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_RST@{LV\_DRV\_DISP\_RST}}
+\index{LV\_DRV\_DISP\_RST@{LV\_DRV\_DISP\_RST}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_RST}{LV\_DRV\_DISP\_RST}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aec2f4ee11e8be6672317bcd863bcae76} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+RST(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/    /\texorpdfstring{$\ast$}{*}Set the reset pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00034}{34}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a9b2fc97f13c6061db25bd580c56b5aae}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_SPI\_CS@{LV\_DRV\_DISP\_SPI\_CS}}
+\index{LV\_DRV\_DISP\_SPI\_CS@{LV\_DRV\_DISP\_SPI\_CS}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_SPI\_CS}{LV\_DRV\_DISP\_SPI\_CS}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a9b2fc97f13c6061db25bd580c56b5aae} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+CS(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}spi\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the SPI\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00039}{39}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ac4ab55e1e20b1a94e453a4ffe97064d3}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_SPI\_WR\_ARRAY@{LV\_DRV\_DISP\_SPI\_WR\_ARRAY}}
+\index{LV\_DRV\_DISP\_SPI\_WR\_ARRAY@{LV\_DRV\_DISP\_SPI\_WR\_ARRAY}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_SPI\_WR\_ARRAY}{LV\_DRV\_DISP\_SPI\_WR\_ARRAY}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ac4ab55e1e20b1a94e453a4ffe97064d3} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+WR\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{adr}{, }\item[{}]{n}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}spi\+\_\+wr\+\_\+mem(adr, n)\texorpdfstring{$\ast$}{*}/  /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}n\textquotesingle{} bytes to SPI bus from \textquotesingle{}adr\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00041}{41}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aa9fa0dce12cdcf0608747403fb2e921f}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_DISP\_SPI\_WR\_BYTE@{LV\_DRV\_DISP\_SPI\_WR\_BYTE}}
+\index{LV\_DRV\_DISP\_SPI\_WR\_BYTE@{LV\_DRV\_DISP\_SPI\_WR\_BYTE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_DISP\_SPI\_WR\_BYTE}{LV\_DRV\_DISP\_SPI\_WR\_BYTE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aa9fa0dce12cdcf0608747403fb2e921f} 
+\#define LV\+\_\+\+DRV\+\_\+\+DISP\+\_\+\+SPI\+\_\+\+WR\+\_\+\+BYTE(\begin{DoxyParamCaption}\item[{}]{data}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}spi\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Write a byte the SPI bus\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00040}{40}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a61db3081c72b436f30c7ee8fc146eb53}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_I2C\_READ@{LV\_DRV\_INDEV\_I2C\_READ}}
+\index{LV\_DRV\_INDEV\_I2C\_READ@{LV\_DRV\_INDEV\_I2C\_READ}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_I2C\_READ}{LV\_DRV\_INDEV\_I2C\_READ}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a61db3081c72b436f30c7ee8fc146eb53} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+READ(\begin{DoxyParamCaption}\item[{}]{last\+\_\+read}{}\end{DoxyParamCaption})~0 /\texorpdfstring{$\ast$}{*}i2c\+\_\+rd()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Read a byte from the I2C bud\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00076}{76}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a2fcdb053f436dec17655df5648aa852e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_I2C\_RESTART@{LV\_DRV\_INDEV\_I2C\_RESTART}}
+\index{LV\_DRV\_INDEV\_I2C\_RESTART@{LV\_DRV\_INDEV\_I2C\_RESTART}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_I2C\_RESTART}{LV\_DRV\_INDEV\_I2C\_RESTART}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a2fcdb053f436dec17655df5648aa852e} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+RESTART~/\texorpdfstring{$\ast$}{*}i2c\+\_\+restart()\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Make an I2C restart\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00074}{74}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a4e7a8dcfa33ad52d35fc7cf7fd05a827}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_I2C\_START@{LV\_DRV\_INDEV\_I2C\_START}}
+\index{LV\_DRV\_INDEV\_I2C\_START@{LV\_DRV\_INDEV\_I2C\_START}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_I2C\_START}{LV\_DRV\_INDEV\_I2C\_START}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a4e7a8dcfa33ad52d35fc7cf7fd05a827} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+START~/\texorpdfstring{$\ast$}{*}i2c\+\_\+start()\texorpdfstring{$\ast$}{*}/       /\texorpdfstring{$\ast$}{*}Make an I2C start\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00072}{72}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aa2ee58352c9ba8a31f8b4b03b9314c82}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_I2C\_STOP@{LV\_DRV\_INDEV\_I2C\_STOP}}
+\index{LV\_DRV\_INDEV\_I2C\_STOP@{LV\_DRV\_INDEV\_I2C\_STOP}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_I2C\_STOP}{LV\_DRV\_INDEV\_I2C\_STOP}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aa2ee58352c9ba8a31f8b4b03b9314c82} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+STOP~/\texorpdfstring{$\ast$}{*}i2c\+\_\+stop()\texorpdfstring{$\ast$}{*}/        /\texorpdfstring{$\ast$}{*}Make an I2C stop\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00073}{73}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a6c70809f29e117b062fa93de81616868}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_I2C\_WR@{LV\_DRV\_INDEV\_I2C\_WR}}
+\index{LV\_DRV\_INDEV\_I2C\_WR@{LV\_DRV\_INDEV\_I2C\_WR}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_I2C\_WR}{LV\_DRV\_INDEV\_I2C\_WR}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a6c70809f29e117b062fa93de81616868} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+I2\+C\+\_\+\+WR(\begin{DoxyParamCaption}\item[{}]{data}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}i2c\+\_\+wr(data)\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Write a byte to the I1C bus\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00075}{75}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ab118aca7d8de99f8ea30c11f18ad8b67}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_INCLUDE@{LV\_DRV\_INDEV\_INCLUDE}}
+\index{LV\_DRV\_INDEV\_INCLUDE@{LV\_DRV\_INDEV\_INCLUDE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_INCLUDE}{LV\_DRV\_INDEV\_INCLUDE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ab118aca7d8de99f8ea30c11f18ad8b67} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+INCLUDE~$<$stdint.\+h$>$             /\texorpdfstring{$\ast$}{*}Dummy include by default\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00059}{59}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a1b9686d7fd163fd89c5709389dc5276d}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_IRQ\_READ@{LV\_DRV\_INDEV\_IRQ\_READ}}
+\index{LV\_DRV\_INDEV\_IRQ\_READ@{LV\_DRV\_INDEV\_IRQ\_READ}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_IRQ\_READ}{LV\_DRV\_INDEV\_IRQ\_READ}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a1b9686d7fd163fd89c5709389dc5276d} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+IRQ\+\_\+\+READ~0 /\texorpdfstring{$\ast$}{*}pn\+\_\+x\+\_\+read()\texorpdfstring{$\ast$}{*}/      /\texorpdfstring{$\ast$}{*}Read the IRQ pin\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00061}{61}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a84a8fce1b3b51292e999c26a5f96d680}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_RST@{LV\_DRV\_INDEV\_RST}}
+\index{LV\_DRV\_INDEV\_RST@{LV\_DRV\_INDEV\_RST}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_RST}{LV\_DRV\_INDEV\_RST}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a84a8fce1b3b51292e999c26a5f96d680} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+RST(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}pin\+\_\+x\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the reset pin to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00060}{60}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a2e3ea3a43ab70213ae0a5edb263e2b02}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_SPI\_CS@{LV\_DRV\_INDEV\_SPI\_CS}}
+\index{LV\_DRV\_INDEV\_SPI\_CS@{LV\_DRV\_INDEV\_SPI\_CS}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_SPI\_CS}{LV\_DRV\_INDEV\_SPI\_CS}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a2e3ea3a43ab70213ae0a5edb263e2b02} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+SPI\+\_\+\+CS(\begin{DoxyParamCaption}\item[{}]{val}{}\end{DoxyParamCaption})~/\texorpdfstring{$\ast$}{*}spi\+\_\+cs\+\_\+set(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Set the SPI\textquotesingle{}s Chip select to \textquotesingle{}val\textquotesingle{}\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00066}{66}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a2eb3dabb1b1992862d90f2b06cee7228}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE@{LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE}}
+\index{LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE@{LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE}{LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a2eb3dabb1b1992862d90f2b06cee7228} 
+\#define LV\+\_\+\+DRV\+\_\+\+INDEV\+\_\+\+SPI\+\_\+\+XCHG\+\_\+\+BYTE(\begin{DoxyParamCaption}\item[{}]{data}{}\end{DoxyParamCaption})~0 /\texorpdfstring{$\ast$}{*}spi\+\_\+xchg(val)\texorpdfstring{$\ast$}{*}/     /\texorpdfstring{$\ast$}{*}Write \textquotesingle{}val\textquotesingle{} to SPI and give the read value\texorpdfstring{$\ast$}{*}/}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00067}{67}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_acdd464c6699c54aeb33f27336b636f6e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!SUNXIFB\_PATH@{SUNXIFB\_PATH}}
+\index{SUNXIFB\_PATH@{SUNXIFB\_PATH}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{SUNXIFB\_PATH}{SUNXIFB\_PATH}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_acdd464c6699c54aeb33f27336b636f6e} 
+\#define SUNXIFB\+\_\+\+PATH~"{}/dev/fb0"{}}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00348}{348}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a679096cb0d94481a6fa91c69d16c5dc7}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_AD\_TOUCH@{USE\_AD\_TOUCH}}
+\index{USE\_AD\_TOUCH@{USE\_AD\_TOUCH}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_AD\_TOUCH}{USE\_AD\_TOUCH}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a679096cb0d94481a6fa91c69d16c5dc7} 
+\#define USE\+\_\+\+AD\+\_\+\+TOUCH~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00403}{403}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a4a4597b973fb5fcb9ab0f702d00f2951}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_BSD\_EVDEV@{USE\_BSD\_EVDEV}}
+\index{USE\_BSD\_EVDEV@{USE\_BSD\_EVDEV}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_BSD\_EVDEV}{USE\_BSD\_EVDEV}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a4a4597b973fb5fcb9ab0f702d00f2951} 
+\#define USE\+\_\+\+BSD\+\_\+\+EVDEV~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00461}{461}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a097e4f5713ce455fad5dd2116ae7173e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_BSD\_FBDEV@{USE\_BSD\_FBDEV}}
+\index{USE\_BSD\_FBDEV@{USE\_BSD\_FBDEV}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_BSD\_FBDEV}{USE\_BSD\_FBDEV}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a097e4f5713ce455fad5dd2116ae7173e} 
+\#define USE\+\_\+\+BSD\+\_\+\+FBDEV~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00331}{331}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aa5ae5610c6158044366e7e46961de662}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_BSD\_LIBINPUT@{USE\_BSD\_LIBINPUT}}
+\index{USE\_BSD\_LIBINPUT@{USE\_BSD\_LIBINPUT}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_BSD\_LIBINPUT}{USE\_BSD\_LIBINPUT}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aa5ae5610c6158044366e7e46961de662} 
+\#define USE\+\_\+\+BSD\+\_\+\+LIBINPUT~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00443}{443}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ab45508dfc830da53d78797276321d3cb}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_DRM@{USE\_DRM}}
+\index{USE\_DRM@{USE\_DRM}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_DRM}{USE\_DRM}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ab45508dfc830da53d78797276321d3cb} 
+\#define USE\+\_\+\+DRM~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00356}{356}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a818c2a0b450425b4276a41cc4fb19897}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_EVDEV@{USE\_EVDEV}}
+\index{USE\_EVDEV@{USE\_EVDEV}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_EVDEV}{USE\_EVDEV}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a818c2a0b450425b4276a41cc4fb19897} 
+\#define USE\+\_\+\+EVDEV~1}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00457}{457}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a9148738f7ba61c0ddf622c03f947b0c3}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_FBDEV@{USE\_FBDEV}}
+\index{USE\_FBDEV@{USE\_FBDEV}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_FBDEV}{USE\_FBDEV}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a9148738f7ba61c0ddf622c03f947b0c3} 
+\#define USE\+\_\+\+FBDEV~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00319}{319}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a6199488785006b1e8890431a40a8bfb7}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_FT5406EE8@{USE\_FT5406EE8}}
+\index{USE\_FT5406EE8@{USE\_FT5406EE8}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_FT5406EE8}{USE\_FT5406EE8}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a6199488785006b1e8890431a40a8bfb7} 
+\#define USE\+\_\+\+FT5406\+EE8~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00392}{392}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a3505a3c82785dded99433fddd58da76e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_GC9A01@{USE\_GC9A01}}
+\index{USE\_GC9A01@{USE\_GC9A01}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_GC9A01}{USE\_GC9A01}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a3505a3c82785dded99433fddd58da76e} 
+\#define USE\+\_\+\+GC9\+A01~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00258}{258}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ac4b43c68077fef43afaa461792d6a0bb}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_GTK@{USE\_GTK}}
+\index{USE\_GTK@{USE\_GTK}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_GTK}{USE\_GTK}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ac4b43c68077fef43afaa461792d6a0bb} 
+\#define USE\+\_\+\+GTK~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00170}{170}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a15b71b6ebf1fb67ee009445dc781f412}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_ILI9341@{USE\_ILI9341}}
+\index{USE\_ILI9341@{USE\_ILI9341}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_ILI9341}{USE\_ILI9341}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a15b71b6ebf1fb67ee009445dc781f412} 
+\#define USE\+\_\+\+ILI9341~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00305}{305}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aaff13e7f3c71f5d9799ad3d99b6a6c1e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_KEYBOARD@{USE\_KEYBOARD}}
+\index{USE\_KEYBOARD@{USE\_KEYBOARD}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_KEYBOARD}{USE\_KEYBOARD}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aaff13e7f3c71f5d9799ad3d99b6a6c1e} 
+\#define USE\+\_\+\+KEYBOARD~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00500}{500}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a750129eabbf8e133a1b7022a2c0ab089}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_LIBINPUT@{USE\_LIBINPUT}}
+\index{USE\_LIBINPUT@{USE\_LIBINPUT}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_LIBINPUT}{USE\_LIBINPUT}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a750129eabbf8e133a1b7022a2c0ab089} 
+\#define USE\+\_\+\+LIBINPUT~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00439}{439}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ad846e33fa77d9246e697aa1142e2bd5c}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_MONITOR@{USE\_MONITOR}}
+\index{USE\_MONITOR@{USE\_MONITOR}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_MONITOR}{USE\_MONITOR}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ad846e33fa77d9246e697aa1142e2bd5c} 
+\#define USE\+\_\+\+MONITOR~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00121}{121}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a870d3ff9a36da913f95ff5b4c5afe75c}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_MOUSE@{USE\_MOUSE}}
+\index{USE\_MOUSE@{USE\_MOUSE}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_MOUSE}{USE\_MOUSE}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a870d3ff9a36da913f95ff5b4c5afe75c} 
+\#define USE\+\_\+\+MOUSE~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00416}{416}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_af02ed91286a7d2f3cfffc6e2c06eb008}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_MOUSEWHEEL@{USE\_MOUSEWHEEL}}
+\index{USE\_MOUSEWHEEL@{USE\_MOUSEWHEEL}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_MOUSEWHEEL}{USE\_MOUSEWHEEL}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_af02ed91286a7d2f3cfffc6e2c06eb008} 
+\#define USE\+\_\+\+MOUSEWHEEL~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00428}{428}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ac35873063479c96b17442ae939dbad4e}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_R61581@{USE\_R61581}}
+\index{USE\_R61581@{USE\_R61581}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_R61581}{USE\_R61581}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ac35873063479c96b17442ae939dbad4e} 
+\#define USE\+\_\+\+R61581~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00223}{223}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a44e36145e97d5121b38c95cb9b87059f}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SDL@{USE\_SDL}}
+\index{USE\_SDL@{USE\_SDL}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SDL}{USE\_SDL}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a44e36145e97d5121b38c95cb9b87059f} 
+\#define USE\+\_\+\+SDL~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00089}{89}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a46370f28da80ebc09d98aea5495dbd3a}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SDL\_GPU@{USE\_SDL\_GPU}}
+\index{USE\_SDL\_GPU@{USE\_SDL\_GPU}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SDL\_GPU}{USE\_SDL\_GPU}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a46370f28da80ebc09d98aea5495dbd3a} 
+\#define USE\+\_\+\+SDL\+\_\+\+GPU~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00094}{94}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a15b028116a03bcbcc69e8d247f864aa1}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SHARP\_MIP@{USE\_SHARP\_MIP}}
+\index{USE\_SHARP\_MIP@{USE\_SHARP\_MIP}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SHARP\_MIP}{USE\_SHARP\_MIP}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a15b028116a03bcbcc69e8d247f864aa1} 
+\#define USE\+\_\+\+SHARP\+\_\+\+MIP~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00291}{291}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_adbc48f4500599eb95ef353fe7bce1056}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SSD1963@{USE\_SSD1963}}
+\index{USE\_SSD1963@{USE\_SSD1963}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SSD1963}{USE\_SSD1963}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_adbc48f4500599eb95ef353fe7bce1056} 
+\#define USE\+\_\+\+SSD1963~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00199}{199}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a4f4bf7a13ee69bcf58f55a66df8ca240}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_ST7565@{USE\_ST7565}}
+\index{USE\_ST7565@{USE\_ST7565}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_ST7565}{USE\_ST7565}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a4f4bf7a13ee69bcf58f55a66df8ca240} 
+\#define USE\+\_\+\+ST7565~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00247}{247}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aa0687efcc3b1f7b467880fb9fd6be2d2}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SUNXIFB@{USE\_SUNXIFB}}
+\index{USE\_SUNXIFB@{USE\_SUNXIFB}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SUNXIFB}{USE\_SUNXIFB}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aa0687efcc3b1f7b467880fb9fd6be2d2} 
+\#define USE\+\_\+\+SUNXIFB~1}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00344}{344}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_af1fa47cd75f42c41fbe1caa2f7ba0006}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_SUNXIFB\_DOUBLE\_BUFFER@{USE\_SUNXIFB\_DOUBLE\_BUFFER}}
+\index{USE\_SUNXIFB\_DOUBLE\_BUFFER@{USE\_SUNXIFB\_DOUBLE\_BUFFER}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_SUNXIFB\_DOUBLE\_BUFFER}{USE\_SUNXIFB\_DOUBLE\_BUFFER}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_af1fa47cd75f42c41fbe1caa2f7ba0006} 
+\#define USE\+\_\+\+SUNXIFB\+\_\+\+DOUBLE\+\_\+\+BUFFER~1}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00349}{349}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ac489aa0807b48051cf7386759c7ab1e7}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_UC1610@{USE\_UC1610}}
+\index{USE\_UC1610@{USE\_UC1610}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_UC1610}{USE\_UC1610}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ac489aa0807b48051cf7386759c7ab1e7} 
+\#define USE\+\_\+\+UC1610~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00270}{270}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ab75a44531b0c0a7329a9568e44085b37}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_WAYLAND@{USE\_WAYLAND}}
+\index{USE\_WAYLAND@{USE\_WAYLAND}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_WAYLAND}{USE\_WAYLAND}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ab75a44531b0c0a7329a9568e44085b37} 
+\#define USE\+\_\+\+WAYLAND~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00177}{177}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_ae5b8577a82d70a48fbe8fe5c584dd31a}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_WIN32DRV@{USE\_WIN32DRV}}
+\index{USE\_WIN32DRV@{USE\_WIN32DRV}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_WIN32DRV}{USE\_WIN32DRV}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_ae5b8577a82d70a48fbe8fe5c584dd31a} 
+\#define USE\+\_\+\+WIN32\+DRV~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00158}{158}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_af7bfe23cf121eb52ceec41625bca196f}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_WINDOWS@{USE\_WINDOWS}}
+\index{USE\_WINDOWS@{USE\_WINDOWS}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_WINDOWS}{USE\_WINDOWS}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_af7bfe23cf121eb52ceec41625bca196f} 
+\#define USE\+\_\+\+WINDOWS~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00146}{146}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_a6bae31eb4b566d636121c2a71b747d2f}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_XKB@{USE\_XKB}}
+\index{USE\_XKB@{USE\_XKB}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_XKB}{USE\_XKB}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_a6bae31eb4b566d636121c2a71b747d2f} 
+\#define USE\+\_\+\+XKB~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00482}{482}} 行定义.
+
+\Hypertarget{lv__drv__conf_8h_aed04f9e1f860acd98ea90ba2fac27d92}\index{lv\_drv\_conf.h@{lv\_drv\_conf.h}!USE\_XPT2046@{USE\_XPT2046}}
+\index{USE\_XPT2046@{USE\_XPT2046}!lv\_drv\_conf.h@{lv\_drv\_conf.h}}
+\doxysubsubsection{\texorpdfstring{USE\_XPT2046}{USE\_XPT2046}}
+{\footnotesize\ttfamily \label{lv__drv__conf_8h_aed04f9e1f860acd98ea90ba2fac27d92} 
+\#define USE\+\_\+\+XPT2046~0}
+
+
+
+在文件 \mbox{\hyperlink{lv__drv__conf_8h_source}{lv\+\_\+drv\+\_\+conf.\+h}} 第 \mbox{\hyperlink{lv__drv__conf_8h_source_l00372}{372}} 行定义.
+

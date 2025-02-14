@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_shezhi_8h_source" xml:lang="zh">
+<title>shezhi.h</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/shezhi.h</primary></indexterm>
+浏览该文件的文档.<programlisting linenumbering="unnumbered"><anchor xml:id="_shezhi_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;SHEZHI_H</emphasis>
+<anchor xml:id="_shezhi_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;SHEZHI_H</emphasis>
+<anchor xml:id="_shezhi_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;lvgl/lvgl.h&quot;</emphasis>
+<anchor xml:id="_shezhi_8h_source_1l00004"/>00004 
+<anchor xml:id="_shezhi_8h_source_1l00005"/>00005 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;lv_img_dsc_t&#32;<link linkend="_shezhi_8h_1a465f0d4961b25f3e93abaa6231a7d1b2">shezhi</link>;
+<anchor xml:id="_shezhi_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

@@ -1,0 +1,276 @@
+\doxysection{home\+\_\+page.\+c}
+\hypertarget{home__page_8c_source}{}\label{home__page_8c_source}\index{C:/Users/kemik/git/lvgl\_t113/page/home\_page.c@{C:/Users/kemik/git/lvgl\_t113/page/home\_page.c}}
+\mbox{\hyperlink{home__page_8c}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}lvgl/lvgl.h"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calender__page_8h}{calender\_page.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{home__page_8h}{home\_page.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{message__page_8h}{message\_page.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bluetuth___o_f_f_8h}{source/img/Bluetuth\_OFF.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bluetuth___o_n_8h}{source/img/Bluetuth\_ON.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00034}00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calendar_8h}{source/img/calendar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00035}00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comment_8h}{source/img/comment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00036}00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{home_8h}{source/img/home.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loading_8h}{source/img/loading.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00038}00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mikuimg_8h}{source/img/mikuimg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_no___wifi_8h}{source/img/No\_Wifi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shezhi_8h}{source/img/shezhi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_wifi-1_8h}{source/img/Wifi-\/1.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{check__device__status_8h}{device/check\_device\_status.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00051}\mbox{\hyperlink{struct__lv__clock}{00051}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__clock}{\_lv\_clock}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00053}\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{00053}}\ \ \ \ \ lv\_obj\_t\ *\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00054}\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{00054}}\ \ \ \ \ lv\_obj\_t\ *\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00055}\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{00055}}\ \ \ \ \ lv\_obj\_t\ *\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}};\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00056}\mbox{\hyperlink{home__page_8c_af8c3e4f3e15daf236569cca40d0f4a1a}{00056}}\ \}\ \mbox{\hyperlink{home__page_8c_af8c3e4f3e15daf236569cca40d0f4a1a}{lv\_clock\_t}};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00063}\mbox{\hyperlink{struct__lv__status__lable}{00063}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__status__lable}{\_lv\_status\_lable}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00065}\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{00065}}\ \ \ \ \ lv\_obj\_t\ *\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}};\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00066}\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{00066}}\ \ \ \ \ lv\_obj\_t\ *\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}};\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00067}\mbox{\hyperlink{home__page_8c_aac248fed4921d9b39f1ed507d11614ca}{00067}}\ \}\ \mbox{\hyperlink{home__page_8c_aac248fed4921d9b39f1ed507d11614ca}{lv\_status\_lable\_t}};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00068}\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{00068}}\ lv\_obj\_t\ *\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00069}\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{00069}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ =\ 480;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00070}\mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{00070}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ =\ 480;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00071}\mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{00071}}\ \textcolor{keyword}{static}\ lv\_coord\_t\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ =(lv\_coord\_t)((\textcolor{keywordtype}{float})480\ *\ 0.2f);\ \textcolor{comment}{//\ 矩形宽度}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00078}\mbox{\hyperlink{home__page_8c_a456e42045e6e1f37e290440030da0e81}{00078}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{home__page_8c_a456e42045e6e1f37e290440030da0e81}{clock\_date\_task\_callback}}(lv\_timer\_t\ *timer)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *week\_day[7]\ =\ \{\textcolor{stringliteral}{"{}Sunday"{}},\ \textcolor{stringliteral}{"{}Monday"{}},\ \textcolor{stringliteral}{"{}Tuesday"{}},\ \textcolor{stringliteral}{"{}Wednesday"{}},\ \textcolor{stringliteral}{"{}Thursday"{}},\ \textcolor{stringliteral}{"{}Friday"{}},\ \textcolor{stringliteral}{"{}Saturday"{}}\};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{static}\ time\_t\ unix\_time;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }tm\ *time\_info;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00084}00084\ \ \ \ \ unix\_time\ =\ time(NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00085}00085\ \ \ \ \ time\_info\ =\ localtime(\&unix\_time);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{int}\ year\ =\ time\_info-\/>tm\_year\ +\ 1900;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{int}\ month\ =\ time\_info-\/>tm\_mon\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ day\ =\ time\_info-\/>tm\_mday;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{int}\ weekday\ =\ time\_info-\/>tm\_wday;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{int}\ hour\ =\ time\_info-\/>tm\_hour;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{int}\ minutes\ =\ time\_info-\/>tm\_min;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{int}\ second\ =\ time\_info-\/>tm\_sec;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (timer\ !=\ NULL\ \&\&\ timer-\/>user\_data\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00096}00096\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__clock}{lv\_clock\_t}}\ *clock\ =\ (\mbox{\hyperlink{struct__lv__clock}{lv\_clock\_t}}\ *)(timer-\/>user\_data);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clock-\/>\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_label\_set\_text\_fmt(clock-\/>\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}},\ \textcolor{stringliteral}{"{}\%02d:\%02d:\%02d"{}},\ hour,\ minutes,\ second);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_obj\_align(clock-\/>\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}},\ LV\_ALIGN\_BOTTOM\_LEFT,\ 230,\ -\/15);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clock-\/>\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_label\_set\_text\_fmt(clock-\/>\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}},\ \textcolor{stringliteral}{"{}\%d-\/\%02d-\/\%02d"{}},\ year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_obj\_align(clock-\/>\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}},\ LV\_ALIGN\_BOTTOM\_MID,\ 50,\ -\/60);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clock-\/>\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_label\_set\_text\_fmt(clock-\/>\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}},\ \textcolor{stringliteral}{"{}\%s"{}},\ week\_day[weekday]);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lv\_obj\_align\_to(clock-\/>weekday\_label,\ lv\_obj\_get\_parent(clock-\/>weekday\_label),\ LV\_ALIGN\_BOTTOM\_MID,\ -\/2,\ 0);}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_obj\_align(clock-\/>\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}},\ LV\_ALIGN\_BOTTOM\_MID,\ -\/110,\ -\/20);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00124}\mbox{\hyperlink{home__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37}{00124}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{home__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37}{clock\_wb\_status\_task\_callback}}(lv\_timer\_t\ *timer)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00125}00125\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (timer\ !=\ NULL\ \&\&\ timer-\/>user\_data\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__status__lable}{lv\_status\_lable\_t}}\ *status\_lable\ =\ (\mbox{\hyperlink{struct__lv__clock}{lv\_clock\_t}}\ *)(timer-\/>user\_data);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0==\mbox{\hyperlink{check__device__status_8c_adc92373bd6f952b9457fa57fa8c37fd6}{check\_wifi\_state}}(\textcolor{stringliteral}{"{}wlan0"{}}))}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_img\_set\_src(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}},\ \&\mbox{\hyperlink{_wifi-1_8c_a0a826f1f7a2c89fbde478cf81473245a}{Wifi\_1}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_img\_set\_src(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}},\ \&\mbox{\hyperlink{_no___wifi_8c_aa41fd59991ae8dc457e5ebc317d40c44}{No\_Wifi}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_obj\_align(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}},\ LV\_ALIGN\_TOP\_LEFT,\ (\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}})\ /\ 3,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.28f);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0==0)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_img\_set\_src(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}},\ \&\mbox{\hyperlink{_bluetuth___o_n_8c_ab85f8a3170790e46dc517a061aec473e}{Bluetuth\_ON}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_img\_set\_src(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}},\ \&\mbox{\hyperlink{_bluetuth___o_f_f_8c_a8bad9c5c5a14007937c6751e55d67c37}{Bluetuth\_OFF}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_obj\_align(status\_lable-\/>\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}},\ LV\_ALIGN\_TOP\_LEFT,\ (\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}})\ /\ 3\ *\ 2,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.35f);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00158}00158\ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00165}\mbox{\hyperlink{home__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de}{00165}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{home__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de}{calender\_img\_clicked\_callback}}(lv\_event\_t\ *e)}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00166}00166\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00167}00167\ \ \ \ \ LV\_LOG\_USER(\textcolor{stringliteral}{"{}Clicked"{}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//\ lv\_scr\_load(Calender\_OBJ);}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ if\ (Calender\_OBJ\ !=\ NULL)\ \{}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ lv\_obj\_del(Calender\_OBJ);}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ Calender\_OBJ\ =\ NULL;\ \ //\ 确保指针重置}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ Calender\_OBJ\ =\ lv\_obj\_create(NULL);\ \ //\ 创建新的页面对象}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00174}00174\ \ \ \ \ lv\_scr\_load\_anim(\mbox{\hyperlink{calender__page_8c_a4f09c6f84716fa6373fa3c22ce1f46e8}{Calender\_OBJ}},\ LV\_SCR\_LOAD\_ANIM\_FADE\_ON,\ 200,\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00175}00175\ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00182}\mbox{\hyperlink{home__page_8c_acc52990ad5556f0e35d0318bca98a722}{00182}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{home__page_8c_acc52990ad5556f0e35d0318bca98a722}{message\_img\_clicked\_callback}}(lv\_event\_t\ *e)\{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00183}00183\ \ \ \ \ LV\_LOG\_USER(\textcolor{stringliteral}{"{}Clicked"{}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00184}00184\ \ \ \ \ \textcolor{comment}{//\ lv\_scr\_load(MessageBox\_OBJ);}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ if\ (MessageBox\_OBJ\ !=\ NULL)\ \{}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ lv\_obj\_del(MessageBox\_OBJ);}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ MessageBox\_OBJ\ =\ NULL;\ \ //\ 确保指针重置}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//\ MessageBox\_OBJ\ =\ lv\_obj\_create(NULL);\ \ //\ 创建新的页面对象}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00190}00190\ \ \ \ \ lv\_scr\_load\_anim(\mbox{\hyperlink{message__page_8c_a3d6660e007bb2eb9a05e2e1ef57cc760}{MessagePage\_OBJ}},\ LV\_SCR\_LOAD\_ANIM\_FADE\_ON,\ 200,\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00191}00191\ \}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00197}\mbox{\hyperlink{home__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215}{00197}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{home__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215}{HomePage}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00198}00198\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00199}00199\ \ \ \ \ \textcolor{comment}{//\ 创建主页对象}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}}\ =\ lv\_obj\_create(NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00201}00201\ \ \ \ \ lv\_obj\_set\_size(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}},\ LV\_HOR\_RES,\ LV\_VER\_RES);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ 声明图片资源}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00204}00204\ \ \ \ \ LV\_IMG\_DECLARE(\mbox{\hyperlink{mikuimg_8c_a9022c14f7c1306716294cfbc7bfb9b63}{mikuimg}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ 创建一个用于显示图片的图片对象}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00207}00207\ \ \ \ \ lv\_obj\_t\ *img\ =\ lv\_img\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00208}00208\ \ \ \ \ lv\_img\_set\_src(img,\ \&\mbox{\hyperlink{mikuimg_8c_a9022c14f7c1306716294cfbc7bfb9b63}{mikuimg}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00209}00209\ \ \ \ \ lv\_obj\_align(img,\ LV\_ALIGN\_TOP\_LEFT,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00211}00211\ \ \ \ \ \textcolor{comment}{//\ 底部装饰1}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00212}00212\ \ \ \ \ lv\_obj\_t\ *canvas\ =\ lv\_canvas\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00213}00213\ \ \ \ \ \textcolor{keyword}{static}\ lv\_color\_t\ canvasBuf[(32\ *\ 480)\ /\ 8\ *\ 480];}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00214}00214\ \ \ \ \ lv\_canvas\_set\_buffer(canvas,\ canvasBuf,\ 480,\ 480,\ LV\_IMG\_CF\_TRUE\_COLOR\_ALPHA);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00215}00215\ \ \ \ \ \textcolor{keyword}{const}\ lv\_point\_t\ polygonPoint[4]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \{0,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.1f\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}},\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.3f\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}},\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \{0,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00220}00220\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00221}00221\ \ \ \ \ lv\_draw\_rect\_dsc\_t\ rect\_dsc;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00222}00222\ \ \ \ \ lv\_draw\_rect\_dsc\_init(\&rect\_dsc);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00223}00223\ \ \ \ \ rect\_dsc.bg\_color\ =\ lv\_color\_hex(0x567c8c);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00224}00224\ \ \ \ \ lv\_canvas\_draw\_polygon(canvas,\ polygonPoint,\ 4,\ \&rect\_dsc);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00226}00226\ \ \ \ \ \textcolor{comment}{//\ 底部装饰2}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00227}00227\ \ \ \ \ lv\_obj\_t\ *canvas1\ =\ lv\_canvas\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00228}00228\ \ \ \ \ \textcolor{keyword}{static}\ lv\_color\_t\ canvasBuf1[(32\ *\ 480)\ /\ 8\ *\ 480];}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00229}00229\ \ \ \ \ lv\_canvas\_set\_buffer(canvas1,\ canvasBuf1,\ 480,\ 480,\ LV\_IMG\_CF\_TRUE\_COLOR\_ALPHA);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00230}00230\ \ \ \ \ \textcolor{keyword}{const}\ lv\_point\_t\ polygonPoint1[4]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \{0,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.25f\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}},\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.45f\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{home__page_8c_a359afaf9af8128c9e66b6d67e4bd5979}{hor\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}},\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.3f\},}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \{0,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ -\/\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ *\ 0.1f\}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00235}00235\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00236}00236\ \ \ \ \ lv\_draw\_rect\_dsc\_t\ rect\_dsc1;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00237}00237\ \ \ \ \ lv\_draw\_rect\_dsc\_init(\&rect\_dsc1);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00238}00238\ \ \ \ \ rect\_dsc1.bg\_color\ =\ lv\_color\_hex(0x000000);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00239}00239\ \ \ \ \ rect\_dsc1.bg\_opa\ =\ LV\_OPA\_80;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00240}00240\ \ \ \ \ lv\_canvas\_draw\_polygon(canvas1,\ polygonPoint1,\ 4,\ \&rect\_dsc1);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00242}00242\ \ \ \ \ \textcolor{comment}{//\ 状态标签}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00243}00243\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__status__lable}{lv\_status\_lable\_t}}\ status\_lable\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00244}00244\ \ \ \ \ status\_lable.\mbox{\hyperlink{struct__lv__status__lable_af30ac1a15a963a8e505cf60aba785fc6}{wifi\_label}}\ =\ lv\_img\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00245}00245\ \ \ \ \ status\_lable.\mbox{\hyperlink{struct__lv__status__lable_a4bc5106a1be8ebf18c9cda1ea4acf47f}{blue\_label}}\ =\ lv\_img\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00246}00246\ \ \ \ \ lv\_timer\_t\ *wb\_task\_timer\ =\ lv\_timer\_create(\mbox{\hyperlink{home__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37}{clock\_wb\_status\_task\_callback}},\ 1000,\ (\textcolor{keywordtype}{void}\ *)\&status\_lable);\ \textcolor{comment}{//\ 创建定时任务，1秒一次}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//\ 右侧栏}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00249}00249\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ style\_rect;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00250}00250\ \ \ \ \ lv\_obj\_t\ *rect;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00251}00251\ \ \ \ \ lv\_color\_t\ c\ =\ lv\_color\_hex(0xadc0c8);\ \ \ \ \ \ \ \textcolor{comment}{//\ 修改颜色值}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00252}00252\ \ \ \ \ lv\_style\_init(\&style\_rect);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 初始化样式}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00253}00253\ \ \ \ \ lv\_style\_set\_bg\_color(\&style\_rect,\ c);\ \ \ \ \ \ \ \textcolor{comment}{//\ 设置颜色}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00254}00254\ \ \ \ \ lv\_style\_set\_width(\&style\_rect,\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}});\ \textcolor{comment}{//\ 设置宽度}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00255}00255\ \ \ \ \ lv\_style\_set\_height(\&style\_rect,\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}});\ \ \ \textcolor{comment}{//\ 设置高度}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00256}00256\ \ \ \ \ lv\_style\_set\_radius(\&style\_rect,\ 0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 设置圆角}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00257}00257\ \ \ \ \ lv\_style\_set\_shadow\_width(\&style\_rect,\ 25);\ \ \textcolor{comment}{//\ 设置阴影宽度}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00258}00258\ \ \ \ \ lv\_style\_set\_shadow\_ofs\_x(\&style\_rect,\ -\/3);\ \ \textcolor{comment}{//\ 设置水平偏移}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00259}00259\ \ \ \ \ lv\_style\_set\_border\_width(\&style\_rect,\ 0);\ \ \ \textcolor{comment}{//\ 设置边框宽度}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00260}00260\ \ \ \ \ rect\ =\ lv\_obj\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00261}00261\ \ \ \ \ lv\_obj\_align(rect,\ LV\_ALIGN\_TOP\_RIGHT,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00262}00262\ \ \ \ \ lv\_obj\_add\_style(rect,\ \&style\_rect,\ 0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00264}00264\ \ \ \ \ \textcolor{comment}{//\ 创建设置图片按钮}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00265}00265\ \ \ \ \ lv\_obj\_t\ *shezhi\_img\ =\ lv\_img\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00266}00266\ \ \ \ \ lv\_img\_set\_src(shezhi\_img,\ \&\mbox{\hyperlink{shezhi_8c_a465f0d4961b25f3e93abaa6231a7d1b2}{shezhi}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00267}00267\ \ \ \ \ lv\_obj\_align(shezhi\_img,\ LV\_ALIGN\_TOP\_RIGHT,\ -\/1\ *\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ /\ 2.0\ +\ 64\ /\ 2,\ 1\ *\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ /\ 5.0\ -\/\ 64\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//\ 创建日历图片按钮}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00270}00270\ \ \ \ \ lv\_obj\_t\ *calendar\_img\_btn\ =\ lv\_imgbtn\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00271}00271\ \ \ \ \ lv\_imgbtn\_set\_src(calendar\_img\_btn,\ LV\_IMGBTN\_STATE\_RELEASED,\ \&\mbox{\hyperlink{calendar_8c_a918fc536b2beb9a618b05b7cf6689cf0}{calendar1}},\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00272}00272\ \ \ \ \ lv\_obj\_align(calendar\_img\_btn,\ LV\_ALIGN\_TOP\_RIGHT,\ -\/1\ *\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ /\ 2.0\ +\ 64\ /\ 2,\ 2\ *\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ /\ 5.0\ -\/\ 64\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00273}00273\ \ \ \ \ lv\_obj\_set\_size(calendar\_img\_btn,\ 64,\ 64);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00274}00274\ \ \ \ \ lv\_obj\_add\_event\_cb(calendar\_img\_btn,\ \mbox{\hyperlink{home__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de}{calender\_img\_clicked\_callback}},\ LV\_EVENT\_CLICKED,\ NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00276}00276\ \ \ \ \ \textcolor{comment}{//\ 创建消息图片按钮}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00277}00277\ \ \ \ \ lv\_obj\_t\ *message\_img\_btn\ =\ lv\_imgbtn\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00278}00278\ \ \ \ \ lv\_imgbtn\_set\_src(message\_img\_btn,\ LV\_IMGBTN\_STATE\_RELEASED,\ \&\mbox{\hyperlink{comment_8c_a015df7a67d864c05fb68c7e26c78d607}{comment}},\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00279}00279\ \ \ \ \ lv\_obj\_set\_size(message\_img\_btn,\ 64,\ 64);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00280}00280\ \ \ \ \ lv\_obj\_align(message\_img\_btn,\ LV\_ALIGN\_TOP\_RIGHT,\ -\/1\ *\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ /\ 2.0\ +\ 64\ /\ 2,\ 3\ *\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ /\ 5.0\ -\/\ 64\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00281}00281\ \ \ \ \ lv\_obj\_add\_event\_cb(message\_img\_btn,\ \mbox{\hyperlink{home__page_8c_acc52990ad5556f0e35d0318bca98a722}{message\_img\_clicked\_callback}},\ LV\_EVENT\_CLICKED,\ NULL);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00283}00283\ \ \ \ \ \textcolor{comment}{//\ 创建加载图片}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00284}00284\ \ \ \ \ lv\_obj\_t\ *loading\_img\ =\ lv\_img\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});\ \textcolor{comment}{//\ 创建在当前活动的屏幕}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00285}00285\ \ \ \ \ lv\_img\_set\_src(loading\_img,\ \&\mbox{\hyperlink{loading_8c_a481ff440d9c31fd9b62476543548615f}{loading}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00286}00286\ \ \ \ \ lv\_obj\_align(loading\_img,\ LV\_ALIGN\_TOP\_RIGHT,\ -\/1\ *\ \mbox{\hyperlink{home__page_8c_a7c3b89eb9d3a4f2eb77c7466afa6e885}{rect\_width}}\ /\ 2.0\ +\ 64\ /\ 2,\ 4\ *\ \mbox{\hyperlink{home__page_8c_a12265d0520ba942bc80ab4368bf451a2}{ver\_res}}\ /\ 5.0\ -\/\ 64\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ 时间标签样式}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00289}00289\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ time\_label\_style;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00290}00290\ \ \ \ \ lv\_style\_init(\&time\_label\_style);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00291}00291\ \ \ \ \ lv\_style\_set\_text\_color(\&time\_label\_style,\ lv\_color\_white());}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00292}00292\ \ \ \ \ lv\_style\_set\_text\_font(\&time\_label\_style,\ \&lv\_font\_montserrat\_32);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00293}00293\ \ \ \ \ lv\_style\_set\_text\_opa(\&time\_label\_style,\ LV\_OPA\_COVER);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00294}00294\ \ \ \ \ lv\_style\_set\_bg\_opa(\&time\_label\_style,\ LV\_OPA\_0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00295}00295\ \ \ \ \ lv\_style\_set\_text\_color(\&time\_label\_style,\ lv\_color\_hex(0xdba7af));}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00297}00297\ \ \ \ \ \textcolor{comment}{//\ 日期标签样式}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00298}00298\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ date\_label\_style;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00299}00299\ \ \ \ \ lv\_style\_init(\&date\_label\_style);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00300}00300\ \ \ \ \ lv\_style\_set\_text\_opa(\&date\_label\_style,\ LV\_OPA\_COVER);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00301}00301\ \ \ \ \ lv\_style\_set\_bg\_opa(\&date\_label\_style,\ LV\_OPA\_0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00302}00302\ \ \ \ \ lv\_style\_set\_text\_color(\&date\_label\_style,\ lv\_color\_white());}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00303}00303\ \ \ \ \ lv\_style\_set\_text\_font(\&date\_label\_style,\ \&lv\_font\_montserrat\_20);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00305}00305\ \ \ \ \ \textcolor{comment}{//\ 星期标签样式}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00306}00306\ \ \ \ \ \textcolor{keyword}{static}\ lv\_style\_t\ week\_lable\_style;}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00307}00307\ \ \ \ \ lv\_style\_init(\&week\_lable\_style);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00308}00308\ \ \ \ \ lv\_style\_set\_text\_opa(\&week\_lable\_style,\ LV\_OPA\_COVER);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00309}00309\ \ \ \ \ lv\_style\_set\_bg\_opa(\&week\_lable\_style,\ LV\_OPA\_0);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00310}00310\ \ \ \ \ lv\_style\_set\_text\_color(\&week\_lable\_style,\ lv\_color\_white());}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00311}00311\ \ \ \ \ lv\_style\_set\_text\_font(\&week\_lable\_style,\ \&lv\_font\_montserrat\_26);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00313}00313\ \ \ \ \ \textcolor{comment}{//\ 创建时钟对象}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00314}00314\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__clock}{lv\_clock\_t}}\ lv\_clock\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00315}00315\ \ \ \ \ lv\_clock.\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}}\ =\ lv\_label\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00316}00316\ \ \ \ \ lv\_obj\_add\_style(lv\_clock.\mbox{\hyperlink{struct__lv__clock_a8d56fd1986e4466ee966178da58c9c85}{time\_label}},\ \&time\_label\_style,\ LV\_STATE\_DEFAULT);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00318}00318\ \ \ \ \ lv\_clock.\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}}\ =\ lv\_label\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00319}00319\ \ \ \ \ lv\_obj\_add\_style(lv\_clock.\mbox{\hyperlink{struct__lv__clock_af111b09c31e6691cf1efbc6a0bae3878}{date\_label}},\ \&date\_label\_style,\ LV\_STATE\_DEFAULT);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00321}00321\ \ \ \ \ lv\_clock.\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}}\ =\ lv\_label\_create(\mbox{\hyperlink{home__page_8c_a5dfaac45201180965c5b03a3068e072b}{HomePage\_OBJ}});}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00322}00322\ \ \ \ \ lv\_obj\_add\_style(lv\_clock.\mbox{\hyperlink{struct__lv__clock_aab8ceddc748f54e39fc897a29e6e3b53}{weekday\_label}},\ \&week\_lable\_style,\ LV\_STATE\_DEFAULT);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00324}00324\ \ \ \ \ \textcolor{comment}{//\ 创建定时任务，200ms刷新一次}}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00325}00325\ \ \ \ \ lv\_timer\_t\ *task\_timer\ =\ lv\_timer\_create(\mbox{\hyperlink{home__page_8c_a456e42045e6e1f37e290440030da0e81}{clock\_date\_task\_callback}},\ 200,\ (\textcolor{keywordtype}{void}\ *)\&lv\_clock);}
+\DoxyCodeLine{\Hypertarget{home__page_8c_source_l00326}00326\ \}}
+
+\end{DoxyCode}

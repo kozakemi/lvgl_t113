@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/main.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/main.c</primary></indexterm>
+<para>
+
+<para>主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;lvgl/lvgl.h&quot;<?linebreak?>#include &quot;lvgl/demos/lv_demos.h&quot;<?linebreak?>#include &quot;lv_drivers/display/sunxifb.h&quot;<?linebreak?>#include &quot;lv_drivers/indev/evdev.h&quot;<?linebreak?>#include &lt;unistd.h&gt;<?linebreak?>#include &lt;pthread.h&gt;<?linebreak?>#include &lt;time.h&gt;<?linebreak?>#include &lt;sys/time.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &quot;lv_font.h&quot;<?linebreak?>#include &quot;page/home_page.h&quot;<?linebreak?>#include &quot;page/calender_page.h&quot;<?linebreak?>#include &quot;page/message_page.h&quot;<?linebreak?>#include &quot;device/mqtt/mqtt_client.h&quot;<?linebreak?></programlisting>main.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>函数    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_main_8c_1afdba62a4bef674bcad557bbb31ff46ee">hal_init</link> (void)</para>
+</listitem>
+            <listitem><para>static int <link linkend="_main_8c_1a629caf54024dbb96ebecfa21fdf3861f">tick_thread</link> (void *data)</para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a0ddf1224851353fc92bfbff6f499fa97">main</link> (int argc, char *argv[])</para>
+
+<para>主程序入口函数 </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_main_8c_1a44341ce97d8ee7d0aec7370ab92bba63">custom_tick_get</link> (void)</para>
+
+<para>LVGL心跳接口 </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。 </para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>初始化LVGL库</para>
+</listitem><listitem>
+<para>配置显示驱动（sunxifb）</para>
+</listitem><listitem>
+<para>配置输入设备驱动（evdev）</para>
+</listitem><listitem>
+<para>提供命令行参数选择不同的演示模式或启动自定义页面（主页、日历页、消息页）</para>
+</listitem><listitem>
+<para>启动MQTT客户端用于网络通信</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>编译并运行此程序时，可以通过命令行参数选择不同的演示模式：<itemizedlist>
+<listitem>
+<para>lv_examples 0: lv_demo_widgets</para>
+</listitem><listitem>
+<para>lv_examples 1: lv_demo_music</para>
+</listitem><listitem>
+<para>lv_examples 2: lv_demo_benchmark</para>
+</listitem><listitem>
+<para>lv_examples 3: lv_demo_keypad_encoder</para>
+</listitem><listitem>
+<para>lv_examples 4: lv_demo_stress</para>
+</listitem><listitem>
+<para>lv_examples 5: 启动自定义页面（主页、日历页、消息页）并连接MQTT服务器</para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi</para>
+</entry><entry>
+<para>初始版本，实现基本功能 </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_main_8c_source">main.c</link> 中定义.</para>
+</section>
+<section>
+<title>函数说明</title>
+<anchor xml:id="_main_8c_1a44341ce97d8ee7d0aec7370ab92bba63"/><section>
+    <title>custom_tick_get()</title>
+<indexterm><primary>custom_tick_get</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>custom_tick_get</secondary></indexterm>
+<para><computeroutput>uint32_t custom_tick_get (void )</computeroutput></para><para>
+
+<para>LVGL心跳接口 </para>
+</para>
+
+<para><formalpara><title>返回</title>
+
+<para>{uint32_t} </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_main_8c_source">main.c</link> 第 <link linkend="_main_8c_source_1l00193">193</link> 行定义.</para>
+</section>
+<anchor xml:id="_main_8c_1afdba62a4bef674bcad557bbb31ff46ee"/><section>
+    <title>hal_init()</title>
+<indexterm><primary>hal_init</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>hal_init</secondary></indexterm>
+<para><computeroutput>static void hal_init (void )<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_main_8c_1a0ddf1224851353fc92bfbff6f499fa97"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (int argc, char * argv[])</computeroutput></para><para>
+
+<para>主程序入口函数 </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+参数</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>{int}</entry><entry>
+<para>argc </para>
+</entry>
+                            </row>
+                            <row>
+<entry>{char</entry><entry>
+<para>*} argv </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>返回</title>
+
+<para>{int} </para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="_main_8c_source">main.c</link> 第 <link linkend="_main_8c_source_1l00087">87</link> 行定义.</para>
+函数调用图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8c_1a629caf54024dbb96ebecfa21fdf3861f"/><section>
+    <title>tick_thread()</title>
+<indexterm><primary>tick_thread</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>tick_thread</secondary></indexterm>
+<para><computeroutput>static int tick_thread (void * data)<computeroutput>[static]</computeroutput></computeroutput></para></section>
+</section>
+</section>

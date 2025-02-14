@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_820b2b9dd608784780e51ab49715a98b" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/device 目录参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/device 目录参考</primary></indexterm>
+<simplesect>
+    <title>目录    </title>
+        <itemizedlist>
+            <listitem><para>目录 <link linkend="_dir_ee9e5630c1f74dbc7ee5e7d376eb93a1">mqtt</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>文件    </title>
+        <itemizedlist>
+            <listitem><para>文件 <link linkend="_check__device__status_8c">check_device_status.c</link></para>
+
+<para>设备工作状态检查 </para>
+</listitem>
+            <listitem><para>文件 <link linkend="_check__device__status_8h">check_device_status.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

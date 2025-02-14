@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_lv__drv__conf_8h_source" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/lv_drv_conf.h</title>
+浏览该文件的文档.<programlisting linenumbering="unnumbered"><anchor xml:id="_lv__drv__conf_8h_source_1l00001"/>00001 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00006"/>00006 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00007"/>00007 <emphasis role="comment">&#32;*&#32;COPY&#32;THIS&#32;FILE&#32;AS&#32;lv_drv_conf.h</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00008"/>00008 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00009"/>00009 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00010"/>00010 <emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#if&#32;1&#32;</emphasis><emphasis role="comment">/*Set&#32;it&#32;to&#32;&quot;1&quot;&#32;to&#32;enable&#32;the&#32;content*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00012"/>00012 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#ifndef&#32;LV_DRV_CONF_H</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00014"/>00014 <emphasis role="preprocessor">#define&#32;LV_DRV_CONF_H</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00015"/>00015 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00016"/>00016 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_lv__conf_8h">lv_conf.h</link>&quot;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00017"/>00017 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00018"/>00018 <emphasis role="comment">/*********************</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00019"/>00019 <emphasis role="comment">&#32;*&#32;DELAY&#32;INTERFACE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00020"/>00020 <emphasis role="comment">&#32;*********************/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00021"/><link linkend="_lv__drv__conf_8h_1af29c29c0871fc429677780ebd10e2a6a">00021</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DELAY_INCLUDE&#32;&#32;&lt;stdint.h&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Dummy&#32;include&#32;by&#32;default*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00022"/><link linkend="_lv__drv__conf_8h_1af2afccbd16788c917d3ade7bdd15f807">00022</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DELAY_US(us)&#32;&#32;</emphasis><emphasis role="comment">/*delay_us(us)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Delay&#32;the&#32;given&#32;number&#32;of&#32;microseconds*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00023"/><link linkend="_lv__drv__conf_8h_1a1d9574a67a7b5fb205d49d90964d0063">00023</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DELAY_MS(ms)&#32;&#32;</emphasis><emphasis role="comment">/*delay_ms(ms)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Delay&#32;the&#32;given&#32;number&#32;of&#32;milliseconds*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00024"/>00024 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00025"/>00025 <emphasis role="comment">/*********************</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00026"/>00026 <emphasis role="comment">&#32;*&#32;DISPLAY&#32;INTERFACE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00027"/>00027 <emphasis role="comment">&#32;*********************/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00028"/>00028 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00029"/>00029 <emphasis role="comment">/*------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00030"/>00030 <emphasis role="comment">&#32;*&#32;&#32;Common</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00031"/>00031 <emphasis role="comment">&#32;*------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00032"/><link linkend="_lv__drv__conf_8h_1a124cb760870323d9c2902166287c6cd4">00032</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_INCLUDE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;stdint.h&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Dummy&#32;include&#32;by&#32;default*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00033"/><link linkend="_lv__drv__conf_8h_1a6ae0c0d20c4882197b7f41f97bbb194a">00033</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_CMD_DATA(val)&#32;&#32;</emphasis><emphasis role="comment">/*pin_x_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;command/data&#32;pin&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00034"/><link linkend="_lv__drv__conf_8h_1aec2f4ee11e8be6672317bcd863bcae76">00034</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_RST(val)&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*pin_x_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;reset&#32;pin&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00035"/>00035 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00036"/>00036 <emphasis role="comment">/*---------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00037"/>00037 <emphasis role="comment">&#32;*&#32;&#32;SPI</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00038"/>00038 <emphasis role="comment">&#32;*---------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00039"/><link linkend="_lv__drv__conf_8h_1a9b2fc97f13c6061db25bd580c56b5aae">00039</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_SPI_CS(val)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*spi_cs_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;SPI&apos;s&#32;Chip&#32;select&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00040"/><link linkend="_lv__drv__conf_8h_1aa9fa0dce12cdcf0608747403fb2e921f">00040</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_SPI_WR_BYTE(data)&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*spi_wr(data)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Write&#32;a&#32;byte&#32;the&#32;SPI&#32;bus*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00041"/><link linkend="_lv__drv__conf_8h_1ac4ab55e1e20b1a94e453a4ffe97064d3">00041</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_SPI_WR_ARRAY(adr,&#32;n)&#32;</emphasis><emphasis role="comment">/*spi_wr_mem(adr,&#32;n)*/</emphasis><emphasis role="preprocessor">&#32;&#32;</emphasis><emphasis role="comment">/*Write&#32;&apos;n&apos;&#32;bytes&#32;to&#32;SPI&#32;bus&#32;from&#32;&apos;adr&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00042"/>00042 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00043"/>00043 <emphasis role="comment">/*------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00044"/>00044 <emphasis role="comment">&#32;*&#32;&#32;Parallel&#32;port</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00045"/>00045 <emphasis role="comment">&#32;*-----------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00046"/><link linkend="_lv__drv__conf_8h_1a7f7bed402f029b089baf20981e3210ee">00046</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_PAR_CS(val)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*par_cs_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;Parallel&#32;port&apos;s&#32;Chip&#32;select&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00047"/><link linkend="_lv__drv__conf_8h_1a548addcf645b309b00ee5caf777e6fb1">00047</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_PAR_SLOW&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*par_slow()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;low&#32;speed&#32;on&#32;the&#32;parallel&#32;port*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00048"/><link linkend="_lv__drv__conf_8h_1a1f091368d33d438da548f074aa11ada8">00048</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_PAR_FAST&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*par_fast()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;high&#32;speed&#32;on&#32;the&#32;parallel&#32;port*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00049"/><link linkend="_lv__drv__conf_8h_1a38bef2fce0fc8c339b2832a0cef3e729">00049</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_PAR_WR_WORD(data)&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*par_wr(data)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Write&#32;a&#32;word&#32;to&#32;the&#32;parallel&#32;port*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00050"/><link linkend="_lv__drv__conf_8h_1ad6882526e88009acdefd107e0070d982">00050</link> <emphasis role="preprocessor">#define&#32;LV_DRV_DISP_PAR_WR_ARRAY(adr,&#32;n)&#32;</emphasis><emphasis role="comment">/*par_wr_mem(adr,n)*/</emphasis><emphasis role="preprocessor">&#32;</emphasis><emphasis role="comment">/*Write&#32;&apos;n&apos;&#32;bytes&#32;to&#32;Parallel&#32;ports&#32;from&#32;&apos;adr&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00051"/>00051 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00052"/>00052 <emphasis role="comment">/***************************</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00053"/>00053 <emphasis role="comment">&#32;*&#32;INPUT&#32;DEVICE&#32;INTERFACE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00054"/>00054 <emphasis role="comment">&#32;***************************/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00055"/>00055 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00056"/>00056 <emphasis role="comment">/*----------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00057"/>00057 <emphasis role="comment">&#32;*&#32;&#32;Common</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00058"/>00058 <emphasis role="comment">&#32;*----------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00059"/><link linkend="_lv__drv__conf_8h_1ab118aca7d8de99f8ea30c11f18ad8b67">00059</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_INCLUDE&#32;&#32;&#32;&#32;&#32;&lt;stdint.h&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Dummy&#32;include&#32;by&#32;default*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00060"/><link linkend="_lv__drv__conf_8h_1a84a8fce1b3b51292e999c26a5f96d680">00060</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_RST(val)&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*pin_x_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;reset&#32;pin&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00061"/><link linkend="_lv__drv__conf_8h_1a1b9686d7fd163fd89c5709389dc5276d">00061</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_IRQ_READ&#32;&#32;&#32;&#32;0&#32;</emphasis><emphasis role="comment">/*pn_x_read()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Read&#32;the&#32;IRQ&#32;pin*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00062"/>00062 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00063"/>00063 <emphasis role="comment">/*---------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00064"/>00064 <emphasis role="comment">&#32;*&#32;&#32;SPI</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00065"/>00065 <emphasis role="comment">&#32;*---------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00066"/><link linkend="_lv__drv__conf_8h_1a2e3ea3a43ab70213ae0a5edb263e2b02">00066</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_SPI_CS(val)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*spi_cs_set(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Set&#32;the&#32;SPI&apos;s&#32;Chip&#32;select&#32;to&#32;&apos;val&apos;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00067"/><link linkend="_lv__drv__conf_8h_1a2eb3dabb1b1992862d90f2b06cee7228">00067</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_SPI_XCHG_BYTE(data)&#32;&#32;&#32;&#32;0&#32;</emphasis><emphasis role="comment">/*spi_xchg(val)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Write&#32;&apos;val&apos;&#32;to&#32;SPI&#32;and&#32;give&#32;the&#32;read&#32;value*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00068"/>00068 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00069"/>00069 <emphasis role="comment">/*---------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00070"/>00070 <emphasis role="comment">&#32;*&#32;&#32;I2C</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00071"/>00071 <emphasis role="comment">&#32;*---------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00072"/><link linkend="_lv__drv__conf_8h_1a4e7a8dcfa33ad52d35fc7cf7fd05a827">00072</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_I2C_START&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*i2c_start()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Make&#32;an&#32;I2C&#32;start*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00073"/><link linkend="_lv__drv__conf_8h_1aa2ee58352c9ba8a31f8b4b03b9314c82">00073</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_I2C_STOP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*i2c_stop()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Make&#32;an&#32;I2C&#32;stop*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00074"/><link linkend="_lv__drv__conf_8h_1a2fcdb053f436dec17655df5648aa852e">00074</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_I2C_RESTART&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*i2c_restart()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Make&#32;an&#32;I2C&#32;restart*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00075"/><link linkend="_lv__drv__conf_8h_1a6c70809f29e117b062fa93de81616868">00075</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_I2C_WR(data)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*i2c_wr(data)*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Write&#32;a&#32;byte&#32;to&#32;the&#32;I1C&#32;bus*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00076"/><link linkend="_lv__drv__conf_8h_1a61db3081c72b436f30c7ee8fc146eb53">00076</link> <emphasis role="preprocessor">#define&#32;LV_DRV_INDEV_I2C_READ(last_read)&#32;&#32;&#32;&#32;0&#32;</emphasis><emphasis role="comment">/*i2c_rd()*/</emphasis><emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Read&#32;a&#32;byte&#32;from&#32;the&#32;I2C&#32;bud*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00077"/>00077 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00078"/>00078 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00079"/>00079 <emphasis role="comment">/*********************</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00080"/>00080 <emphasis role="comment">&#32;*&#32;&#32;DISPLAY&#32;DRIVERS</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00081"/>00081 <emphasis role="comment">&#32;*********************/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00082"/>00082 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00083"/>00083 <emphasis role="comment">/*-------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00084"/>00084 <emphasis role="comment">&#32;*&#32;&#32;SDL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00085"/>00085 <emphasis role="comment">&#32;*-------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00086"/>00086 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00087"/>00087 <emphasis role="comment">/*&#32;SDL&#32;based&#32;drivers&#32;for&#32;display,&#32;mouse,&#32;mousewheel&#32;and&#32;keyboard*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00088"/>00088 <emphasis role="preprocessor">#ifndef&#32;USE_SDL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00089"/><link linkend="_lv__drv__conf_8h_1a44e36145e97d5121b38c95cb9b87059f">00089</link> <emphasis role="preprocessor">#&#32;define&#32;USE_SDL&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00090"/>00090 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00091"/>00091 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00092"/>00092 <emphasis role="comment">/*&#32;Hardware&#32;accelerated&#32;SDL&#32;driver&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00093"/>00093 <emphasis role="preprocessor">#ifndef&#32;USE_SDL_GPU</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00094"/><link linkend="_lv__drv__conf_8h_1a46370f28da80ebc09d98aea5495dbd3a">00094</link> <emphasis role="preprocessor">#&#32;define&#32;USE_SDL_GPU&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00095"/>00095 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00096"/>00096 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00097"/>00097 <emphasis role="preprocessor">#if&#32;USE_SDL&#32;||&#32;USE_SDL_GPU</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00098"/>00098 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_HOR_RES&#32;&#32;&#32;&#32;&#32;480</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00099"/>00099 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_VER_RES&#32;&#32;&#32;&#32;&#32;320</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00100"/>00100 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00101"/>00101 <emphasis role="comment">/*&#32;Scale&#32;window&#32;by&#32;this&#32;factor&#32;(useful&#32;when&#32;simulating&#32;small&#32;screens)&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00102"/>00102 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_ZOOM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00103"/>00103 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00104"/>00104 <emphasis role="comment">/*&#32;Used&#32;to&#32;test&#32;true&#32;double&#32;buffering&#32;with&#32;only&#32;address&#32;changing.</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00105"/>00105 <emphasis role="comment">&#32;*&#32;Use&#32;2&#32;draw&#32;buffers,&#32;bith&#32;with&#32;SDL_HOR_RES&#32;x&#32;SDL_VER_RES&#32;size*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00106"/>00106 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_DOUBLE_BUFFERED&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00107"/>00107 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00108"/>00108 <emphasis role="comment">/*Eclipse:&#32;&lt;SDL2/SDL.h&gt;&#32;&#32;&#32;&#32;Visual&#32;Studio:&#32;&lt;SDL.h&gt;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00109"/>00109 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_INCLUDE_PATH&#32;&#32;&#32;&#32;&lt;SDL2/SDL.h&gt;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00110"/>00110 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00111"/>00111 <emphasis role="comment">/*Open&#32;two&#32;windows&#32;to&#32;test&#32;multi&#32;display&#32;support*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00112"/>00112 <emphasis role="preprocessor">#&#32;&#32;define&#32;SDL_DUAL_DISPLAY&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00113"/>00113 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00114"/>00114 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00115"/>00115 <emphasis role="comment">/*-------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00116"/>00116 <emphasis role="comment">&#32;*&#32;&#32;Monitor&#32;of&#32;PC</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00117"/>00117 <emphasis role="comment">&#32;*-------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00118"/>00118 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00119"/>00119 <emphasis role="comment">/*DEPRECATED:&#32;Use&#32;the&#32;SDL&#32;driver&#32;instead.&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00120"/>00120 <emphasis role="preprocessor">#ifndef&#32;USE_MONITOR</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00121"/><link linkend="_lv__drv__conf_8h_1ad846e33fa77d9246e697aa1142e2bd5c">00121</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_MONITOR&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00122"/>00122 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00123"/>00123 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00124"/>00124 <emphasis role="preprocessor">#if&#32;USE_MONITOR</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00125"/>00125 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_HOR_RES&#32;&#32;&#32;&#32;&#32;480</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00126"/>00126 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_VER_RES&#32;&#32;&#32;&#32;&#32;320</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00127"/>00127 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00128"/>00128 <emphasis role="comment">/*&#32;Scale&#32;window&#32;by&#32;this&#32;factor&#32;(useful&#32;when&#32;simulating&#32;small&#32;screens)&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00129"/>00129 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_ZOOM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00130"/>00130 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00131"/>00131 <emphasis role="comment">/*&#32;Used&#32;to&#32;test&#32;true&#32;double&#32;buffering&#32;with&#32;only&#32;address&#32;changing.</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00132"/>00132 <emphasis role="comment">&#32;*&#32;Use&#32;2&#32;draw&#32;buffers,&#32;bith&#32;with&#32;MONITOR_HOR_RES&#32;x&#32;MONITOR_VER_RES&#32;size*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00133"/>00133 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_DOUBLE_BUFFERED&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00134"/>00134 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00135"/>00135 <emphasis role="comment">/*Eclipse:&#32;&lt;SDL2/SDL.h&gt;&#32;&#32;&#32;&#32;Visual&#32;Studio:&#32;&lt;SDL.h&gt;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00136"/>00136 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_SDL_INCLUDE_PATH&#32;&#32;&#32;&#32;&lt;SDL2/SDL.h&gt;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00137"/>00137 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00138"/>00138 <emphasis role="comment">/*Open&#32;two&#32;windows&#32;to&#32;test&#32;multi&#32;display&#32;support*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00139"/>00139 <emphasis role="preprocessor">#&#32;&#32;define&#32;MONITOR_DUAL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00140"/>00140 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00141"/>00141 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00142"/>00142 <emphasis role="comment">/*-----------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00143"/>00143 <emphasis role="comment">&#32;*&#32;&#32;Native&#32;Windows&#32;(including&#32;mouse)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00144"/>00144 <emphasis role="comment">&#32;*----------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00145"/>00145 <emphasis role="preprocessor">#ifndef&#32;USE_WINDOWS</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00146"/><link linkend="_lv__drv__conf_8h_1af7bfe23cf121eb52ceec41625bca196f">00146</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_WINDOWS&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00147"/>00147 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00148"/>00148 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00149"/>00149 <emphasis role="preprocessor">#if&#32;USE_WINDOWS</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00150"/>00150 <emphasis role="preprocessor">#&#32;&#32;define&#32;WINDOW_HOR_RES&#32;&#32;&#32;&#32;&#32;&#32;480</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00151"/>00151 <emphasis role="preprocessor">#&#32;&#32;define&#32;WINDOW_VER_RES&#32;&#32;&#32;&#32;&#32;&#32;320</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00152"/>00152 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00153"/>00153 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00154"/>00154 <emphasis role="comment">/*----------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00155"/>00155 <emphasis role="comment">&#32;*&#32;&#32;Native&#32;Windows&#32;(win32drv)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00156"/>00156 <emphasis role="comment">&#32;*---------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00157"/>00157 <emphasis role="preprocessor">#ifndef&#32;USE_WIN32DRV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00158"/><link linkend="_lv__drv__conf_8h_1ae5b8577a82d70a48fbe8fe5c584dd31a">00158</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_WIN32DRV&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00159"/>00159 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00160"/>00160 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00161"/>00161 <emphasis role="preprocessor">#if&#32;USE_WIN32DRV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00162"/>00162 <emphasis role="comment">/*&#32;Scale&#32;window&#32;by&#32;this&#32;factor&#32;(useful&#32;when&#32;simulating&#32;small&#32;screens)&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00163"/>00163 <emphasis role="preprocessor">#&#32;&#32;define&#32;WIN32DRV_MONITOR_ZOOM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00164"/>00164 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00165"/>00165 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00166"/>00166 <emphasis role="comment">/*----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00167"/>00167 <emphasis role="comment">&#32;*&#32;&#32;GTK&#32;drivers&#32;(monitor,&#32;mouse,&#32;keyboard</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00168"/>00168 <emphasis role="comment">&#32;*---------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00169"/>00169 <emphasis role="preprocessor">#ifndef&#32;USE_GTK</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00170"/><link linkend="_lv__drv__conf_8h_1ac4b43c68077fef43afaa461792d6a0bb">00170</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_GTK&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00171"/>00171 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00172"/>00172 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00173"/>00173 <emphasis role="comment">/*----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00174"/>00174 <emphasis role="comment">&#32;*&#32;&#32;Wayland&#32;drivers&#32;(monitor,&#32;mouse,&#32;keyboard,&#32;touchscreen)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00175"/>00175 <emphasis role="comment">&#32;*---------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00176"/>00176 <emphasis role="preprocessor">#ifndef&#32;USE_WAYLAND</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00177"/><link linkend="_lv__drv__conf_8h_1ab75a44531b0c0a7329a9568e44085b37">00177</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_WAYLAND&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00178"/>00178 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00179"/>00179 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00180"/>00180 <emphasis role="preprocessor">#if&#32;USE_WAYLAND</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00181"/>00181 <emphasis role="comment">/*&#32;Support&#32;for&#32;client-side&#32;decorations&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00182"/>00182 <emphasis role="preprocessor">#&#32;&#32;ifndef&#32;LV_WAYLAND_CLIENT_SIDE_DECORATIONS</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00183"/>00183 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;LV_WAYLAND_CLIENT_SIDE_DECORATIONS&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00184"/>00184 <emphasis role="preprocessor">#&#32;&#32;endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00185"/>00185 <emphasis role="comment">/*&#32;Support&#32;for&#32;(deprecated)&#32;wl-shell&#32;protocol&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00186"/>00186 <emphasis role="preprocessor">#&#32;&#32;ifndef&#32;LV_WAYLAND_WL_SHELL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00187"/>00187 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;LV_WAYLAND_WL_SHELL&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00188"/>00188 <emphasis role="preprocessor">#&#32;&#32;endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00189"/>00189 <emphasis role="comment">/*&#32;Support&#32;for&#32;xdg-shell&#32;protocol&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00190"/>00190 <emphasis role="preprocessor">#&#32;&#32;ifndef&#32;LV_WAYLAND_XDG_SHELL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00191"/>00191 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;LV_WAYLAND_XDG_SHELL&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00192"/>00192 <emphasis role="preprocessor">#&#32;&#32;endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00193"/>00193 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00194"/>00194 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00195"/>00195 <emphasis role="comment">/*----------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00196"/>00196 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;SSD1963</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00197"/>00197 <emphasis role="comment">&#32;*--------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00198"/>00198 <emphasis role="preprocessor">#ifndef&#32;USE_SSD1963</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00199"/><link linkend="_lv__drv__conf_8h_1adbc48f4500599eb95ef353fe7bce1056">00199</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_SSD1963&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00200"/>00200 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00201"/>00201 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00202"/>00202 <emphasis role="preprocessor">#if&#32;USE_SSD1963</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00203"/>00203 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_HOR_RES&#32;&#32;&#32;&#32;&#32;LV_HOR_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00204"/>00204 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_VER_RES&#32;&#32;&#32;&#32;&#32;LV_VER_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00205"/>00205 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_HT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;531</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00206"/>00206 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_HPS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;43</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00207"/>00207 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_LPS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;8</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00208"/>00208 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_HPW&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00209"/>00209 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_VT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;288</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00210"/>00210 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_VPS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;12</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00211"/>00211 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_FPS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;4</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00212"/>00212 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_VPW&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00213"/>00213 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_HS_NEG&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Negative&#32;hsync*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00214"/>00214 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_VS_NEG&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Negative&#32;vsync*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00215"/>00215 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_ORI&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;</emphasis><emphasis role="comment">/*0,&#32;90,&#32;180,&#32;270*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00216"/>00216 <emphasis role="preprocessor">#&#32;&#32;define&#32;SSD1963_COLOR_DEPTH&#32;16</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00217"/>00217 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00218"/>00218 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00219"/>00219 <emphasis role="comment">/*----------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00220"/>00220 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;R61581</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00221"/>00221 <emphasis role="comment">&#32;*--------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00222"/>00222 <emphasis role="preprocessor">#ifndef&#32;USE_R61581</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00223"/><link linkend="_lv__drv__conf_8h_1ac35873063479c96b17442ae939dbad4e">00223</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_R61581&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00224"/>00224 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00225"/>00225 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00226"/>00226 <emphasis role="preprocessor">#if&#32;USE_R61581</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00227"/>00227 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_HOR_RES&#32;&#32;&#32;&#32;&#32;&#32;LV_HOR_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00228"/>00228 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_VER_RES&#32;&#32;&#32;&#32;&#32;&#32;LV_VER_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00229"/>00229 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_HSPL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*HSYNC&#32;signal&#32;polarity*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00230"/>00230 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_HSL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*HSYNC&#32;length&#32;(Not&#32;Implemented)*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00231"/>00231 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_HFP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Horitontal&#32;Front&#32;poarch&#32;(Not&#32;Implemented)*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00232"/>00232 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_HBP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Horitontal&#32;Back&#32;poarch&#32;(Not&#32;Implemented&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00233"/>00233 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_VSPL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*VSYNC&#32;signal&#32;polarity*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00234"/>00234 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_VSL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;10&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*VSYNC&#32;length&#32;(Not&#32;Implemented)*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00235"/>00235 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_VFP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;8&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Vertical&#32;Front&#32;poarch*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00236"/>00236 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_VBP&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;8&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Vertical&#32;Back&#32;poarch&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00237"/>00237 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_DPL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*DCLK&#32;signal&#32;polarity*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00238"/>00238 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_EPL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*ENABLE&#32;signal&#32;polarity*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00239"/>00239 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_ORI&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*0,&#32;180*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00240"/>00240 <emphasis role="preprocessor">#&#32;&#32;define&#32;R61581_LV_COLOR_DEPTH&#32;16&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Fix&#32;16&#32;bit*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00241"/>00241 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00242"/>00242 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00243"/>00243 <emphasis role="comment">/*------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00244"/>00244 <emphasis role="comment">&#32;*&#32;&#32;ST7565&#32;(Monochrome,&#32;low&#32;res.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00245"/>00245 <emphasis role="comment">&#32;*-----------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00246"/>00246 <emphasis role="preprocessor">#ifndef&#32;USE_ST7565</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00247"/><link linkend="_lv__drv__conf_8h_1a4f4bf7a13ee69bcf58f55a66df8ca240">00247</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_ST7565&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00248"/>00248 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00249"/>00249 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00250"/>00250 <emphasis role="preprocessor">#if&#32;USE_ST7565</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00251"/>00251 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00252"/>00252 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_ST7565*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00253"/>00253 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00254"/>00254 <emphasis role="comment">/*------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00255"/>00255 <emphasis role="comment">&#32;*&#32;&#32;GC9A01&#32;(color,&#32;low&#32;res.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00256"/>00256 <emphasis role="comment">&#32;*-----------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00257"/>00257 <emphasis role="preprocessor">#ifndef&#32;USE_GC9A01</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00258"/><link linkend="_lv__drv__conf_8h_1a3505a3c82785dded99433fddd58da76e">00258</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_GC9A01&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00259"/>00259 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00260"/>00260 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00261"/>00261 <emphasis role="preprocessor">#if&#32;USE_GC9A01</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00262"/>00262 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00263"/>00263 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_GC9A01*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00264"/>00264 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00265"/>00265 <emphasis role="comment">/*------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00266"/>00266 <emphasis role="comment">&#32;*&#32;&#32;UC1610&#32;(4&#32;gray&#32;160*[104|128])</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00267"/>00267 <emphasis role="comment">&#32;*&#32;&#32;(EA&#32;DOGXL160&#32;160x104&#32;tested)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00268"/>00268 <emphasis role="comment">&#32;*-----------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00269"/>00269 <emphasis role="preprocessor">#ifndef&#32;USE_UC1610</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00270"/><link linkend="_lv__drv__conf_8h_1ac489aa0807b48051cf7386759c7ab1e7">00270</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_UC1610&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00271"/>00271 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00272"/>00272 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00273"/>00273 <emphasis role="preprocessor">#if&#32;USE_UC1610</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00274"/>00274 <emphasis role="preprocessor">#&#32;&#32;define&#32;UC1610_HOR_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_HOR_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00275"/>00275 <emphasis role="preprocessor">#&#32;&#32;define&#32;UC1610_VER_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_VER_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00276"/>00276 <emphasis role="preprocessor">#&#32;&#32;define&#32;UC1610_INIT_CONTRAST&#32;&#32;&#32;33&#32;&#32;&#32;</emphasis><emphasis role="comment">/*&#32;init&#32;contrast,&#32;values&#32;in&#32;[%]&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00277"/>00277 <emphasis role="preprocessor">#&#32;&#32;define&#32;UC1610_INIT_HARD_RST&#32;&#32;&#32;0&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*&#32;1&#32;:&#32;hardware&#32;reset&#32;at&#32;init,&#32;0&#32;:&#32;software&#32;reset&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00278"/>00278 <emphasis role="preprocessor">#&#32;&#32;define&#32;UC1610_TOP_VIEW&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*&#32;0&#32;:&#32;Bottom&#32;View,&#32;1&#32;:&#32;Top&#32;View&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00279"/>00279 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_UC1610*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00280"/>00280 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00281"/>00281 <emphasis role="comment">/*-------------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00282"/>00282 <emphasis role="comment">&#32;*&#32;&#32;SHARP&#32;memory&#32;in&#32;pixel&#32;monochrome&#32;display&#32;series</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00283"/>00283 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS012B7DD01&#32;(184x38&#32;&#32;pixels.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00284"/>00284 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS013B7DH03&#32;(128x128&#32;pixels.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00285"/>00285 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS013B7DH05&#32;(144x168&#32;pixels.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00286"/>00286 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS027B7DH01&#32;(400x240&#32;pixels.)&#32;(tested)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00287"/>00287 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS032B7DD02&#32;(336x536&#32;pixels.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00288"/>00288 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;&#32;LS044Q7DH01&#32;(320x240&#32;pixels.)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00289"/>00289 <emphasis role="comment">&#32;*------------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00290"/>00290 <emphasis role="preprocessor">#ifndef&#32;USE_SHARP_MIP</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00291"/><link linkend="_lv__drv__conf_8h_1a15b028116a03bcbcc69e8d247f864aa1">00291</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_SHARP_MIP&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00292"/>00292 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00293"/>00293 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00294"/>00294 <emphasis role="preprocessor">#if&#32;USE_SHARP_MIP</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00295"/>00295 <emphasis role="preprocessor">#&#32;&#32;define&#32;SHARP_MIP_HOR_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_HOR_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00296"/>00296 <emphasis role="preprocessor">#&#32;&#32;define&#32;SHARP_MIP_VER_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_VER_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00297"/>00297 <emphasis role="preprocessor">#&#32;&#32;define&#32;SHARP_MIP_SOFT_COM_INVERSION&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00298"/>00298 <emphasis role="preprocessor">#&#32;&#32;define&#32;SHARP_MIP_REV_BYTE(b)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*((uint8_t)&#32;__REV(__RBIT(b)))*/</emphasis><emphasis role="preprocessor">&#32;&#32;</emphasis><emphasis role="comment">/*Architecture&#32;/&#32;compiler&#32;dependent&#32;byte&#32;bits&#32;order&#32;reverse*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00299"/>00299 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_SHARP_MIP*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00300"/>00300 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00301"/>00301 <emphasis role="comment">/*-------------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00302"/>00302 <emphasis role="comment">&#32;*&#32;&#32;ILI9341&#32;240X320&#32;TFT&#32;LCD</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00303"/>00303 <emphasis role="comment">&#32;*------------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00304"/>00304 <emphasis role="preprocessor">#ifndef&#32;USE_ILI9341</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00305"/><link linkend="_lv__drv__conf_8h_1a15b71b6ebf1fb67ee009445dc781f412">00305</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_ILI9341&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00306"/>00306 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00307"/>00307 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00308"/>00308 <emphasis role="preprocessor">#if&#32;USE_ILI9341</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00309"/>00309 <emphasis role="preprocessor">#&#32;&#32;define&#32;ILI9341_HOR_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_HOR_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00310"/>00310 <emphasis role="preprocessor">#&#32;&#32;define&#32;ILI9341_VER_RES&#32;&#32;&#32;&#32;&#32;&#32;&#32;LV_VER_RES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00311"/>00311 <emphasis role="preprocessor">#&#32;&#32;define&#32;ILI9341_GAMMA&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00312"/>00312 <emphasis role="preprocessor">#&#32;&#32;define&#32;ILI9341_TEARING&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00313"/>00313 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_ILI9341*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00314"/>00314 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00315"/>00315 <emphasis role="comment">/*-----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00316"/>00316 <emphasis role="comment">&#32;*&#32;&#32;Linux&#32;frame&#32;buffer&#32;device&#32;(/dev/fbx)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00317"/>00317 <emphasis role="comment">&#32;*-----------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00318"/>00318 <emphasis role="preprocessor">#ifndef&#32;USE_FBDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00319"/><link linkend="_lv__drv__conf_8h_1a9148738f7ba61c0ddf622c03f947b0c3">00319</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_FBDEV&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00320"/>00320 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00321"/>00321 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00322"/>00322 <emphasis role="preprocessor">#if&#32;USE_FBDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00323"/>00323 <emphasis role="preprocessor">#&#32;&#32;define&#32;FBDEV_PATH&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;/dev/fb0&quot;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00324"/>00324 <emphasis role="preprocessor">#&#32;&#32;define&#32;FBDEV_DISPLAY_POWER_ON&#32;&#32;1&#32;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00325"/>00325 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00326"/>00326 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00327"/>00327 <emphasis role="comment">/*-----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00328"/>00328 <emphasis role="comment">&#32;*&#32;&#32;FreeBSD&#32;frame&#32;buffer&#32;device&#32;(/dev/fbx)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00329"/>00329 <emphasis role="comment">&#32;*.........................................*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00330"/>00330 <emphasis role="preprocessor">#ifndef&#32;USE_BSD_FBDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00331"/><link linkend="_lv__drv__conf_8h_1a097e4f5713ce455fad5dd2116ae7173e">00331</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_BSD_FBDEV&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00332"/>00332 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00333"/>00333 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00334"/>00334 <emphasis role="preprocessor">#if&#32;USE_BSD_FBDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00335"/>00335 <emphasis role="preprocessor">#&#32;define&#32;FBDEV_PATH&#32;&#32;&#32;&#32;&#32;&quot;/dev/fb0&quot;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00336"/>00336 <emphasis role="preprocessor">#&#32;&#32;define&#32;FBDEV_DISPLAY_POWER_ON&#32;&#32;1&#32;</emphasis><emphasis role="comment">/*&#32;1&#32;to&#32;force&#32;display&#32;power&#32;during&#32;ini</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00337"/>00337 <emphasis role="comment">&#32;tialization&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00338"/>00338 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00339"/>00339 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00340"/>00340 <emphasis role="comment">/*-----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00341"/>00341 <emphasis role="comment">&#32;*&#32;&#32;Sunxi&#32;frame&#32;buffer&#32;device&#32;(/dev/fbx)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00342"/>00342 <emphasis role="comment">&#32;*.........................................*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00343"/>00343 <emphasis role="preprocessor">#ifndef&#32;USE_SUNXIFB</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00344"/><link linkend="_lv__drv__conf_8h_1aa0687efcc3b1f7b467880fb9fd6be2d2">00344</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_SUNXIFB&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00345"/>00345 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00346"/>00346 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00347"/>00347 <emphasis role="preprocessor">#if&#32;USE_SUNXIFB</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00348"/><link linkend="_lv__drv__conf_8h_1acdd464c6699c54aeb33f27336b636f6e">00348</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;SUNXIFB_PATH&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;/dev/fb0&quot;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00349"/><link linkend="_lv__drv__conf_8h_1af1fa47cd75f42c41fbe1caa2f7ba0006">00349</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_SUNXIFB_DOUBLE_BUFFER&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00350"/>00350 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00351"/>00351 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00352"/>00352 <emphasis role="comment">/*-----------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00353"/>00353 <emphasis role="comment">&#32;*&#32;&#32;DRM/KMS&#32;device&#32;(/dev/dri/cardX)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00354"/>00354 <emphasis role="comment">&#32;*-----------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00355"/>00355 <emphasis role="preprocessor">#ifndef&#32;USE_DRM</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00356"/><link linkend="_lv__drv__conf_8h_1ab45508dfc830da53d78797276321d3cb">00356</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_DRM&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00357"/>00357 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00358"/>00358 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00359"/>00359 <emphasis role="preprocessor">#if&#32;USE_DRM</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00360"/>00360 <emphasis role="preprocessor">#&#32;&#32;define&#32;DRM_CARD&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;/dev/dri/card0&quot;</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00361"/>00361 <emphasis role="preprocessor">#&#32;&#32;define&#32;DRM_CONNECTOR_ID&#32;&#32;-1&#32;&#32;</emphasis><emphasis role="comment">/*&#32;-1&#32;for&#32;the&#32;first&#32;connected&#32;one&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00362"/>00362 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00363"/>00363 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00364"/>00364 <emphasis role="comment">/*********************</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00365"/>00365 <emphasis role="comment">&#32;*&#32;&#32;INPUT&#32;DEVICES</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00366"/>00366 <emphasis role="comment">&#32;*********************/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00367"/>00367 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00368"/>00368 <emphasis role="comment">/*--------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00369"/>00369 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;XPT2046</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00370"/>00370 <emphasis role="comment">&#32;*--------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00371"/>00371 <emphasis role="preprocessor">#ifndef&#32;USE_XPT2046</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00372"/><link linkend="_lv__drv__conf_8h_1aed04f9e1f860acd98ea90ba2fac27d92">00372</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_XPT2046&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00373"/>00373 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00374"/>00374 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00375"/>00375 <emphasis role="preprocessor">#if&#32;USE_XPT2046</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00376"/>00376 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_HOR_RES&#32;&#32;&#32;&#32;&#32;480</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00377"/>00377 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_VER_RES&#32;&#32;&#32;&#32;&#32;320</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00378"/>00378 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_X_MIN&#32;&#32;&#32;&#32;&#32;&#32;&#32;200</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00379"/>00379 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_Y_MIN&#32;&#32;&#32;&#32;&#32;&#32;&#32;200</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00380"/>00380 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_X_MAX&#32;&#32;&#32;&#32;&#32;&#32;&#32;3800</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00381"/>00381 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_Y_MAX&#32;&#32;&#32;&#32;&#32;&#32;&#32;3800</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00382"/>00382 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_AVG&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;4</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00383"/>00383 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_X_INV&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00384"/>00384 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_Y_INV&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00385"/>00385 <emphasis role="preprocessor">#&#32;&#32;define&#32;XPT2046_XY_SWAP&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00386"/>00386 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00387"/>00387 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00388"/>00388 <emphasis role="comment">/*-----------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00389"/>00389 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;FT5406EE8</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00390"/>00390 <emphasis role="comment">&#32;*-----------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00391"/>00391 <emphasis role="preprocessor">#ifndef&#32;USE_FT5406EE8</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00392"/><link linkend="_lv__drv__conf_8h_1a6199488785006b1e8890431a40a8bfb7">00392</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_FT5406EE8&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00393"/>00393 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00394"/>00394 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00395"/>00395 <emphasis role="preprocessor">#if&#32;USE_FT5406EE8</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00396"/>00396 <emphasis role="preprocessor">#&#32;define&#32;FT5406EE8_I2C_ADR&#32;&#32;&#32;0x38&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*7&#32;bit&#32;address*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00397"/>00397 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00398"/>00398 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00399"/>00399 <emphasis role="comment">/*---------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00400"/>00400 <emphasis role="comment">&#32;*&#32;&#32;AD&#32;TOUCH</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00401"/>00401 <emphasis role="comment">&#32;*--------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00402"/>00402 <emphasis role="preprocessor">#ifndef&#32;USE_AD_TOUCH</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00403"/><link linkend="_lv__drv__conf_8h_1a679096cb0d94481a6fa91c69d16c5dc7">00403</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_AD_TOUCH&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00404"/>00404 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00405"/>00405 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00406"/>00406 <emphasis role="preprocessor">#if&#32;USE_AD_TOUCH</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00407"/>00407 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00408"/>00408 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00409"/>00409 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00410"/>00410 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00411"/>00411 <emphasis role="comment">/*---------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00412"/>00412 <emphasis role="comment">&#32;*&#32;Mouse&#32;or&#32;touchpad&#32;on&#32;PC&#32;(using&#32;SDL)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00413"/>00413 <emphasis role="comment">&#32;*-------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00414"/>00414 <emphasis role="comment">/*DEPRECATED:&#32;Use&#32;the&#32;SDL&#32;driver&#32;instead.&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00415"/>00415 <emphasis role="preprocessor">#ifndef&#32;USE_MOUSE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00416"/><link linkend="_lv__drv__conf_8h_1a870d3ff9a36da913f95ff5b4c5afe75c">00416</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_MOUSE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00417"/>00417 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00418"/>00418 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00419"/>00419 <emphasis role="preprocessor">#if&#32;USE_MOUSE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00420"/>00420 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00421"/>00421 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00422"/>00422 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00423"/>00423 <emphasis role="comment">/*-------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00424"/>00424 <emphasis role="comment">&#32;*&#32;Mousewheel&#32;as&#32;encoder&#32;on&#32;PC&#32;(using&#32;SDL)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00425"/>00425 <emphasis role="comment">&#32;*------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00426"/>00426 <emphasis role="comment">/*DEPRECATED:&#32;Use&#32;the&#32;SDL&#32;driver&#32;instead.&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00427"/>00427 <emphasis role="preprocessor">#ifndef&#32;USE_MOUSEWHEEL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00428"/><link linkend="_lv__drv__conf_8h_1af02ed91286a7d2f3cfffc6e2c06eb008">00428</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_MOUSEWHEEL&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00429"/>00429 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00430"/>00430 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00431"/>00431 <emphasis role="preprocessor">#if&#32;USE_MOUSEWHEEL</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00432"/>00432 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00433"/>00433 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00434"/>00434 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00435"/>00435 <emphasis role="comment">/*-------------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00436"/>00436 <emphasis role="comment">&#32;*&#32;Touchscreen,&#32;mouse/touchpad&#32;or&#32;keyboard&#32;as&#32;libinput&#32;interface&#32;(for&#32;Linux&#32;based&#32;systems)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00437"/>00437 <emphasis role="comment">&#32;*------------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00438"/>00438 <emphasis role="preprocessor">#ifndef&#32;USE_LIBINPUT</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00439"/><link linkend="_lv__drv__conf_8h_1a750129eabbf8e133a1b7022a2c0ab089">00439</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_LIBINPUT&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00440"/>00440 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00441"/>00441 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00442"/>00442 <emphasis role="preprocessor">#ifndef&#32;USE_BSD_LIBINPUT</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00443"/><link linkend="_lv__drv__conf_8h_1aa5ae5610c6158044366e7e46961de662">00443</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_BSD_LIBINPUT&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00444"/>00444 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00445"/>00445 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00446"/>00446 <emphasis role="preprocessor">#if&#32;USE_LIBINPUT&#32;||&#32;USE_BSD_LIBINPUT</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00447"/>00447 <emphasis role="comment">/*If&#32;only&#32;a&#32;single&#32;device&#32;of&#32;the&#32;same&#32;type&#32;is&#32;connected,&#32;you&#32;can&#32;also&#32;auto&#32;detect&#32;it,&#32;e.g.:</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00448"/>00448 <emphasis role="comment">&#32;*#define&#32;LIBINPUT_NAME&#32;&#32;&#32;libinput_find_dev(LIBINPUT_CAPABILITY_TOUCH,&#32;false)*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00449"/>00449 <emphasis role="preprocessor">#&#32;&#32;define&#32;LIBINPUT_NAME&#32;&#32;&#32;&quot;/dev/input/event0&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*You&#32;can&#32;use&#32;the&#32;&quot;evtest&quot;&#32;Linux&#32;tool&#32;to&#32;get&#32;the&#32;list&#32;of&#32;devices&#32;and&#32;test&#32;them*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00450"/>00450 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00451"/>00451 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_LIBINPUT&#32;||&#32;USE_BSD_LIBINPUT*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00452"/>00452 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00453"/>00453 <emphasis role="comment">/*-------------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00454"/>00454 <emphasis role="comment">&#32;*&#32;Mouse&#32;or&#32;touchpad&#32;as&#32;evdev&#32;interface&#32;(for&#32;Linux&#32;based&#32;systems)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00455"/>00455 <emphasis role="comment">&#32;*------------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00456"/>00456 <emphasis role="preprocessor">#ifndef&#32;USE_EVDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00457"/><link linkend="_lv__drv__conf_8h_1a818c2a0b450425b4276a41cc4fb19897">00457</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_EVDEV&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00458"/>00458 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00459"/>00459 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00460"/>00460 <emphasis role="preprocessor">#ifndef&#32;USE_BSD_EVDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00461"/><link linkend="_lv__drv__conf_8h_1a4a4597b973fb5fcb9ab0f702d00f2951">00461</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_BSD_EVDEV&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00462"/>00462 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00463"/>00463 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00464"/>00464 <emphasis role="preprocessor">#if&#32;USE_EVDEV&#32;||&#32;USE_BSD_EVDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00465"/><link linkend="_lv__drv__conf_8h_1a4c889ea0456025f291ef3d786105305c">00465</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;EVDEV_NAME&#32;&#32;&#32;&quot;/dev/input/event1&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*You&#32;can&#32;use&#32;the&#32;&quot;evtest&quot;&#32;Linux&#32;tool&#32;to&#32;get&#32;the&#32;list&#32;of&#32;devices&#32;and&#32;test&#32;them*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00466"/><link linkend="_lv__drv__conf_8h_1adb7fb5e0bce9226afc0526b4e375057c">00466</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;EVDEV_SWAP_AXES&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Swap&#32;the&#32;x&#32;and&#32;y&#32;axes&#32;of&#32;the&#32;touchscreen*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00467"/>00467 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00468"/><link linkend="_lv__drv__conf_8h_1ae8b948252bae8333c0ac58c40d719d6e">00468</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;EVDEV_CALIBRATE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*Scale&#32;and&#32;offset&#32;the&#32;touchscreen&#32;coordinates&#32;by&#32;using&#32;maximum&#32;and&#32;minimum&#32;values&#32;for&#32;each&#32;axis*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00469"/>00469 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00470"/>00470 <emphasis role="preprocessor">#&#32;&#32;if&#32;EVDEV_CALIBRATE</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00471"/>00471 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;EVDEV_HOR_MIN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*to&#32;invert&#32;axis&#32;swap&#32;EVDEV_XXX_MIN&#32;by&#32;EVDEV_XXX_MAX*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00472"/>00472 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;EVDEV_HOR_MAX&#32;&#32;&#32;&#32;&#32;&#32;4096&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">/*&quot;evtest&quot;&#32;Linux&#32;tool&#32;can&#32;help&#32;to&#32;get&#32;the&#32;correct&#32;calibraion&#32;values&gt;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00473"/>00473 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;EVDEV_VER_MIN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00474"/>00474 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;EVDEV_VER_MAX&#32;&#32;&#32;&#32;&#32;&#32;4096</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00475"/>00475 <emphasis role="preprocessor">#&#32;&#32;endif&#32;&#32;</emphasis><emphasis role="comment">/*EVDEV_CALIBRATE*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00476"/>00476 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_EVDEV*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00477"/>00477 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00478"/>00478 <emphasis role="comment">/*-------------------------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00479"/>00479 <emphasis role="comment">&#32;*&#32;Full&#32;keyboard&#32;support&#32;for&#32;evdev&#32;and&#32;libinput&#32;interface</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00480"/>00480 <emphasis role="comment">&#32;*------------------------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00481"/>00481 <emphasis role="preprocessor">#&#32;&#32;ifndef&#32;USE_XKB</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00482"/><link linkend="_lv__drv__conf_8h_1a6bae31eb4b566d636121c2a71b747d2f">00482</link> <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;USE_XKB&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00483"/>00483 <emphasis role="preprocessor">#&#32;&#32;endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00484"/>00484 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00485"/>00485 <emphasis role="preprocessor">#if&#32;USE_LIBINPUT&#32;||&#32;USE_BSD_LIBINPUT&#32;||&#32;USE_EVDEV&#32;||&#32;USE_BSD_EVDEV</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00486"/>00486 <emphasis role="preprocessor">#&#32;&#32;if&#32;USE_XKB</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00487"/>00487 <emphasis role="preprocessor">#&#32;&#32;&#32;&#32;define&#32;XKB_KEY_MAP&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;.rules&#32;=&#32;NULL,&#32;\</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00488"/>00488 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.model&#32;=&#32;&quot;pc101&quot;,&#32;\</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00489"/>00489 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.layout&#32;=&#32;&quot;us&quot;,&#32;\</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00490"/>00490 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.variant&#32;=&#32;NULL,&#32;\</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00491"/>00491 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.options&#32;=&#32;NULL&#32;}&#32;</emphasis><emphasis role="comment">/*&quot;setxkbmap&#32;-query&quot;&#32;can&#32;help&#32;find&#32;the&#32;right&#32;values&#32;for&#32;your&#32;keyboard*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00492"/>00492 <emphasis role="preprocessor">#&#32;&#32;endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_XKB*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00493"/>00493 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*USE_LIBINPUT&#32;||&#32;USE_BSD_LIBINPUT&#32;||&#32;USE_EVDEV&#32;||&#32;USE_BSD_EVDEV*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00494"/>00494 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00495"/>00495 <emphasis role="comment">/*-------------------------------</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00496"/>00496 <emphasis role="comment">&#32;*&#32;&#32;&#32;Keyboard&#32;of&#32;a&#32;PC&#32;(using&#32;SDL)</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00497"/>00497 <emphasis role="comment">&#32;*------------------------------*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00498"/>00498 <emphasis role="comment">/*DEPRECATED:&#32;Use&#32;the&#32;SDL&#32;driver&#32;instead.&#32;*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00499"/>00499 <emphasis role="preprocessor">#ifndef&#32;USE_KEYBOARD</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00500"/><link linkend="_lv__drv__conf_8h_1aaff13e7f3c71f5d9799ad3d99b6a6c1e">00500</link> <emphasis role="preprocessor">#&#32;&#32;define&#32;USE_KEYBOARD&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00501"/>00501 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00502"/>00502 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00503"/>00503 <emphasis role="preprocessor">#if&#32;USE_KEYBOARD</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00504"/>00504 <emphasis role="comment">/*No&#32;settings*/</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00505"/>00505 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00506"/>00506 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00507"/>00507 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">/*LV_DRV_CONF_H*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_lv__drv__conf_8h_source_1l00508"/>00508 
+<anchor xml:id="_lv__drv__conf_8h_source_1l00509"/>00509 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*End&#32;of&#32;&quot;Content&#32;enable&quot;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mqtt__client_8c_source" xml:lang="zh">
+<title>mqtt_client.c</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/device/mqtt/mqtt_client.c</primary></indexterm>
+浏览该文件的文档.<programlisting linenumbering="unnumbered"><anchor xml:id="_mqtt__client_8c_source_1l00001"/>00001 
+<anchor xml:id="_mqtt__client_8c_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&lt;mosquitto.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00027"/>00027 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00028"/>00028 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00029"/>00029 <emphasis role="preprocessor">#include&#32;&lt;pthread.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00030"/>00030 <emphasis role="preprocessor">#include&#32;&lt;unistd.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00031"/>00031 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00032"/>00032 
+<anchor xml:id="_mqtt__client_8c_source_1l00033"/>00033 <emphasis role="comment">//&#32;定义全局变量</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00034"/><link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">00034</link> <emphasis role="keyword">struct&#32;</emphasis>mosquitto&#32;*<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>&#32;=&#32;NULL;
+<anchor xml:id="_mqtt__client_8c_source_1l00035"/><link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">00035</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">is_connected</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_mqtt__client_8c_source_1l00036"/><link linkend="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f">00036</link> pthread_t&#32;<link linkend="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f">mqtt_thread_id</link>;
+<anchor xml:id="_mqtt__client_8c_source_1l00037"/><link linkend="_mqtt__client_8c_1aefca29d0e243e1ece4d2602425c1d11b">00037</link> <emphasis role="preprocessor">#define&#32;MQTT_USE_ID&#32;&#32;&#32;&#32;&#32;&#32;&quot;703e13100a3d43b6b4abbb628b3c3d89&quot;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00038"/><link linkend="_mqtt__client_8c_1a619e6f4f4bc00f5c2ca68a1aad382202">00038</link> <emphasis role="preprocessor">#define&#32;MQTT_BROKER_ADDR&#32;&quot;119.91.109.180&quot;</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00039"/><link linkend="_mqtt__client_8c_1a8da4bdd90d82e2a8498f3fb429fed744">00039</link> <emphasis role="preprocessor">#define&#32;MQTT_BROKER_PORT&#32;&#32;9501</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00040"/>00040 
+<anchor xml:id="_mqtt__client_8c_source_1l00048"/><link linkend="_mqtt__client_8c_1a8bc2da7c7590053c30af460864d008b1">00048</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_mqtt__client_8c_1a8bc2da7c7590053c30af460864d008b1">on_connect_callback</link>(<emphasis role="keyword">struct</emphasis>&#32;mosquitto&#32;*<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<emphasis role="keywordtype">void</emphasis>&#32;*obj,&#32;<emphasis role="keywordtype">int</emphasis>&#32;reason_code)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(reason_code&#32;!=&#32;0)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;connect&#32;to&#32;broker,&#32;reason&#32;code:&#32;%d\n&quot;</emphasis>,&#32;reason_code);
+<anchor xml:id="_mqtt__client_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exit(1);
+<anchor xml:id="_mqtt__client_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Connected&#32;to&#32;broker.\n&quot;</emphasis>);
+<anchor xml:id="_mqtt__client_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">is_connected</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_mqtt__client_8c_source_1l00055"/>00055 &#32;&#32;&#32;&#32;mosquitto_subscribe(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;NULL,&#32;<emphasis role="stringliteral">&quot;switch006&quot;</emphasis>,&#32;0);
+<anchor xml:id="_mqtt__client_8c_source_1l00056"/>00056 }
+<anchor xml:id="_mqtt__client_8c_source_1l00057"/>00057 
+<anchor xml:id="_mqtt__client_8c_source_1l00065"/><link linkend="_mqtt__client_8c_1ab171d521e4936999f813bbdbdd934834">00065</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_mqtt__client_8c_1ab171d521e4936999f813bbdbdd934834">on_message_callback</link>(<emphasis role="keyword">struct</emphasis>&#32;mosquitto&#32;*<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<emphasis role="keywordtype">void</emphasis>&#32;*obj,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">struct</emphasis>&#32;mosquitto_message&#32;*msg)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msg&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Received&#32;message&#32;on&#32;topic&#32;&apos;%s&apos;:&#32;%s\n&quot;</emphasis>,&#32;msg-&gt;topic,&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)msg-&gt;payload);
+<anchor xml:id="_mqtt__client_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00069"/>00069 }
+<anchor xml:id="_mqtt__client_8c_source_1l00070"/>00070 
+<anchor xml:id="_mqtt__client_8c_source_1l00078"/><link linkend="_mqtt__client_8c_1a85c88ba0fdee6f038ad885ebc443dfad">00078</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_mqtt__client_8c_1a85c88ba0fdee6f038ad885ebc443dfad">on_disconnect_callback</link>(<emphasis role="keyword">struct</emphasis>&#32;mosquitto&#32;*<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<emphasis role="keywordtype">void</emphasis>&#32;*obj,&#32;<emphasis role="keywordtype">int</emphasis>&#32;reason_code)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Disconnected&#32;from&#32;broker,&#32;reason&#32;code:&#32;%d\n&quot;</emphasis>,&#32;reason_code);
+<anchor xml:id="_mqtt__client_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;<link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">is_connected</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_mqtt__client_8c_source_1l00081"/>00081 }
+<anchor xml:id="_mqtt__client_8c_source_1l00082"/>00082 
+<anchor xml:id="_mqtt__client_8c_source_1l00083"/>00083 
+<anchor xml:id="_mqtt__client_8c_source_1l00089"/><link linkend="_mqtt__client_8c_1a5beb486bdbacfa4942a8bc03e72c323f">00089</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_mqtt__client_8c_1a5beb486bdbacfa4942a8bc03e72c323f">mqtt_init</link>()&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;ret;
+<anchor xml:id="_mqtt__client_8c_source_1l00091"/>00091 
+<anchor xml:id="_mqtt__client_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;mosquitto_lib_init();
+<anchor xml:id="_mqtt__client_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>&#32;=&#32;mosquitto_new(<link linkend="_mqtt__client_8c_1aefca29d0e243e1ece4d2602425c1d11b">MQTT_USE_ID</link>,&#32;<emphasis role="keyword">true</emphasis>,&#32;NULL);
+<anchor xml:id="_mqtt__client_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;create&#32;mosquitto&#32;instance.\n&quot;</emphasis>);
+<anchor xml:id="_mqtt__client_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_mqtt__client_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00098"/>00098 
+<anchor xml:id="_mqtt__client_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;mosquitto_connect_callback_set(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<link linkend="_mqtt__client_8c_1a8bc2da7c7590053c30af460864d008b1">on_connect_callback</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;mosquitto_message_callback_set(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<link linkend="_mqtt__client_8c_1ab171d521e4936999f813bbdbdd934834">on_message_callback</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;mosquitto_disconnect_callback_set(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<link linkend="_mqtt__client_8c_1a85c88ba0fdee6f038ad885ebc443dfad">on_disconnect_callback</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00102"/>00102 
+<anchor xml:id="_mqtt__client_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;ret&#32;=&#32;mosquitto_connect(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;<link linkend="_mqtt__client_8c_1a619e6f4f4bc00f5c2ca68a1aad382202">MQTT_BROKER_ADDR</link>,&#32;<link linkend="_mqtt__client_8c_1a8da4bdd90d82e2a8498f3fb429fed744">MQTT_BROKER_PORT</link>,&#32;60);
+<anchor xml:id="_mqtt__client_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ret&#32;!=&#32;MOSQ_ERR_SUCCESS)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;connect&#32;to&#32;broker,&#32;error:&#32;%d\n&quot;</emphasis>,&#32;ret);
+<anchor xml:id="_mqtt__client_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mosquitto_destroy(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_mqtt__client_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00109"/>00109 
+<anchor xml:id="_mqtt__client_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_mqtt__client_8c_source_1l00111"/>00111 }
+<anchor xml:id="_mqtt__client_8c_source_1l00112"/>00112 
+<anchor xml:id="_mqtt__client_8c_source_1l00119"/>00119 &#32;*/
+<anchor xml:id="_mqtt__client_8c_source_1l00120"/><link linkend="_mqtt__client_8c_1ab7c2be9d4b53b90f7bac01a8a60a4265">00120</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_mqtt__client_8c_1ab7c2be9d4b53b90f7bac01a8a60a4265">mqtt_thread</link>(<emphasis role="keywordtype">void</emphasis>&#32;*arg)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mosquitto_loop(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>,&#32;1000,&#32;1);
+<anchor xml:id="_mqtt__client_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sleep(1);
+<anchor xml:id="_mqtt__client_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;NULL;
+<anchor xml:id="_mqtt__client_8c_source_1l00128"/>00128 }
+<anchor xml:id="_mqtt__client_8c_source_1l00129"/>00129 
+<anchor xml:id="_mqtt__client_8c_source_1l00136"/><link linkend="_mqtt__client_8c_1a51f5356faf09ba83de5688dcc29ad262">00136</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_mqtt__client_8c_1a51f5356faf09ba83de5688dcc29ad262">mqtt_is_connected</link>()&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_mqtt__client_8c_1a5995db87b2ef40e52a47d2fb1f13ae42">is_connected</link>;
+<anchor xml:id="_mqtt__client_8c_source_1l00138"/>00138 }
+<anchor xml:id="_mqtt__client_8c_source_1l00139"/>00139 
+<anchor xml:id="_mqtt__client_8c_source_1l00140"/>00140 
+<anchor xml:id="_mqtt__client_8c_source_1l00146"/><link linkend="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994">00146</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994">start_mqtt_client</link>()&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;初始化&#32;MQTT&#32;客户端</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_mqtt__client_8c_1a5beb486bdbacfa4942a8bc03e72c323f">mqtt_init</link>()&#32;!=&#32;0)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;initialize&#32;MQTT&#32;client.\n&quot;</emphasis>);
+<anchor xml:id="_mqtt__client_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_mqtt__client_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00152"/>00152 
+<anchor xml:id="_mqtt__client_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;创建&#32;MQTT&#32;客户端线程</emphasis>
+<anchor xml:id="_mqtt__client_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pthread_create(&amp;<link linkend="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f">mqtt_thread_id</link>,&#32;NULL,&#32;<link linkend="_mqtt__client_8c_1ab7c2be9d4b53b90f7bac01a8a60a4265">mqtt_thread</link>,&#32;NULL)&#32;!=&#32;0)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;create&#32;MQTT&#32;thread.\n&quot;</emphasis>);
+<anchor xml:id="_mqtt__client_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mosquitto_destroy(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mosquitto_lib_cleanup();
+<anchor xml:id="_mqtt__client_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_mqtt__client_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00160"/>00160 
+<anchor xml:id="_mqtt__client_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_mqtt__client_8c_source_1l00162"/>00162 }
+<anchor xml:id="_mqtt__client_8c_source_1l00163"/>00163 
+<anchor xml:id="_mqtt__client_8c_source_1l00167"/><link linkend="_mqtt__client_8c_1a69741ab56bdfd0319c18889194cc35b9">00167</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_mqtt__client_8c_1a69741ab56bdfd0319c18889194cc35b9">stop_mqtt_client</link>()&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_mqtt__client_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mosquitto_destroy(<link linkend="_mqtt__client_8c_1a134a397bb3537fc6d4008475a538055e">mqtt</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_mqtt__client_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;mosquitto_lib_cleanup();
+<anchor xml:id="_mqtt__client_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;pthread_cancel(<link linkend="_mqtt__client_8c_1a0b5990506440d8539a4aae4b0360fc8f">mqtt_thread_id</link>);
+<anchor xml:id="_mqtt__client_8c_source_1l00173"/>00173 }
+</programlisting></section>

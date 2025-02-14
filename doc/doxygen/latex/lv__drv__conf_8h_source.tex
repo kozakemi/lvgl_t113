@@ -1,0 +1,510 @@
+\doxysection{C\+:/\+Users/kemik/git/lvgl\+\_\+t113/lv\+\_\+drv\+\_\+conf.h}
+\hypertarget{lv__drv__conf_8h_source}{}\label{lv__drv__conf_8h_source}\mbox{\hyperlink{lv__drv__conf_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00006}00006\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00007}00007\ \textcolor{comment}{\ *\ COPY\ THIS\ FILE\ AS\ lv\_drv\_conf.h}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00008}00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00010}00010\ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00011}00011\ \textcolor{preprocessor}{\#if\ 1\ }\textcolor{comment}{/*Set\ it\ to\ "{}1"{}\ to\ enable\ the\ content*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifndef\ LV\_DRV\_CONF\_H}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ LV\_DRV\_CONF\_H}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__conf_8h}{lv\_conf.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00018}00018\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00019}00019\ \textcolor{comment}{\ *\ DELAY\ INTERFACE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00020}00020\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00021}\mbox{\hyperlink{lv__drv__conf_8h_af29c29c0871fc429677780ebd10e2a6a}{00021}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DELAY\_INCLUDE\ \ <stdint.h>\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Dummy\ include\ by\ default*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00022}\mbox{\hyperlink{lv__drv__conf_8h_af2afccbd16788c917d3ade7bdd15f807}{00022}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DELAY\_US(us)\ \ }\textcolor{comment}{/*delay\_us(us)*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ }\textcolor{comment}{/*Delay\ the\ given\ number\ of\ microseconds*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00023}\mbox{\hyperlink{lv__drv__conf_8h_a1d9574a67a7b5fb205d49d90964d0063}{00023}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DELAY\_MS(ms)\ \ }\textcolor{comment}{/*delay\_ms(ms)*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ }\textcolor{comment}{/*Delay\ the\ given\ number\ of\ milliseconds*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00025}00025\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00026}00026\ \textcolor{comment}{\ *\ DISPLAY\ INTERFACE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00027}00027\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00029}00029\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00030}00030\ \textcolor{comment}{\ *\ \ Common}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00031}00031\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00032}\mbox{\hyperlink{lv__drv__conf_8h_a124cb760870323d9c2902166287c6cd4}{00032}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_INCLUDE\ \ \ \ \ \ \ \ \ <stdint.h>\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Dummy\ include\ by\ default*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00033}\mbox{\hyperlink{lv__drv__conf_8h_a6ae0c0d20c4882197b7f41f97bbb194a}{00033}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_CMD\_DATA(val)\ \ }\textcolor{comment}{/*pin\_x\_set(val)*/}\textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*Set\ the\ command/data\ pin\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00034}\mbox{\hyperlink{lv__drv__conf_8h_aec2f4ee11e8be6672317bcd863bcae76}{00034}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_RST(val)\ \ \ \ \ \ \ }\textcolor{comment}{/*pin\_x\_set(val)*/}\textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*Set\ the\ reset\ pin\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00036}00036\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00037}00037\ \textcolor{comment}{\ *\ \ SPI}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00038}00038\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00039}\mbox{\hyperlink{lv__drv__conf_8h_a9b2fc97f13c6061db25bd580c56b5aae}{00039}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_SPI\_CS(val)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*spi\_cs\_set(val)*/}\textcolor{preprocessor}{\ \ \ \ \ }\textcolor{comment}{/*Set\ the\ SPI's\ Chip\ select\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00040}\mbox{\hyperlink{lv__drv__conf_8h_aa9fa0dce12cdcf0608747403fb2e921f}{00040}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_SPI\_WR\_BYTE(data)\ \ \ \ }\textcolor{comment}{/*spi\_wr(data)*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*Write\ a\ byte\ the\ SPI\ bus*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00041}\mbox{\hyperlink{lv__drv__conf_8h_ac4ab55e1e20b1a94e453a4ffe97064d3}{00041}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_SPI\_WR\_ARRAY(adr,\ n)\ }\textcolor{comment}{/*spi\_wr\_mem(adr,\ n)*/}\textcolor{preprocessor}{\ \ }\textcolor{comment}{/*Write\ 'n'\ bytes\ to\ SPI\ bus\ from\ 'adr'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00043}00043\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00044}00044\ \textcolor{comment}{\ *\ \ Parallel\ port}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00045}00045\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00046}\mbox{\hyperlink{lv__drv__conf_8h_a7f7bed402f029b089baf20981e3210ee}{00046}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_PAR\_CS(val)\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*par\_cs\_set(val)*/}\textcolor{preprocessor}{\ \ \ }\textcolor{comment}{/*Set\ the\ Parallel\ port's\ Chip\ select\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00047}\mbox{\hyperlink{lv__drv__conf_8h_a548addcf645b309b00ee5caf777e6fb1}{00047}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_PAR\_SLOW\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*par\_slow()*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*Set\ low\ speed\ on\ the\ parallel\ port*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00048}\mbox{\hyperlink{lv__drv__conf_8h_a1f091368d33d438da548f074aa11ada8}{00048}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_PAR\_FAST\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*par\_fast()*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*Set\ high\ speed\ on\ the\ parallel\ port*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00049}\mbox{\hyperlink{lv__drv__conf_8h_a38bef2fce0fc8c339b2832a0cef3e729}{00049}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_PAR\_WR\_WORD(data)\ \ \ \ }\textcolor{comment}{/*par\_wr(data)*/}\textcolor{preprocessor}{\ \ \ \ \ \ }\textcolor{comment}{/*Write\ a\ word\ to\ the\ parallel\ port*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00050}\mbox{\hyperlink{lv__drv__conf_8h_ad6882526e88009acdefd107e0070d982}{00050}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_DISP\_PAR\_WR\_ARRAY(adr,\ n)\ }\textcolor{comment}{/*par\_wr\_mem(adr,n)*/}\textcolor{preprocessor}{\ }\textcolor{comment}{/*Write\ 'n'\ bytes\ to\ Parallel\ ports\ from\ 'adr'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00052}00052\ \textcolor{comment}{/***************************}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00053}00053\ \textcolor{comment}{\ *\ INPUT\ DEVICE\ INTERFACE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00054}00054\ \textcolor{comment}{\ ***************************/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00056}00056\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00057}00057\ \textcolor{comment}{\ *\ \ Common}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00058}00058\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00059}\mbox{\hyperlink{lv__drv__conf_8h_ab118aca7d8de99f8ea30c11f18ad8b67}{00059}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_INCLUDE\ \ \ \ \ <stdint.h>\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Dummy\ include\ by\ default*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00060}\mbox{\hyperlink{lv__drv__conf_8h_a84a8fce1b3b51292e999c26a5f96d680}{00060}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_RST(val)\ \ \ \ }\textcolor{comment}{/*pin\_x\_set(val)*/}\textcolor{preprocessor}{\ \ \ \ \ }\textcolor{comment}{/*Set\ the\ reset\ pin\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00061}\mbox{\hyperlink{lv__drv__conf_8h_a1b9686d7fd163fd89c5709389dc5276d}{00061}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_IRQ\_READ\ \ \ \ 0\ }\textcolor{comment}{/*pn\_x\_read()*/}\textcolor{preprocessor}{\ \ \ \ \ \ }\textcolor{comment}{/*Read\ the\ IRQ\ pin*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00063}00063\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00064}00064\ \textcolor{comment}{\ *\ \ SPI}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00065}00065\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00066}\mbox{\hyperlink{lv__drv__conf_8h_a2e3ea3a43ab70213ae0a5edb263e2b02}{00066}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_SPI\_CS(val)\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*spi\_cs\_set(val)*/}\textcolor{preprocessor}{\ \ \ \ \ }\textcolor{comment}{/*Set\ the\ SPI's\ Chip\ select\ to\ 'val'*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00067}\mbox{\hyperlink{lv__drv__conf_8h_a2eb3dabb1b1992862d90f2b06cee7228}{00067}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_SPI\_XCHG\_BYTE(data)\ \ \ \ 0\ }\textcolor{comment}{/*spi\_xchg(val)*/}\textcolor{preprocessor}{\ \ \ \ \ }\textcolor{comment}{/*Write\ 'val'\ to\ SPI\ and\ give\ the\ read\ value*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00069}00069\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00070}00070\ \textcolor{comment}{\ *\ \ I2C}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00071}00071\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00072}\mbox{\hyperlink{lv__drv__conf_8h_a4e7a8dcfa33ad52d35fc7cf7fd05a827}{00072}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_I2C\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*i2c\_start()*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ }\textcolor{comment}{/*Make\ an\ I2C\ start*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00073}\mbox{\hyperlink{lv__drv__conf_8h_aa2ee58352c9ba8a31f8b4b03b9314c82}{00073}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_I2C\_STOP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*i2c\_stop()*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*Make\ an\ I2C\ stop*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00074}\mbox{\hyperlink{lv__drv__conf_8h_a2fcdb053f436dec17655df5648aa852e}{00074}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_I2C\_RESTART\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*i2c\_restart()*/}\textcolor{preprocessor}{\ \ \ \ \ }\textcolor{comment}{/*Make\ an\ I2C\ restart*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00075}\mbox{\hyperlink{lv__drv__conf_8h_a6c70809f29e117b062fa93de81616868}{00075}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_I2C\_WR(data)\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*i2c\_wr(data)*/}\textcolor{preprocessor}{\ \ \ \ \ \ }\textcolor{comment}{/*Write\ a\ byte\ to\ the\ I1C\ bus*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00076}\mbox{\hyperlink{lv__drv__conf_8h_a61db3081c72b436f30c7ee8fc146eb53}{00076}}\ \textcolor{preprocessor}{\#define\ LV\_DRV\_INDEV\_I2C\_READ(last\_read)\ \ \ \ 0\ }\textcolor{comment}{/*i2c\_rd()*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*Read\ a\ byte\ from\ the\ I2C\ bud*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00079}00079\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00080}00080\ \textcolor{comment}{\ *\ \ DISPLAY\ DRIVERS}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00081}00081\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00083}00083\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00084}00084\ \textcolor{comment}{\ *\ \ SDL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00085}00085\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00087}00087\ \textcolor{comment}{/*\ SDL\ based\ drivers\ for\ display,\ mouse,\ mousewheel\ and\ keyboard*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00088}00088\ \textcolor{preprocessor}{\#ifndef\ USE\_SDL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00089}\mbox{\hyperlink{lv__drv__conf_8h_a44e36145e97d5121b38c95cb9b87059f}{00089}}\ \textcolor{preprocessor}{\#\ define\ USE\_SDL\ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00092}00092\ \textcolor{comment}{/*\ Hardware\ accelerated\ SDL\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00093}00093\ \textcolor{preprocessor}{\#ifndef\ USE\_SDL\_GPU}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00094}\mbox{\hyperlink{lv__drv__conf_8h_a46370f28da80ebc09d98aea5495dbd3a}{00094}}\ \textcolor{preprocessor}{\#\ define\ USE\_SDL\_GPU\ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00095}00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00097}00097\ \textcolor{preprocessor}{\#if\ USE\_SDL\ ||\ USE\_SDL\_GPU}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00098}00098\ \textcolor{preprocessor}{\#\ \ define\ SDL\_HOR\_RES\ \ \ \ \ 480}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00099}00099\ \textcolor{preprocessor}{\#\ \ define\ SDL\_VER\_RES\ \ \ \ \ 320}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00101}00101\ \textcolor{comment}{/*\ Scale\ window\ by\ this\ factor\ (useful\ when\ simulating\ small\ screens)\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00102}00102\ \textcolor{preprocessor}{\#\ \ define\ SDL\_ZOOM\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00104}00104\ \textcolor{comment}{/*\ Used\ to\ test\ true\ double\ buffering\ with\ only\ address\ changing.}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00105}00105\ \textcolor{comment}{\ *\ Use\ 2\ draw\ buffers,\ bith\ with\ SDL\_HOR\_RES\ x\ SDL\_VER\_RES\ size*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00106}00106\ \textcolor{preprocessor}{\#\ \ define\ SDL\_DOUBLE\_BUFFERED\ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00108}00108\ \textcolor{comment}{/*Eclipse:\ <SDL2/SDL.h>\ \ \ \ Visual\ Studio:\ <SDL.h>*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00109}00109\ \textcolor{preprocessor}{\#\ \ define\ SDL\_INCLUDE\_PATH\ \ \ \ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00111}00111\ \textcolor{comment}{/*Open\ two\ windows\ to\ test\ multi\ display\ support*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00112}00112\ \textcolor{preprocessor}{\#\ \ define\ SDL\_DUAL\_DISPLAY\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00115}00115\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00116}00116\ \textcolor{comment}{\ *\ \ Monitor\ of\ PC}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00117}00117\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00119}00119\ \textcolor{comment}{/*DEPRECATED:\ Use\ the\ SDL\ driver\ instead.\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00120}00120\ \textcolor{preprocessor}{\#ifndef\ USE\_MONITOR}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00121}\mbox{\hyperlink{lv__drv__conf_8h_ad846e33fa77d9246e697aa1142e2bd5c}{00121}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_MONITOR\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00122}00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00124}00124\ \textcolor{preprocessor}{\#if\ USE\_MONITOR}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00125}00125\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_HOR\_RES\ \ \ \ \ 480}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00126}00126\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_VER\_RES\ \ \ \ \ 320}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00128}00128\ \textcolor{comment}{/*\ Scale\ window\ by\ this\ factor\ (useful\ when\ simulating\ small\ screens)\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00129}00129\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_ZOOM\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00131}00131\ \textcolor{comment}{/*\ Used\ to\ test\ true\ double\ buffering\ with\ only\ address\ changing.}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00132}00132\ \textcolor{comment}{\ *\ Use\ 2\ draw\ buffers,\ bith\ with\ MONITOR\_HOR\_RES\ x\ MONITOR\_VER\_RES\ size*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00133}00133\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_DOUBLE\_BUFFERED\ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00135}00135\ \textcolor{comment}{/*Eclipse:\ <SDL2/SDL.h>\ \ \ \ Visual\ Studio:\ <SDL.h>*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00136}00136\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_SDL\_INCLUDE\_PATH\ \ \ \ <SDL2/SDL.h>}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00138}00138\ \textcolor{comment}{/*Open\ two\ windows\ to\ test\ multi\ display\ support*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00139}00139\ \textcolor{preprocessor}{\#\ \ define\ MONITOR\_DUAL\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00140}00140\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00142}00142\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00143}00143\ \textcolor{comment}{\ *\ \ Native\ Windows\ (including\ mouse)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00144}00144\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00145}00145\ \textcolor{preprocessor}{\#ifndef\ USE\_WINDOWS}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00146}\mbox{\hyperlink{lv__drv__conf_8h_af7bfe23cf121eb52ceec41625bca196f}{00146}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_WINDOWS\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00147}00147\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00149}00149\ \textcolor{preprocessor}{\#if\ USE\_WINDOWS}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00150}00150\ \textcolor{preprocessor}{\#\ \ define\ WINDOW\_HOR\_RES\ \ \ \ \ \ 480}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00151}00151\ \textcolor{preprocessor}{\#\ \ define\ WINDOW\_VER\_RES\ \ \ \ \ \ 320}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00152}00152\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00154}00154\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00155}00155\ \textcolor{comment}{\ *\ \ Native\ Windows\ (win32drv)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00156}00156\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00157}00157\ \textcolor{preprocessor}{\#ifndef\ USE\_WIN32DRV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00158}\mbox{\hyperlink{lv__drv__conf_8h_ae5b8577a82d70a48fbe8fe5c584dd31a}{00158}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_WIN32DRV\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00159}00159\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00161}00161\ \textcolor{preprocessor}{\#if\ USE\_WIN32DRV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00162}00162\ \textcolor{comment}{/*\ Scale\ window\ by\ this\ factor\ (useful\ when\ simulating\ small\ screens)\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00163}00163\ \textcolor{preprocessor}{\#\ \ define\ WIN32DRV\_MONITOR\_ZOOM\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00164}00164\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00166}00166\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00167}00167\ \textcolor{comment}{\ *\ \ GTK\ drivers\ (monitor,\ mouse,\ keyboard}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00168}00168\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00169}00169\ \textcolor{preprocessor}{\#ifndef\ USE\_GTK}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00170}\mbox{\hyperlink{lv__drv__conf_8h_ac4b43c68077fef43afaa461792d6a0bb}{00170}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_GTK\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00171}00171\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00173}00173\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00174}00174\ \textcolor{comment}{\ *\ \ Wayland\ drivers\ (monitor,\ mouse,\ keyboard,\ touchscreen)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00175}00175\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00176}00176\ \textcolor{preprocessor}{\#ifndef\ USE\_WAYLAND}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00177}\mbox{\hyperlink{lv__drv__conf_8h_ab75a44531b0c0a7329a9568e44085b37}{00177}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_WAYLAND\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00178}00178\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00180}00180\ \textcolor{preprocessor}{\#if\ USE\_WAYLAND}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00181}00181\ \textcolor{comment}{/*\ Support\ for\ client-\/side\ decorations\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00182}00182\ \textcolor{preprocessor}{\#\ \ ifndef\ LV\_WAYLAND\_CLIENT\_SIDE\_DECORATIONS}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00183}00183\ \textcolor{preprocessor}{\#\ \ \ \ define\ LV\_WAYLAND\_CLIENT\_SIDE\_DECORATIONS\ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00184}00184\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00185}00185\ \textcolor{comment}{/*\ Support\ for\ (deprecated)\ wl-\/shell\ protocol\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00186}00186\ \textcolor{preprocessor}{\#\ \ ifndef\ LV\_WAYLAND\_WL\_SHELL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00187}00187\ \textcolor{preprocessor}{\#\ \ \ \ define\ LV\_WAYLAND\_WL\_SHELL\ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00188}00188\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00189}00189\ \textcolor{comment}{/*\ Support\ for\ xdg-\/shell\ protocol\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00190}00190\ \textcolor{preprocessor}{\#\ \ ifndef\ LV\_WAYLAND\_XDG\_SHELL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00191}00191\ \textcolor{preprocessor}{\#\ \ \ \ define\ LV\_WAYLAND\_XDG\_SHELL\ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00192}00192\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00193}00193\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00195}00195\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00196}00196\ \textcolor{comment}{\ *\ \ \ \ SSD1963}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00197}00197\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00198}00198\ \textcolor{preprocessor}{\#ifndef\ USE\_SSD1963}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00199}\mbox{\hyperlink{lv__drv__conf_8h_adbc48f4500599eb95ef353fe7bce1056}{00199}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_SSD1963\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00200}00200\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00202}00202\ \textcolor{preprocessor}{\#if\ USE\_SSD1963}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00203}00203\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_HOR\_RES\ \ \ \ \ LV\_HOR\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00204}00204\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_VER\_RES\ \ \ \ \ LV\_VER\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00205}00205\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_HT\ \ \ \ \ \ \ \ \ \ 531}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00206}00206\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_HPS\ \ \ \ \ \ \ \ \ 43}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00207}00207\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_LPS\ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00208}00208\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_HPW\ \ \ \ \ \ \ \ \ 10}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00209}00209\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_VT\ \ \ \ \ \ \ \ \ \ 288}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00210}00210\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_VPS\ \ \ \ \ \ \ \ \ 12}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00211}00211\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_FPS\ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00212}00212\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_VPW\ \ \ \ \ \ \ \ \ 10}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00213}00213\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_HS\_NEG\ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{/*Negative\ hsync*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00214}00214\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_VS\_NEG\ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{/*Negative\ vsync*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00215}00215\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_ORI\ \ \ \ \ \ \ \ \ 0\ \ \ }\textcolor{comment}{/*0,\ 90,\ 180,\ 270*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00216}00216\ \textcolor{preprocessor}{\#\ \ define\ SSD1963\_COLOR\_DEPTH\ 16}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00217}00217\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00219}00219\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00220}00220\ \textcolor{comment}{\ *\ \ \ \ R61581}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00221}00221\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00222}00222\ \textcolor{preprocessor}{\#ifndef\ USE\_R61581}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00223}\mbox{\hyperlink{lv__drv__conf_8h_ac35873063479c96b17442ae939dbad4e}{00223}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_R61581\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00224}00224\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00226}00226\ \textcolor{preprocessor}{\#if\ USE\_R61581}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00227}00227\ \textcolor{preprocessor}{\#\ \ define\ R61581\_HOR\_RES\ \ \ \ \ \ LV\_HOR\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00228}00228\ \textcolor{preprocessor}{\#\ \ define\ R61581\_VER\_RES\ \ \ \ \ \ LV\_VER\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00229}00229\ \textcolor{preprocessor}{\#\ \ define\ R61581\_HSPL\ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ }\textcolor{comment}{/*HSYNC\ signal\ polarity*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00230}00230\ \textcolor{preprocessor}{\#\ \ define\ R61581\_HSL\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*HSYNC\ length\ (Not\ Implemented)*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00231}00231\ \textcolor{preprocessor}{\#\ \ define\ R61581\_HFP\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*Horitontal\ Front\ poarch\ (Not\ Implemented)*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00232}00232\ \textcolor{preprocessor}{\#\ \ define\ R61581\_HBP\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*Horitontal\ Back\ poarch\ (Not\ Implemented\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00233}00233\ \textcolor{preprocessor}{\#\ \ define\ R61581\_VSPL\ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ }\textcolor{comment}{/*VSYNC\ signal\ polarity*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00234}00234\ \textcolor{preprocessor}{\#\ \ define\ R61581\_VSL\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*VSYNC\ length\ (Not\ Implemented)*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00235}00235\ \textcolor{preprocessor}{\#\ \ define\ R61581\_VFP\ \ \ \ \ \ \ \ \ \ 8\ \ \ \ \ \ \ }\textcolor{comment}{/*Vertical\ Front\ poarch*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00236}00236\ \textcolor{preprocessor}{\#\ \ define\ R61581\_VBP\ \ \ \ \ \ \ \ \ \ 8\ \ \ \ \ \ \ }\textcolor{comment}{/*Vertical\ Back\ poarch\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00237}00237\ \textcolor{preprocessor}{\#\ \ define\ R61581\_DPL\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ }\textcolor{comment}{/*DCLK\ signal\ polarity*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00238}00238\ \textcolor{preprocessor}{\#\ \ define\ R61581\_EPL\ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ }\textcolor{comment}{/*ENABLE\ signal\ polarity*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00239}00239\ \textcolor{preprocessor}{\#\ \ define\ R61581\_ORI\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ }\textcolor{comment}{/*0,\ 180*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00240}00240\ \textcolor{preprocessor}{\#\ \ define\ R61581\_LV\_COLOR\_DEPTH\ 16\ \ \ \ }\textcolor{comment}{/*Fix\ 16\ bit*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00241}00241\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00243}00243\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00244}00244\ \textcolor{comment}{\ *\ \ ST7565\ (Monochrome,\ low\ res.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00245}00245\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00246}00246\ \textcolor{preprocessor}{\#ifndef\ USE\_ST7565}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00247}\mbox{\hyperlink{lv__drv__conf_8h_a4f4bf7a13ee69bcf58f55a66df8ca240}{00247}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_ST7565\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00248}00248\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00250}00250\ \textcolor{preprocessor}{\#if\ USE\_ST7565}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00251}00251\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00252}00252\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_ST7565*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00254}00254\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00255}00255\ \textcolor{comment}{\ *\ \ GC9A01\ (color,\ low\ res.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00256}00256\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00257}00257\ \textcolor{preprocessor}{\#ifndef\ USE\_GC9A01}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00258}\mbox{\hyperlink{lv__drv__conf_8h_a3505a3c82785dded99433fddd58da76e}{00258}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_GC9A01\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00259}00259\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00261}00261\ \textcolor{preprocessor}{\#if\ USE\_GC9A01}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00262}00262\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00263}00263\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_GC9A01*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00265}00265\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00266}00266\ \textcolor{comment}{\ *\ \ UC1610\ (4\ gray\ 160*[104|128])}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00267}00267\ \textcolor{comment}{\ *\ \ (EA\ DOGXL160\ 160x104\ tested)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00268}00268\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00269}00269\ \textcolor{preprocessor}{\#ifndef\ USE\_UC1610}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00270}\mbox{\hyperlink{lv__drv__conf_8h_ac489aa0807b48051cf7386759c7ab1e7}{00270}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_UC1610\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00271}00271\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00273}00273\ \textcolor{preprocessor}{\#if\ USE\_UC1610}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00274}00274\ \textcolor{preprocessor}{\#\ \ define\ UC1610\_HOR\_RES\ \ \ \ \ \ \ \ \ LV\_HOR\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00275}00275\ \textcolor{preprocessor}{\#\ \ define\ UC1610\_VER\_RES\ \ \ \ \ \ \ \ \ LV\_VER\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00276}00276\ \textcolor{preprocessor}{\#\ \ define\ UC1610\_INIT\_CONTRAST\ \ \ 33\ \ \ }\textcolor{comment}{/*\ init\ contrast,\ values\ in\ [\%]\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00277}00277\ \textcolor{preprocessor}{\#\ \ define\ UC1610\_INIT\_HARD\_RST\ \ \ 0\ \ \ \ }\textcolor{comment}{/*\ 1\ :\ hardware\ reset\ at\ init,\ 0\ :\ software\ reset\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00278}00278\ \textcolor{preprocessor}{\#\ \ define\ UC1610\_TOP\_VIEW\ \ \ \ \ \ \ \ 0\ \ \ \ }\textcolor{comment}{/*\ 0\ :\ Bottom\ View,\ 1\ :\ Top\ View\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00279}00279\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_UC1610*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00281}00281\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00282}00282\ \textcolor{comment}{\ *\ \ SHARP\ memory\ in\ pixel\ monochrome\ display\ series}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00283}00283\ \textcolor{comment}{\ *\ \ \ \ \ \ LS012B7DD01\ (184x38\ \ pixels.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00284}00284\ \textcolor{comment}{\ *\ \ \ \ \ \ LS013B7DH03\ (128x128\ pixels.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00285}00285\ \textcolor{comment}{\ *\ \ \ \ \ \ LS013B7DH05\ (144x168\ pixels.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00286}00286\ \textcolor{comment}{\ *\ \ \ \ \ \ LS027B7DH01\ (400x240\ pixels.)\ (tested)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00287}00287\ \textcolor{comment}{\ *\ \ \ \ \ \ LS032B7DD02\ (336x536\ pixels.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00288}00288\ \textcolor{comment}{\ *\ \ \ \ \ \ LS044Q7DH01\ (320x240\ pixels.)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00289}00289\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00290}00290\ \textcolor{preprocessor}{\#ifndef\ USE\_SHARP\_MIP}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00291}\mbox{\hyperlink{lv__drv__conf_8h_a15b028116a03bcbcc69e8d247f864aa1}{00291}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_SHARP\_MIP\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00292}00292\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00294}00294\ \textcolor{preprocessor}{\#if\ USE\_SHARP\_MIP}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00295}00295\ \textcolor{preprocessor}{\#\ \ define\ SHARP\_MIP\_HOR\_RES\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_HOR\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00296}00296\ \textcolor{preprocessor}{\#\ \ define\ SHARP\_MIP\_VER\_RES\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_VER\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00297}00297\ \textcolor{preprocessor}{\#\ \ define\ SHARP\_MIP\_SOFT\_COM\_INVERSION\ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00298}00298\ \textcolor{preprocessor}{\#\ \ define\ SHARP\_MIP\_REV\_BYTE(b)\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*((uint8\_t)\ \_\_REV(\_\_RBIT(b)))*/}\textcolor{preprocessor}{\ \ }\textcolor{comment}{/*Architecture\ /\ compiler\ dependent\ byte\ bits\ order\ reverse*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00299}00299\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_SHARP\_MIP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00301}00301\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00302}00302\ \textcolor{comment}{\ *\ \ ILI9341\ 240X320\ TFT\ LCD}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00303}00303\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00304}00304\ \textcolor{preprocessor}{\#ifndef\ USE\_ILI9341}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00305}\mbox{\hyperlink{lv__drv__conf_8h_a15b71b6ebf1fb67ee009445dc781f412}{00305}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_ILI9341\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00306}00306\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00308}00308\ \textcolor{preprocessor}{\#if\ USE\_ILI9341}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00309}00309\ \textcolor{preprocessor}{\#\ \ define\ ILI9341\_HOR\_RES\ \ \ \ \ \ \ LV\_HOR\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00310}00310\ \textcolor{preprocessor}{\#\ \ define\ ILI9341\_VER\_RES\ \ \ \ \ \ \ LV\_VER\_RES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00311}00311\ \textcolor{preprocessor}{\#\ \ define\ ILI9341\_GAMMA\ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00312}00312\ \textcolor{preprocessor}{\#\ \ define\ ILI9341\_TEARING\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00313}00313\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_ILI9341*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00315}00315\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00316}00316\ \textcolor{comment}{\ *\ \ Linux\ frame\ buffer\ device\ (/dev/fbx)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00317}00317\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00318}00318\ \textcolor{preprocessor}{\#ifndef\ USE\_FBDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00319}\mbox{\hyperlink{lv__drv__conf_8h_a9148738f7ba61c0ddf622c03f947b0c3}{00319}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_FBDEV\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00320}00320\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00322}00322\ \textcolor{preprocessor}{\#if\ USE\_FBDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00323}00323\ \textcolor{preprocessor}{\#\ \ define\ FBDEV\_PATH\ \ \ \ \ \ \ \ \ \ "{}/dev/fb0"{}}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00324}00324\ \textcolor{preprocessor}{\#\ \ define\ FBDEV\_DISPLAY\_POWER\_ON\ \ 1\ }}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00325}00325\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00327}00327\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00328}00328\ \textcolor{comment}{\ *\ \ FreeBSD\ frame\ buffer\ device\ (/dev/fbx)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00329}00329\ \textcolor{comment}{\ *.........................................*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00330}00330\ \textcolor{preprocessor}{\#ifndef\ USE\_BSD\_FBDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00331}\mbox{\hyperlink{lv__drv__conf_8h_a097e4f5713ce455fad5dd2116ae7173e}{00331}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_BSD\_FBDEV\ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00332}00332\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00334}00334\ \textcolor{preprocessor}{\#if\ USE\_BSD\_FBDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00335}00335\ \textcolor{preprocessor}{\#\ define\ FBDEV\_PATH\ \ \ \ \ "{}/dev/fb0"{}}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00336}00336\ \textcolor{preprocessor}{\#\ \ define\ FBDEV\_DISPLAY\_POWER\_ON\ \ 1\ }\textcolor{comment}{/*\ 1\ to\ force\ display\ power\ during\ ini}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00337}00337\ \textcolor{comment}{\ tialization\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00338}00338\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00340}00340\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00341}00341\ \textcolor{comment}{\ *\ \ Sunxi\ frame\ buffer\ device\ (/dev/fbx)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00342}00342\ \textcolor{comment}{\ *.........................................*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00343}00343\ \textcolor{preprocessor}{\#ifndef\ USE\_SUNXIFB}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00344}\mbox{\hyperlink{lv__drv__conf_8h_aa0687efcc3b1f7b467880fb9fd6be2d2}{00344}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_SUNXIFB\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00345}00345\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00347}00347\ \textcolor{preprocessor}{\#if\ USE\_SUNXIFB}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00348}\mbox{\hyperlink{lv__drv__conf_8h_acdd464c6699c54aeb33f27336b636f6e}{00348}}\ \textcolor{preprocessor}{\#\ \ define\ SUNXIFB\_PATH\ \ \ \ \ \ \ \ \ \ "{}/dev/fb0"{}}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00349}\mbox{\hyperlink{lv__drv__conf_8h_af1fa47cd75f42c41fbe1caa2f7ba0006}{00349}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_SUNXIFB\_DOUBLE\_BUFFER\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00350}00350\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00352}00352\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00353}00353\ \textcolor{comment}{\ *\ \ DRM/KMS\ device\ (/dev/dri/cardX)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00354}00354\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00355}00355\ \textcolor{preprocessor}{\#ifndef\ USE\_DRM}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00356}\mbox{\hyperlink{lv__drv__conf_8h_ab45508dfc830da53d78797276321d3cb}{00356}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_DRM\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00357}00357\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00359}00359\ \textcolor{preprocessor}{\#if\ USE\_DRM}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00360}00360\ \textcolor{preprocessor}{\#\ \ define\ DRM\_CARD\ \ \ \ \ \ \ \ \ \ "{}/dev/dri/card0"{}}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00361}00361\ \textcolor{preprocessor}{\#\ \ define\ DRM\_CONNECTOR\_ID\ \ -\/1\ \ }\textcolor{comment}{/*\ -\/1\ for\ the\ first\ connected\ one\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00362}00362\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00364}00364\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00365}00365\ \textcolor{comment}{\ *\ \ INPUT\ DEVICES}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00366}00366\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00368}00368\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00369}00369\ \textcolor{comment}{\ *\ \ \ \ XPT2046}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00370}00370\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00371}00371\ \textcolor{preprocessor}{\#ifndef\ USE\_XPT2046}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00372}\mbox{\hyperlink{lv__drv__conf_8h_aed04f9e1f860acd98ea90ba2fac27d92}{00372}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_XPT2046\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00373}00373\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00375}00375\ \textcolor{preprocessor}{\#if\ USE\_XPT2046}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00376}00376\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_HOR\_RES\ \ \ \ \ 480}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00377}00377\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_VER\_RES\ \ \ \ \ 320}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00378}00378\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_X\_MIN\ \ \ \ \ \ \ 200}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00379}00379\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_Y\_MIN\ \ \ \ \ \ \ 200}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00380}00380\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_X\_MAX\ \ \ \ \ \ \ 3800}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00381}00381\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_Y\_MAX\ \ \ \ \ \ \ 3800}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00382}00382\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_AVG\ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00383}00383\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_X\_INV\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00384}00384\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_Y\_INV\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00385}00385\ \textcolor{preprocessor}{\#\ \ define\ XPT2046\_XY\_SWAP\ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00386}00386\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00388}00388\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00389}00389\ \textcolor{comment}{\ *\ \ \ \ FT5406EE8}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00390}00390\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00391}00391\ \textcolor{preprocessor}{\#ifndef\ USE\_FT5406EE8}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00392}\mbox{\hyperlink{lv__drv__conf_8h_a6199488785006b1e8890431a40a8bfb7}{00392}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_FT5406EE8\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00393}00393\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00395}00395\ \textcolor{preprocessor}{\#if\ USE\_FT5406EE8}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00396}00396\ \textcolor{preprocessor}{\#\ define\ FT5406EE8\_I2C\_ADR\ \ \ 0x38\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*7\ bit\ address*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00397}00397\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00399}00399\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00400}00400\ \textcolor{comment}{\ *\ \ AD\ TOUCH}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00401}00401\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00402}00402\ \textcolor{preprocessor}{\#ifndef\ USE\_AD\_TOUCH}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00403}\mbox{\hyperlink{lv__drv__conf_8h_a679096cb0d94481a6fa91c69d16c5dc7}{00403}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_AD\_TOUCH\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00404}00404\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00406}00406\ \textcolor{preprocessor}{\#if\ USE\_AD\_TOUCH}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00407}00407\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00408}00408\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00411}00411\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00412}00412\ \textcolor{comment}{\ *\ Mouse\ or\ touchpad\ on\ PC\ (using\ SDL)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00413}00413\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00414}00414\ \textcolor{comment}{/*DEPRECATED:\ Use\ the\ SDL\ driver\ instead.\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00415}00415\ \textcolor{preprocessor}{\#ifndef\ USE\_MOUSE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00416}\mbox{\hyperlink{lv__drv__conf_8h_a870d3ff9a36da913f95ff5b4c5afe75c}{00416}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_MOUSE\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00417}00417\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00419}00419\ \textcolor{preprocessor}{\#if\ USE\_MOUSE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00420}00420\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00421}00421\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00423}00423\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00424}00424\ \textcolor{comment}{\ *\ Mousewheel\ as\ encoder\ on\ PC\ (using\ SDL)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00425}00425\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00426}00426\ \textcolor{comment}{/*DEPRECATED:\ Use\ the\ SDL\ driver\ instead.\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00427}00427\ \textcolor{preprocessor}{\#ifndef\ USE\_MOUSEWHEEL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00428}\mbox{\hyperlink{lv__drv__conf_8h_af02ed91286a7d2f3cfffc6e2c06eb008}{00428}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_MOUSEWHEEL\ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00429}00429\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00431}00431\ \textcolor{preprocessor}{\#if\ USE\_MOUSEWHEEL}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00432}00432\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00433}00433\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00435}00435\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00436}00436\ \textcolor{comment}{\ *\ Touchscreen,\ mouse/touchpad\ or\ keyboard\ as\ libinput\ interface\ (for\ Linux\ based\ systems)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00437}00437\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00438}00438\ \textcolor{preprocessor}{\#ifndef\ USE\_LIBINPUT}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00439}\mbox{\hyperlink{lv__drv__conf_8h_a750129eabbf8e133a1b7022a2c0ab089}{00439}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_LIBINPUT\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00440}00440\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00442}00442\ \textcolor{preprocessor}{\#ifndef\ USE\_BSD\_LIBINPUT}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00443}\mbox{\hyperlink{lv__drv__conf_8h_aa5ae5610c6158044366e7e46961de662}{00443}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_BSD\_LIBINPUT\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00444}00444\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00446}00446\ \textcolor{preprocessor}{\#if\ USE\_LIBINPUT\ ||\ USE\_BSD\_LIBINPUT}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00447}00447\ \textcolor{comment}{/*If\ only\ a\ single\ device\ of\ the\ same\ type\ is\ connected,\ you\ can\ also\ auto\ detect\ it,\ e.g.:}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00448}00448\ \textcolor{comment}{\ *\#define\ LIBINPUT\_NAME\ \ \ libinput\_find\_dev(LIBINPUT\_CAPABILITY\_TOUCH,\ false)*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00449}00449\ \textcolor{preprocessor}{\#\ \ define\ LIBINPUT\_NAME\ \ \ "{}/dev/input/event0"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*You\ can\ use\ the\ "{}evtest"{}\ Linux\ tool\ to\ get\ the\ list\ of\ devices\ and\ test\ them*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00451}00451\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_LIBINPUT\ ||\ USE\_BSD\_LIBINPUT*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00453}00453\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00454}00454\ \textcolor{comment}{\ *\ Mouse\ or\ touchpad\ as\ evdev\ interface\ (for\ Linux\ based\ systems)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00455}00455\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00456}00456\ \textcolor{preprocessor}{\#ifndef\ USE\_EVDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00457}\mbox{\hyperlink{lv__drv__conf_8h_a818c2a0b450425b4276a41cc4fb19897}{00457}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_EVDEV\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00458}00458\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00459}00459\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00460}00460\ \textcolor{preprocessor}{\#ifndef\ USE\_BSD\_EVDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00461}\mbox{\hyperlink{lv__drv__conf_8h_a4a4597b973fb5fcb9ab0f702d00f2951}{00461}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_BSD\_EVDEV\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00462}00462\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00464}00464\ \textcolor{preprocessor}{\#if\ USE\_EVDEV\ ||\ USE\_BSD\_EVDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00465}\mbox{\hyperlink{lv__drv__conf_8h_a4c889ea0456025f291ef3d786105305c}{00465}}\ \textcolor{preprocessor}{\#\ \ define\ EVDEV\_NAME\ \ \ "{}/dev/input/event1"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*You\ can\ use\ the\ "{}evtest"{}\ Linux\ tool\ to\ get\ the\ list\ of\ devices\ and\ test\ them*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00466}\mbox{\hyperlink{lv__drv__conf_8h_adb7fb5e0bce9226afc0526b4e375057c}{00466}}\ \textcolor{preprocessor}{\#\ \ define\ EVDEV\_SWAP\_AXES\ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Swap\ the\ x\ and\ y\ axes\ of\ the\ touchscreen*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00468}\mbox{\hyperlink{lv__drv__conf_8h_ae8b948252bae8333c0ac58c40d719d6e}{00468}}\ \textcolor{preprocessor}{\#\ \ define\ EVDEV\_CALIBRATE\ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Scale\ and\ offset\ the\ touchscreen\ coordinates\ by\ using\ maximum\ and\ minimum\ values\ for\ each\ axis*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00470}00470\ \textcolor{preprocessor}{\#\ \ if\ EVDEV\_CALIBRATE}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00471}00471\ \textcolor{preprocessor}{\#\ \ \ \ define\ EVDEV\_HOR\_MIN\ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*to\ invert\ axis\ swap\ EVDEV\_XXX\_MIN\ by\ EVDEV\_XXX\_MAX*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00472}00472\ \textcolor{preprocessor}{\#\ \ \ \ define\ EVDEV\_HOR\_MAX\ \ \ \ \ \ 4096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*"{}evtest"{}\ Linux\ tool\ can\ help\ to\ get\ the\ correct\ calibraion\ values>*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00473}00473\ \textcolor{preprocessor}{\#\ \ \ \ define\ EVDEV\_VER\_MIN\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00474}00474\ \textcolor{preprocessor}{\#\ \ \ \ define\ EVDEV\_VER\_MAX\ \ \ \ \ \ 4096}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00475}00475\ \textcolor{preprocessor}{\#\ \ endif\ \ }\textcolor{comment}{/*EVDEV\_CALIBRATE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00476}00476\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_EVDEV*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00478}00478\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00479}00479\ \textcolor{comment}{\ *\ Full\ keyboard\ support\ for\ evdev\ and\ libinput\ interface}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00480}00480\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00481}00481\ \textcolor{preprocessor}{\#\ \ ifndef\ USE\_XKB}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00482}\mbox{\hyperlink{lv__drv__conf_8h_a6bae31eb4b566d636121c2a71b747d2f}{00482}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ USE\_XKB\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00483}00483\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00485}00485\ \textcolor{preprocessor}{\#if\ USE\_LIBINPUT\ ||\ USE\_BSD\_LIBINPUT\ ||\ USE\_EVDEV\ ||\ USE\_BSD\_EVDEV}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00486}00486\ \textcolor{preprocessor}{\#\ \ if\ USE\_XKB}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00487}00487\ \textcolor{preprocessor}{\#\ \ \ \ define\ XKB\_KEY\_MAP\ \ \ \ \ \ \ \{\ .rules\ =\ NULL,\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00488}00488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .model\ =\ "{}pc101"{},\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00489}00489\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .layout\ =\ "{}us"{},\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00490}00490\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .variant\ =\ NULL,\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00491}00491\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .options\ =\ NULL\ \}\ }\textcolor{comment}{/*"{}setxkbmap\ -\/query"{}\ can\ help\ find\ the\ right\ values\ for\ your\ keyboard*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00492}00492\ \textcolor{preprocessor}{\#\ \ endif\ \ }\textcolor{comment}{/*USE\_XKB*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00493}00493\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*USE\_LIBINPUT\ ||\ USE\_BSD\_LIBINPUT\ ||\ USE\_EVDEV\ ||\ USE\_BSD\_EVDEV*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00495}00495\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00496}00496\ \textcolor{comment}{\ *\ \ \ Keyboard\ of\ a\ PC\ (using\ SDL)}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00497}00497\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00498}00498\ \textcolor{comment}{/*DEPRECATED:\ Use\ the\ SDL\ driver\ instead.\ */}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00499}00499\ \textcolor{preprocessor}{\#ifndef\ USE\_KEYBOARD}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00500}\mbox{\hyperlink{lv__drv__conf_8h_aaff13e7f3c71f5d9799ad3d99b6a6c1e}{00500}}\ \textcolor{preprocessor}{\#\ \ define\ USE\_KEYBOARD\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00501}00501\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00502}00502\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00503}00503\ \textcolor{preprocessor}{\#if\ USE\_KEYBOARD}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00504}00504\ \textcolor{comment}{/*No\ settings*/}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00505}00505\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00507}00507\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_DRV\_CONF\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00508}00508\ }
+\DoxyCodeLine{\Hypertarget{lv__drv__conf_8h_source_l00509}00509\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*End\ of\ "{}Content\ enable"{}*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

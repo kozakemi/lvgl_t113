@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c_source" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/main.c</title>
+浏览该文件的文档.<programlisting linenumbering="unnumbered"><anchor xml:id="_main_8c_source_1l00001"/>00001 
+<anchor xml:id="_main_8c_source_1l00057"/>00057 <emphasis role="preprocessor">#include&#32;&quot;lvgl/lvgl.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00058"/>00058 <emphasis role="preprocessor">#include&#32;&quot;lvgl/demos/lv_demos.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00059"/>00059 <emphasis role="preprocessor">#include&#32;&quot;lv_drivers/display/sunxifb.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00060"/>00060 <emphasis role="preprocessor">#include&#32;&quot;lv_drivers/indev/evdev.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00061"/>00061 <emphasis role="preprocessor">#include&#32;&lt;unistd.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00062"/>00062 <emphasis role="preprocessor">#include&#32;&lt;pthread.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00063"/>00063 <emphasis role="preprocessor">#include&#32;&lt;time.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00064"/>00064 <emphasis role="preprocessor">#include&#32;&lt;sys/time.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00065"/>00065 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00066"/>00066 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00067"/>00067 <emphasis role="preprocessor">#include&#32;&quot;lv_font.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00068"/>00068 
+<anchor xml:id="_main_8c_source_1l00069"/>00069 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_home__page_8h">page/home_page.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00070"/>00070 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_calender__page_8h">page/calender_page.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00071"/>00071 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_message__page_8h">page/message_page.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00072"/>00072 
+<anchor xml:id="_main_8c_source_1l00073"/>00073 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_mqtt__client_8h">device/mqtt/mqtt_client.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00074"/>00074 
+<anchor xml:id="_main_8c_source_1l00075"/><link linkend="_main_8c_1afdba62a4bef674bcad557bbb31ff46ee">00075</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1afdba62a4bef674bcad557bbb31ff46ee">hal_init</link>(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_main_8c_source_1l00076"/><link linkend="_main_8c_1a629caf54024dbb96ebecfa21fdf3861f">00076</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a629caf54024dbb96ebecfa21fdf3861f">tick_thread</link>(<emphasis role="keywordtype">void</emphasis>&#32;*data);
+<anchor xml:id="_main_8c_source_1l00077"/>00077 
+<anchor xml:id="_main_8c_source_1l00078"/>00078 
+<anchor xml:id="_main_8c_source_1l00079"/>00079 
+<anchor xml:id="_main_8c_source_1l00087"/><link linkend="_main_8c_1a0ddf1224851353fc92bfbff6f499fa97">00087</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a0ddf1224851353fc92bfbff6f499fa97">main</link>(<emphasis role="keywordtype">int</emphasis>&#32;argc,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*argv[])
+<anchor xml:id="_main_8c_source_1l00088"/>00088 {
+<anchor xml:id="_main_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(argv[1]&#32;==&#32;NULL&#32;||&#32;atoi(argv[1])&#32;&lt;&#32;0&#32;||&#32;atoi(argv[1])&#32;&gt;&#32;5)&#32;{
+<anchor xml:id="_main_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;lv_examples&#32;0,&#32;is&#32;lv_demo_widgets\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;lv_examples&#32;1,&#32;is&#32;lv_demo_music\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;lv_examples&#32;2,&#32;is&#32;lv_demo_benchmark\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;lv_examples&#32;3,&#32;is&#32;lv_demo_keypad_encoder\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;lv_examples&#32;4,&#32;is&#32;lv_demo_stress\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_main_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00097"/>00097 
+<anchor xml:id="_main_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="comment">/*LittlevGL&#32;init*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;lv_init();
+<anchor xml:id="_main_8c_source_1l00100"/>00100 
+<anchor xml:id="_main_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;uint32_t&#32;rotated&#32;=&#32;LV_DISP_ROT_NONE;
+<anchor xml:id="_main_8c_source_1l00102"/>00102 
+<anchor xml:id="_main_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Linux&#32;frame&#32;buffer&#32;device&#32;init*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;sunxifb_init(rotated);
+<anchor xml:id="_main_8c_source_1l00105"/>00105 
+<anchor xml:id="_main_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="comment">/*A&#32;buffer&#32;for&#32;LittlevGL&#32;to&#32;draw&#32;the&#32;screen&apos;s&#32;content*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;uint32_t&#32;width,&#32;height;
+<anchor xml:id="_main_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;sunxifb_get_sizes(&amp;width,&#32;&amp;height);
+<anchor xml:id="_main_8c_source_1l00109"/>00109 
+<anchor xml:id="_main_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_color_t&#32;*buf;
+<anchor xml:id="_main_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;buf&#32;=&#32;(lv_color_t*)&#32;sunxifb_alloc(width&#32;*&#32;height&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(lv_color_t),
+<anchor xml:id="_main_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;lv_examples&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00113"/>00113 
+<anchor xml:id="_main_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(buf&#32;==&#32;NULL)&#32;{
+<anchor xml:id="_main_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sunxifb_exit();
+<anchor xml:id="_main_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;malloc&#32;draw&#32;buffer&#32;fail\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_main_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00119"/>00119 
+<anchor xml:id="_main_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Initialize&#32;a&#32;descriptor&#32;for&#32;the&#32;buffer*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_disp_draw_buf_t&#32;disp_buf;
+<anchor xml:id="_main_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;lv_disp_draw_buf_init(&amp;disp_buf,&#32;buf,&#32;NULL,&#32;width&#32;*&#32;height);
+<anchor xml:id="_main_8c_source_1l00123"/>00123 
+<anchor xml:id="_main_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Initialize&#32;and&#32;register&#32;a&#32;display&#32;driver*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_disp_drv_t&#32;disp_drv;
+<anchor xml:id="_main_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;lv_disp_drv_init(&amp;disp_drv);
+<anchor xml:id="_main_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;disp_drv.draw_buf&#32;&#32;&#32;=&#32;&amp;disp_buf;
+<anchor xml:id="_main_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;disp_drv.flush_cb&#32;&#32;&#32;=&#32;sunxifb_flush;
+<anchor xml:id="_main_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;disp_drv.hor_res&#32;&#32;&#32;&#32;=&#32;width;
+<anchor xml:id="_main_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;disp_drv.ver_res&#32;&#32;&#32;&#32;=&#32;height;
+<anchor xml:id="_main_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;disp_drv.rotated&#32;&#32;&#32;&#32;=&#32;rotated;
+<anchor xml:id="_main_8c_source_1l00132"/>00132 <emphasis role="preprocessor">#ifndef&#32;USE_SUNXIFB_G2D_ROTATE</emphasis>
+<anchor xml:id="_main_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(rotated&#32;!=&#32;LV_DISP_ROT_NONE)
+<anchor xml:id="_main_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;disp_drv.sw_rotate&#32;=&#32;1;
+<anchor xml:id="_main_8c_source_1l00135"/>00135 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_main_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;lv_disp_drv_register(&amp;disp_drv);
+<anchor xml:id="_main_8c_source_1l00137"/>00137 
+<anchor xml:id="_main_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;evdev_init();
+<anchor xml:id="_main_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_indev_drv_t&#32;indev_drv;
+<anchor xml:id="_main_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;lv_indev_drv_init(&amp;indev_drv);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*Basic&#32;initialization*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;indev_drv.type&#32;=LV_INDEV_TYPE_POINTER;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*See&#32;below.*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;indev_drv.read_cb&#32;=&#32;evdev_read;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*See&#32;below.*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Register&#32;the&#32;driver&#32;in&#32;LVGL&#32;and&#32;save&#32;the&#32;created&#32;input&#32;device&#32;object*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;lv_indev_t&#32;*&#32;evdev_indev&#32;=&#32;lv_indev_drv_register(&amp;indev_drv);
+<anchor xml:id="_main_8c_source_1l00145"/>00145 
+<anchor xml:id="_main_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Create&#32;a&#32;Demo*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>(atoi(argv[1]))&#32;{
+<anchor xml:id="_main_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="_main_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_demo_widgets();
+<anchor xml:id="_main_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="_main_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_demo_music();
+<anchor xml:id="_main_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="_main_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_demo_benchmark();
+<anchor xml:id="_main_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="_main_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_demo_keypad_encoder();
+<anchor xml:id="_main_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:
+<anchor xml:id="_main_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_demo_stress();
+<anchor xml:id="_main_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:
+<anchor xml:id="_main_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_mqtt__client_8c_1a74b98cae70d034ab84d2f569a619e994">start_mqtt_client</link>();
+<anchor xml:id="_main_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_home__page_8c_1aed4c440f91bdeb0c5dae7cfe227a1215">HomePage</link>();
+<anchor xml:id="_main_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_calender__page_8c_1a4c0b738e79ddcb7d36e655cfd5cd66d3">CalenderPage</link>();&#32;&#32;
+<anchor xml:id="_main_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_message__page_8c_1a0b9d76090f4079ad3dc87e9caee66d14">MessagePage</link>();
+<anchor xml:id="_main_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_scr_load(<link linkend="_home__page_8c_1a5dfaac45201180965c5b03a3068e072b">HomePage_OBJ</link>);
+<anchor xml:id="_main_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_main_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free(buf);
+<anchor xml:id="_main_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sunxifb_exit();
+<anchor xml:id="_main_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_main_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00175"/>00175 
+<anchor xml:id="_main_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Handle&#32;LitlevGL&#32;tasks&#32;(tickless&#32;mode)*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>(1)&#32;{
+<anchor xml:id="_main_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_task_handler();
+<anchor xml:id="_main_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;usleep(5000);
+<anchor xml:id="_main_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00181"/>00181 
+<anchor xml:id="_main_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;<emphasis role="comment">/*sunxifb_free((void**)&#32;&amp;buf,&#32;&quot;lv_examples&quot;);*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;<emphasis role="comment">/*sunxifb_exit();*/</emphasis>
+<anchor xml:id="_main_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_main_8c_source_1l00185"/>00185 }
+<anchor xml:id="_main_8c_source_1l00186"/>00186 
+<anchor xml:id="_main_8c_source_1l00187"/>00187 
+<anchor xml:id="_main_8c_source_1l00193"/><link linkend="_lv__conf_8h_1a44341ce97d8ee7d0aec7370ab92bba63">00193</link> uint32_t&#32;<link linkend="_main_8c_1a44341ce97d8ee7d0aec7370ab92bba63">custom_tick_get</link>(<emphasis role="keywordtype">void</emphasis>)&#32;{
+<anchor xml:id="_main_8c_source_1l00194"/>00194 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;uint64_t&#32;start_ms&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(start_ms&#32;==&#32;0)&#32;{
+<anchor xml:id="_main_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>timeval&#32;tv_start;
+<anchor xml:id="_main_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;gettimeofday(&amp;tv_start,&#32;NULL);
+<anchor xml:id="_main_8c_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start_ms&#32;=&#32;((uint64_t)&#32;tv_start.tv_sec&#32;*&#32;1000000
+<anchor xml:id="_main_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;(uint64_t)&#32;tv_start.tv_usec)&#32;/&#32;1000;
+<anchor xml:id="_main_8c_source_1l00200"/>00200 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00201"/>00201 
+<anchor xml:id="_main_8c_source_1l00202"/>00202 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>timeval&#32;tv_now;
+<anchor xml:id="_main_8c_source_1l00203"/>00203 &#32;&#32;&#32;&#32;gettimeofday(&amp;tv_now,&#32;NULL);
+<anchor xml:id="_main_8c_source_1l00204"/>00204 &#32;&#32;&#32;&#32;uint64_t&#32;now_ms;
+<anchor xml:id="_main_8c_source_1l00205"/>00205 &#32;&#32;&#32;&#32;now_ms&#32;=&#32;((uint64_t)&#32;tv_now.tv_sec&#32;*&#32;1000000&#32;+&#32;(uint64_t)&#32;tv_now.tv_usec)
+<anchor xml:id="_main_8c_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;/&#32;1000;
+<anchor xml:id="_main_8c_source_1l00207"/>00207 
+<anchor xml:id="_main_8c_source_1l00208"/>00208 &#32;&#32;&#32;&#32;uint32_t&#32;time_ms&#32;=&#32;now_ms&#32;-&#32;start_ms;
+<anchor xml:id="_main_8c_source_1l00209"/>00209 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;time_ms;
+<anchor xml:id="_main_8c_source_1l00210"/>00210 }
+</programlisting></section>

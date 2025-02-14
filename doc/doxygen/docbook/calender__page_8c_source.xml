@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_calender__page_8c_source" xml:lang="zh">
+<title>calender_page.c</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/page/calender_page.c</primary></indexterm>
+浏览该文件的文档.<programlisting linenumbering="unnumbered"><anchor xml:id="_calender__page_8c_source_1l00001"/>00001 
+<anchor xml:id="_calender__page_8c_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&quot;lvgl/lvgl.h&quot;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00023"/>00023 <emphasis role="preprocessor">#include&#32;&lt;pthread.h&gt;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&lt;time.h&gt;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;sys/time.h&gt;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_calender__page_8h">calender_page.h</link>&quot;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00027"/>00027 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_home__page_8h">home_page.h</link>&quot;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00028"/>00028 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_home_8h">source/img/home.h</link>&quot;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00029"/>00029 
+<anchor xml:id="_calender__page_8c_source_1l00030"/>00030 
+<anchor xml:id="_calender__page_8c_source_1l00031"/><link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">00031</link> lv_obj_t&#32;*<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>;
+<anchor xml:id="_calender__page_8c_source_1l00032"/><link linkend="_calender__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">00032</link> <emphasis role="keyword">static</emphasis>&#32;lv_coord_t&#32;<link linkend="_calender__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">hor_res</link>&#32;=&#32;480;
+<anchor xml:id="_calender__page_8c_source_1l00033"/><link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">00033</link> <emphasis role="keyword">static</emphasis>&#32;lv_coord_t&#32;<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>&#32;=&#32;480;
+<anchor xml:id="_calender__page_8c_source_1l00034"/><link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">00034</link> <emphasis role="keyword">static</emphasis>&#32;lv_coord_t&#32;<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>&#32;=(lv_coord_t)((<emphasis role="keywordtype">float</emphasis>)480&#32;*&#32;0.2f);
+<anchor xml:id="_calender__page_8c_source_1l00040"/><link linkend="_calender__page_8c_1ad6c20a41fc6c9c98512613498c0cba1d">00040</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_calender__page_8c_1ad6c20a41fc6c9c98512613498c0cba1d">home_img_clicked_callback</link>(lv_event_t&#32;*e){
+<anchor xml:id="_calender__page_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;LV_LOG_USER(<emphasis role="stringliteral">&quot;Clicked&quot;</emphasis>);
+<anchor xml:id="_calender__page_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;lv_scr_load(HomePage_OBJ);</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;lv_scr_load_anim(<link linkend="_home__page_8c_1a5dfaac45201180965c5b03a3068e072b">HomePage_OBJ</link>,&#32;LV_SCR_LOAD_ANIM_FADE_ON,&#32;200,&#32;0,&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_calender__page_8c_source_1l00044"/>00044 }
+<anchor xml:id="_calender__page_8c_source_1l00045"/>00045 
+<anchor xml:id="_calender__page_8c_source_1l00050"/><link linkend="_calender__page_8c_1a263dcd1679883713bbddf448c692c81c">00050</link> <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_calender__page_8c_1a263dcd1679883713bbddf448c692c81c">clock_calender_task_callback</link>(lv_timer_t&#32;*timer){
+<anchor xml:id="_calender__page_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;time_t&#32;unix_time;
+<anchor xml:id="_calender__page_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis>tm&#32;*time_info;
+<anchor xml:id="_calender__page_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;unix_time&#32;=&#32;time(NULL);
+<anchor xml:id="_calender__page_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;time_info&#32;=&#32;localtime(&amp;unix_time);
+<anchor xml:id="_calender__page_8c_source_1l00055"/>00055 &#32;&#32;&#32;&#32;uint32_t&#32;year&#32;=&#32;time_info-&gt;tm_year&#32;+&#32;1900;
+<anchor xml:id="_calender__page_8c_source_1l00056"/>00056 &#32;&#32;&#32;&#32;uint32_t&#32;month&#32;=&#32;time_info-&gt;tm_mon&#32;+&#32;1;
+<anchor xml:id="_calender__page_8c_source_1l00057"/>00057 &#32;&#32;&#32;&#32;uint32_t&#32;day&#32;=&#32;time_info-&gt;tm_mday;
+<anchor xml:id="_calender__page_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;year:%d,month:%d,day:%d\n&quot;</emphasis>,&#32;year,&#32;month,&#32;day);
+<anchor xml:id="_calender__page_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;lv_obj_t&#32;*calendar_obj=(lv_obj_t&#32;*)(timer-&gt;user_data);
+<anchor xml:id="_calender__page_8c_source_1l00060"/>00060 &#32;&#32;&#32;&#32;lv_calendar_set_today_date(calendar_obj,&#32;year,&#32;month,&#32;day);
+<anchor xml:id="_calender__page_8c_source_1l00061"/>00061 &#32;&#32;&#32;&#32;lv_calendar_set_showed_date(calendar_obj,&#32;year,&#32;month);
+<anchor xml:id="_calender__page_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;set&#32;date\n&quot;</emphasis>);
+<anchor xml:id="_calender__page_8c_source_1l00063"/>00063 }
+<anchor xml:id="_calender__page_8c_source_1l00068"/><link linkend="_calender__page_8c_1a4c0b738e79ddcb7d36e655cfd5cd66d3">00068</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_calender__page_8c_1a4c0b738e79ddcb7d36e655cfd5cd66d3">CalenderPage</link>(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_calender__page_8c_source_1l00069"/>00069 {
+<anchor xml:id="_calender__page_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;
+<anchor xml:id="_calender__page_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;time_t&#32;unix_time;
+<anchor xml:id="_calender__page_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis>tm&#32;*time_info;
+<anchor xml:id="_calender__page_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;unix_time&#32;=&#32;time(NULL);
+<anchor xml:id="_calender__page_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;time_info&#32;=&#32;localtime(&amp;unix_time);
+<anchor xml:id="_calender__page_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;uint32_t&#32;year&#32;=&#32;time_info-&gt;tm_year&#32;+&#32;1900;
+<anchor xml:id="_calender__page_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;uint32_t&#32;month&#32;=&#32;time_info-&gt;tm_mon&#32;+&#32;1;
+<anchor xml:id="_calender__page_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;uint32_t&#32;day&#32;=&#32;time_info-&gt;tm_mday;
+<anchor xml:id="_calender__page_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;year:%d,month:%d,day:%d\n&quot;</emphasis>,&#32;year,&#32;month,&#32;day);
+<anchor xml:id="_calender__page_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(lv_obj_get_parent(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>)!=NULL)&#32;{
+<anchor xml:id="_calender__page_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lv_obj_del(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>);
+<anchor xml:id="_calender__page_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;del\n&quot;</emphasis>);
+<anchor xml:id="_calender__page_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>&#32;=&#32;NULL;&#32;&#32;<emphasis role="comment">//&#32;确保指针重置</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_calender__page_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>&#32;=&#32;lv_obj_create(NULL);
+<anchor xml:id="_calender__page_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;lv_obj_t&#32;*calendar_obj&#32;=&#32;lv_calendar_create(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>);
+<anchor xml:id="_calender__page_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_style_t&#32;style_rect_back;
+<anchor xml:id="_calender__page_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;lv_style_init(&amp;style_rect_back);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;初始化样式</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;lv_style_set_bg_color(&amp;style_rect_back,&#32;lv_color_hex(0xf0e6e8));
+<anchor xml:id="_calender__page_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;lv_obj_add_style(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>,&#32;&amp;style_rect_back,&#32;0);
+<anchor xml:id="_calender__page_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;lv_obj_set_size(calendar_obj,&#32;(<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>-<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>)*0.7,&#32;<link linkend="_calender__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">hor_res</link>*0.7);
+<anchor xml:id="_calender__page_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;lv_obj_align(calendar_obj,&#32;LV_ALIGN_TOP_LEFT,(<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>-<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>-(<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>-<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>)*0.7)/2,&#32;(<link linkend="_calender__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">hor_res</link>-<link linkend="_calender__page_8c_1a359afaf9af8128c9e66b6d67e4bd5979">hor_res</link>*0.7)/2);
+<anchor xml:id="_calender__page_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;lv_obj_add_event_cb(calendar_obj,&#32;event_handler,&#32;LV_EVENT_ALL,&#32;NULL);</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;lv_calendar_set_today_date(calendar_obj,&#32;year,&#32;month,&#32;day);
+<anchor xml:id="_calender__page_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;lv_calendar_set_showed_date(calendar_obj,&#32;year,&#32;month);
+<anchor xml:id="_calender__page_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;lv_calendar_header_dropdown_create(calendar_obj);
+<anchor xml:id="_calender__page_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;lv_timer_t&#32;*claender_task_timer&#32;=&#32;lv_timer_create(<link linkend="_calender__page_8c_1a263dcd1679883713bbddf448c692c81c">clock_calender_task_callback</link>,&#32;1000,&#32;calendar_obj);&#32;<emphasis role="comment">//&#32;创建定时任务，200ms刷新一次&#32;</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00097"/>00097 
+<anchor xml:id="_calender__page_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;lv_style_t&#32;style_rect;
+<anchor xml:id="_calender__page_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;lv_obj_t&#32;*rect;
+<anchor xml:id="_calender__page_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;lv_color_t&#32;c&#32;=&#32;lv_color_hex(0xb4848c);&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;修改颜色值</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;lv_style_init(&amp;style_rect);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;初始化样式</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;lv_style_set_bg_color(&amp;style_rect,&#32;c);&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;设置颜色</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;lv_style_set_width(&amp;style_rect,&#32;<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>);&#32;<emphasis role="comment">//&#32;设置宽度</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;lv_style_set_height(&amp;style_rect,&#32;<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>);&#32;&#32;&#32;<emphasis role="comment">//&#32;设置高度</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;lv_style_set_radius(&amp;style_rect,&#32;0);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;设置圆角</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;lv_style_set_opa(&amp;style_rect,LV_OPA_COVER);&#32;//设置透明度</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;lv_style_set_shadow_width(&amp;style_rect,&#32;25);&#32;<emphasis role="comment">//&#32;设置阴影宽度</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;lv_style_set_shadow_ofs_x(&amp;style_rect,&#32;-3);&#32;<emphasis role="comment">//&#32;设置水平偏移</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;lv_style_set_shadow_color(&amp;style_rect,lv_palette_main(LV_PALETTE_NONE));//设置阴影颜色</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;lv_style_set_border_width(&amp;style_rect,&#32;0);&#32;<emphasis role="comment">//&#32;设置边框宽度</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;rect&#32;=&#32;lv_obj_create(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>);
+<anchor xml:id="_calender__page_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;lv_obj_align(rect,&#32;LV_ALIGN_TOP_RIGHT,&#32;0,&#32;0);
+<anchor xml:id="_calender__page_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;lv_obj_add_style(rect,&#32;&amp;style_rect,&#32;0);
+<anchor xml:id="_calender__page_8c_source_1l00114"/>00114 
+<anchor xml:id="_calender__page_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;lv_obj_t&#32;*home_img_btn&#32;=&#32;lv_imgbtn_create(<link linkend="_calender__page_8c_1a4f09c6f84716fa6373fa3c22ce1f46e8">Calender_OBJ</link>);&#32;<emphasis role="comment">//&#32;创建在当前活动的屏幕</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;设置正常状态下的图片</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;lv_imgbtn_set_src(home_img_btn,&#32;LV_IMGBTN_STATE_RELEASED,&#32;&amp;<link linkend="_home_8c_1add9fdc284488b009b5131bb28853976c">home</link>,&#32;NULL,&#32;NULL);
+<anchor xml:id="_calender__page_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;lv_imgbtn_set_src(calendar_img_btn,&#32;LV_IMGBTN_STATE_CHECKED_RELEASED,&#32;NULL,&#32;&amp;calendar,&#32;NULL);</emphasis>
+<anchor xml:id="_calender__page_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;lv_obj_align(home_img_btn,&#32;LV_ALIGN_TOP_RIGHT,&#32;-1&#32;*&#32;<link linkend="_calender__page_8c_1a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</link>&#32;/&#32;2.0&#32;+&#32;64&#32;/&#32;2,&#32;<link linkend="_calender__page_8c_1a12265d0520ba942bc80ab4368bf451a2">ver_res</link>&#32;/&#32;2.0&#32;-&#32;64&#32;/&#32;2);
+<anchor xml:id="_calender__page_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;lv_obj_set_size(home_img_btn,&#32;64,&#32;64);
+<anchor xml:id="_calender__page_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;lv_obj_add_event_cb(home_img_btn,&#32;<link linkend="_calender__page_8c_1ad6c20a41fc6c9c98512613498c0cba1d">home_img_clicked_callback</link>,&#32;LV_EVENT_CLICKED,&#32;NULL);
+<anchor xml:id="_calender__page_8c_source_1l00122"/>00122 
+<anchor xml:id="_calender__page_8c_source_1l00123"/>00123 }
+</programlisting></section>

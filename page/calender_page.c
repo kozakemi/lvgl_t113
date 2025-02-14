@@ -1,3 +1,24 @@
+/**
+ * @file calender_page.c
+ * @brief 实现日历页面的功能，包括显示当前日期、定时更新日期以及返回主页按钮。
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025  Kozakemi
+ * 
+ * @par 功能描述
+ * -# 创建并显示日历页面。
+ * -# 定时更新日历显示的日期。
+ * -# 提供返回主页按钮，点击后返回主页。
+ * 
+ * @par 用法描述
+ * -# 调用 `CalenderPage()` 函数初始化并显示日历页面。
+ * 
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi  <td>初始版本，实现日历页面的基本功能。
+ * </table>
+ */
 #include "lvgl/lvgl.h"
 #include <pthread.h>
 #include <time.h>
@@ -11,12 +32,21 @@ lv_obj_t *Calender_OBJ;
 static lv_coord_t hor_res = 480;
 static lv_coord_t ver_res = 480;
 static lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f);
-
+/**
+ * @brief 主页按键触发回调
+ * @note  跳转回主页面
+ * @param {lv_event_t *} e 
+ */
 static void home_img_clicked_callback(lv_event_t *e){
     LV_LOG_USER("Clicked");
     // lv_scr_load(HomePage_OBJ);
     lv_scr_load_anim(HomePage_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
+
+/**
+ * @brief 时钟定时触发回调
+ * @param {lv_timer_t *} timer 
+ */
 static void clock_calender_task_callback(lv_timer_t *timer){
     static time_t unix_time;
     static struct tm *time_info;
@@ -31,7 +61,10 @@ static void clock_calender_task_callback(lv_timer_t *timer){
     lv_calendar_set_showed_date(calendar_obj, year, month);
     printf("set date\n");
 }
-
+/**
+ * @brief 日历页面
+ * 
+ */
 void CalenderPage(void)
 {
     

@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lvgl_t113: C:/Users/kemik/git/lvgl_t113/main.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">lvgl_t113<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">t113-s3 86盒的LVGL桌面时钟程序</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">C:/Users/kemik/git/lvgl_t113/main.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;lvgl/lvgl.h&quot;</code><br />
+<code>#include &quot;lvgl/demos/lv_demos.h&quot;</code><br />
+<code>#include &quot;lv_drivers/display/sunxifb.h&quot;</code><br />
+<code>#include &quot;lv_drivers/indev/evdev.h&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;sys/time.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;lv_font.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="home__page_8h_source.html">page/home_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="calender__page_8h_source.html">page/calender_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="message__page_8h_source.html">page/message_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mqtt__client_8h_source.html">device/mqtt/mqtt_client.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+main.c 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c__incl.gif" border="0" usemap="#a_c_1_2_users_2kemik_2git_2lvgl__t113_2main_8c" alt=""/></div>
+<map name="a_c_1_2_users_2kemik_2git_2lvgl__t113_2main_8c" id="a_c_1_2_users_2kemik_2git_2lvgl__t113_2main_8c">
+<area shape="rect" title="主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。" alt="" coords="785,5,917,48"/>
+<area shape="rect" title=" " alt="" coords="1292,187,1368,213"/>
+<area shape="poly" title=" " alt="" coords="785,31,592,34,349,44,232,53,131,65,56,80,31,88,17,98,10,108,8,117,10,127,17,137,35,144,72,152,197,165,370,175,572,182,983,192,1276,196,1276,201,983,197,571,188,370,180,197,170,72,157,33,149,13,141,5,129,3,117,5,106,13,94,29,84,55,74,130,59,231,48,349,39,592,29,785,26"/>
+<area shape="rect" title=" " alt="" coords="27,104,182,131"/>
+<area shape="poly" title=" " alt="" coords="785,35,526,57,360,75,194,99,171,103,170,98,193,93,360,70,525,51,785,30"/>
+<area shape="rect" title=" " alt="" coords="206,96,328,139"/>
+<area shape="poly" title=" " alt="" coords="785,36,591,58,469,76,344,98,343,93,468,70,590,53,785,31"/>
+<area shape="rect" title=" " alt="" coords="352,104,513,131"/>
+<area shape="poly" title=" " alt="" coords="786,44,526,99,506,103,505,98,525,93,784,39"/>
+<area shape="rect" title=" " alt="" coords="537,104,605,131"/>
+<area shape="poly" title=" " alt="" coords="786,48,705,70,619,99,614,100,612,95,617,93,704,65,784,42"/>
+<area shape="rect" title=" " alt="" coords="629,104,705,131"/>
+<area shape="poly" title=" " alt="" coords="809,51,708,99,706,94,807,46"/>
+<area shape="rect" title=" " alt="" coords="729,104,786,131"/>
+<area shape="poly" title=" " alt="" coords="831,50,784,95,780,91,828,46"/>
+<area shape="rect" title=" " alt="" coords="810,104,892,131"/>
+<area shape="poly" title=" " alt="" coords="854,48,854,88,848,88,848,48"/>
+<area shape="rect" title=" " alt="" coords="917,104,980,131"/>
+<area shape="poly" title=" " alt="" coords="875,46,925,91,922,95,872,50"/>
+<area shape="rect" title=" " alt="" coords="1004,104,1064,131"/>
+<area shape="poly" title=" " alt="" coords="895,46,994,94,995,95,993,99,991,98,893,51"/>
+<area shape="rect" title=" " alt="" coords="1087,104,1159,131"/>
+<area shape="poly" title=" " alt="" coords="918,43,1077,93,1082,95,1080,100,1076,99,916,48"/>
+<area shape="rect" href="home__page_8h.html" title=" " alt="" coords="1183,104,1314,131"/>
+<area shape="poly" title=" " alt="" coords="917,38,1172,93,1187,97,1186,102,1170,99,916,44"/>
+<area shape="rect" href="calender__page_8h.html" title=" " alt="" coords="1338,104,1487,131"/>
+<area shape="poly" title=" " alt="" coords="918,33,1102,57,1326,93,1347,98,1346,103,1325,99,1101,63,917,38"/>
+<area shape="rect" href="message__page_8h.html" title=" " alt="" coords="1511,104,1663,131"/>
+<area shape="poly" title=" " alt="" coords="917,30,1173,52,1336,70,1500,93,1522,98,1521,103,1499,99,1335,75,1173,57,917,35"/>
+<area shape="rect" href="mqtt__client_8h.html" title=" " alt="" coords="1687,104,1855,131"/>
+<area shape="poly" title=" " alt="" coords="917,28,1244,48,1458,67,1675,93,1702,98,1701,103,1675,99,1458,72,1243,53,917,33"/>
+<area shape="poly" title=" " alt="" coords="1263,129,1308,174,1305,178,1259,133"/>
+<area shape="poly" title=" " alt="" coords="1401,133,1355,178,1351,174,1398,129"/>
+<area shape="poly" title=" " alt="" coords="1548,134,1384,185,1382,180,1546,129"/>
+</map>
+</div>
+</div>
+<p><a href="main_8c_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:afdba62a4bef674bcad557bbb31ff46ee" id="r_afdba62a4bef674bcad557bbb31ff46ee"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdba62a4bef674bcad557bbb31ff46ee">hal_init</a> (void)</td></tr>
+<tr class="separator:afdba62a4bef674bcad557bbb31ff46ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629caf54024dbb96ebecfa21fdf3861f" id="r_a629caf54024dbb96ebecfa21fdf3861f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a629caf54024dbb96ebecfa21fdf3861f">tick_thread</a> (void *data)</td></tr>
+<tr class="separator:a629caf54024dbb96ebecfa21fdf3861f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">主程序入口函数  <br /></td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44341ce97d8ee7d0aec7370ab92bba63" id="r_a44341ce97d8ee7d0aec7370ab92bba63"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44341ce97d8ee7d0aec7370ab92bba63">custom_tick_get</a> (void)</td></tr>
+<tr class="memdesc:a44341ce97d8ee7d0aec7370ab92bba63"><td class="mdescLeft">&#160;</td><td class="mdescRight">LVGL心跳接口  <br /></td></tr>
+<tr class="separator:a44341ce97d8ee7d0aec7370ab92bba63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。 </p>
+<dl class="section author"><dt>作者</dt><dd>Kozakemi (<a href="#" onclick="location.href='mai'+'lto:'+'kem'+'ik'+'oza'+'@g'+'mai'+'l.'+'com'; return false;">kemik<span class="obfuscator">.nosp@m.</span>oza@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-02-14 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2025 Kozakemi</dd></dl>
+<dl class="section user"><dt>功能描述</dt><dd><ol type="1">
+<li>初始化LVGL库</li>
+<li>配置显示驱动（sunxifb）</li>
+<li>配置输入设备驱动（evdev）</li>
+<li>提供命令行参数选择不同的演示模式或启动自定义页面（主页、日历页、消息页）</li>
+<li>启动MQTT客户端用于网络通信</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>用法描述</dt><dd><ol type="1">
+<li>编译并运行此程序时，可以通过命令行参数选择不同的演示模式：<ul>
+<li>lv_examples 0: lv_demo_widgets</li>
+<li>lv_examples 1: lv_demo_music</li>
+<li>lv_examples 2: lv_demo_benchmark</li>
+<li>lv_examples 3: lv_demo_keypad_encoder</li>
+<li>lv_examples 4: lv_demo_stress</li>
+<li>lv_examples 5: 启动自定义页面（主页、日历页、消息页）并连接MQTT服务器</li>
+</ul>
+</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>修改日志:</dt><dd><table class="doxtable">
+<tr>
+<th>Date </th><th>Version </th><th>Author </th><th>Description </th></tr>
+<tr>
+<td>2025-02-14 </td><td>1.0 </td><td>Kozakemi</td><td>初始版本，实现基本功能 </td></tr>
+</table>
+</dd></dl>
+
+<p class="definition">在文件 <a class="el" href="main_8c_source.html">main.c</a> 中定义.</p>
+</div><h2 class="groupheader">函数说明</h2>
+<a id="a44341ce97d8ee7d0aec7370ab92bba63" name="a44341ce97d8ee7d0aec7370ab92bba63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44341ce97d8ee7d0aec7370ab92bba63">&#9670;&#160;</a></span>custom_tick_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t custom_tick_get </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>LVGL心跳接口 </p>
+<dl class="section return"><dt>返回</dt><dd>{uint32_t} </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="main_8c_source.html">main.c</a> 第 <a class="el" href="main_8c_source.html#l00193">193</a> 行定义.</p>
+
+</div>
+</div>
+<a id="afdba62a4bef674bcad557bbb31ff46ee" name="afdba62a4bef674bcad557bbb31ff46ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdba62a4bef674bcad557bbb31ff46ee">&#9670;&#160;</a></span>hal_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void hal_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>主程序入口函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{int}</td><td>argc </td></tr>
+    <tr><td class="paramname">{char</td><td>*} argv </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>{int} </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="main_8c_source.html">main.c</a> 第 <a class="el" href="main_8c_source.html#l00087">87</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.gif" border="0" usemap="#amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
+<map name="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
+<area shape="rect" title="主程序入口函数" alt="" coords="5,280,55,307"/>
+<area shape="rect" href="calender__page_8c.html#a4c0b738e79ddcb7d36e655cfd5cd66d3" title="日历页面" alt="" coords="110,72,214,99"/>
+<area shape="poly" title=" " alt="" coords="38,278,142,111,146,114,42,281"/>
+<area shape="rect" href="home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="119,248,205,275"/>
+<area shape="poly" title=" " alt="" coords="54,285,103,273,104,278,56,290"/>
+<area shape="rect" href="message__page_8c.html#a0b9d76090f4079ad3dc87e9caee66d14" title="消息页面" alt="" coords="110,343,214,369"/>
+<area shape="poly" title=" " alt="" coords="56,302,120,333,118,338,54,307"/>
+<area shape="rect" href="mqtt__client_8c.html#a74b98cae70d034ab84d2f569a619e994" title="启动MQTT客户端。" alt="" coords="103,424,221,451"/>
+<area shape="poly" title=" " alt="" coords="44,305,105,380,136,411,132,415,101,383,39,309"/>
+<area shape="rect" href="calender__page_8c.html#a263dcd1679883713bbddf448c692c81c" title="时钟定时触发回调" alt="" coords="291,5,431,48"/>
+<area shape="poly" title=" " alt="" coords="209,69,275,49,277,54,211,74"/>
+<area shape="rect" href="calender__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="269,72,453,99"/>
+<area shape="poly" title=" " alt="" coords="214,83,254,83,254,88,214,88"/>
+<area shape="rect" href="home__page_8c.html#a761dc2dae7d83c28103f79fe2c3fc3de" title="日历按钮回调" alt="" coords="288,123,434,165"/>
+<area shape="poly" title=" " alt="" coords="176,245,215,211,268,175,278,170,280,174,270,180,219,215,179,249"/>
+<area shape="rect" href="home__page_8c.html#a456e42045e6e1f37e290440030da0e81" title="时钟定时回调_切换时间" alt="" coords="276,189,447,216"/>
+<area shape="poly" title=" " alt="" coords="205,245,268,225,294,218,295,223,270,231,206,250"/>
+<area shape="rect" href="home__page_8c.html#af9d2fddf920b9c48e54ed0a2773f7d37" title="时钟定时回调_检查设备运行状态" alt="" coords="286,240,437,283"/>
+<area shape="poly" title=" " alt="" coords="205,259,270,259,270,264,205,264"/>
+<area shape="rect" href="home__page_8c.html#acc52990ad5556f0e35d0318bca98a722" title="消息按钮回调" alt="" coords="286,307,436,349"/>
+<area shape="poly" title=" " alt="" coords="205,273,282,299,280,304,204,278"/>
+<area shape="rect" href="check__device__status_8c.html#adc92373bd6f952b9457fa57fa8c37fd6" title="检查WIFI的工作状态" alt="" coords="522,248,641,275"/>
+<area shape="poly" title=" " alt="" coords="437,259,506,259,506,264,437,264"/>
+<area shape="rect" href="message__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="269,373,453,400"/>
+<area shape="poly" title=" " alt="" coords="215,361,256,368,255,373,214,367"/>
+<area shape="rect" href="mqtt__client_8c.html#a5beb486bdbacfa4942a8bc03e72c323f" title="初始化MQTT客户端。" alt="" coords="326,424,397,451"/>
+<area shape="poly" title=" " alt="" coords="222,435,310,435,310,440,222,440"/>
+<area shape="rect" href="mqtt__client_8c.html#ab7c2be9d4b53b90f7bac01a8a60a4265" title="mqtt线程" alt="" coords="316,475,406,501"/>
+<area shape="poly" title=" " alt="" coords="218,449,302,470,300,475,217,454"/>
+<area shape="rect" href="mqtt__client_8c.html#a8bc2da7c7590053c30af460864d008b1" title="连接成功回调" alt="" coords="510,373,653,400"/>
+<area shape="poly" title=" " alt="" coords="397,427,505,401,506,407,398,432"/>
+<area shape="rect" href="mqtt__client_8c.html#a85c88ba0fdee6f038ad885ebc443dfad" title="连接短肽回调" alt="" coords="501,424,662,451"/>
+<area shape="poly" title=" " alt="" coords="397,435,486,435,486,440,397,440"/>
+<area shape="rect" href="mqtt__client_8c.html#ab171d521e4936999f813bbdbdd934834" title="接收消息回调" alt="" coords="506,475,657,501"/>
+<area shape="poly" title=" " alt="" coords="398,443,506,468,505,473,397,448"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a629caf54024dbb96ebecfa21fdf3861f" name="a629caf54024dbb96ebecfa21fdf3861f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629caf54024dbb96ebecfa21fdf3861f">&#9670;&#160;</a></span>tick_thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int tick_thread </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

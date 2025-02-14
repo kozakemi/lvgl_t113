@@ -1,3 +1,59 @@
+/**@mainpage  T113-S3 86的LVGL桌面时钟程序
+* <table>
+* <tr><th>Project  <td>lvgl_t113 
+* <tr><th>Author   <td>Kozakemi 
+* </table>
+* @section   项目详细描述
+* 显示日期,时间,拥有MQTT Client功能(详细功能未开发,保留接口)
+*
+* @section   功能描述  
+* -# lvgl 8.3.10
+* -# MQTT mosquitto
+* 
+* @section   用法描述 
+* -# cd build && ./build_lv_taiji
+* -# adb push lv_taiji /{path}
+* -# sh\> lv_taiji 5
+* 
+* @section   固件更新 
+* <table>
+* <tr><th>Date        <th>H_Version  <th>S_Version  <th>Author    <th>Description  </tr>
+* <tr><td>2025/02/14  <td>1.0        <td>0.1        <td>Kozakemi  <td>创建初始版本 </tr>
+* </tr>
+* </table>
+**********************************************************************************
+*/
+
+
+/**
+ * @file main.c
+ * @brief 主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025 Kozakemi
+ * 
+ * @par 功能描述
+ * -# 初始化LVGL库
+ * -# 配置显示驱动（sunxifb）
+ * -# 配置输入设备驱动（evdev）
+ * -# 提供命令行参数选择不同的演示模式或启动自定义页面（主页、日历页、消息页）
+ * -# 启动MQTT客户端用于网络通信
+ * 
+ * @par 用法描述
+ * -# 编译并运行此程序时，可以通过命令行参数选择不同的演示模式：
+ *   - lv_examples 0: lv_demo_widgets
+ *   - lv_examples 1: lv_demo_music
+ *   - lv_examples 2: lv_demo_benchmark
+ *   - lv_examples 3: lv_demo_keypad_encoder
+ *   - lv_examples 4: lv_demo_stress
+ *   - lv_examples 5: 启动自定义页面（主页、日历页、消息页）并连接MQTT服务器
+ * 
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi<td>初始版本，实现基本功能
+ * </table>
+ */
 #include "lvgl/lvgl.h"
 #include "lvgl/demos/lv_demos.h"
 #include "lv_drivers/display/sunxifb.h"
@@ -18,16 +74,16 @@
 
 static void hal_init(void);
 static int tick_thread(void *data);
-// // static lv_obj_t *two;
-// #define LV_COLOR_RED LV_COLOR_MAKE32(0xFF, 0x00, 0x00)
-// lv_coord_t hor_res = 480;
-// lv_coord_t ver_res = 480;
-// lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f); // 矩形宽度
-// void my_display(void); 
 
 
 
-
+/**
+ * @brief 主程序入口函数
+ * 
+ * @param {int} argc 
+ * @param {char *} argv 
+ * @return {int}
+ */
 int main(int argc, char *argv[])
 {
     if (argv[1] == NULL || atoi(argv[1]) < 0 || atoi(argv[1]) > 5) {
@@ -128,7 +184,12 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-/*Set in lv_conf.h as `LV_TICK_CUSTOM_SYS_TIME_EXPR`*/
+
+/**
+ * @brief LVGL心跳接口 
+ * 
+ * @return {uint32_t}
+ */
 uint32_t custom_tick_get(void) {
     static uint64_t start_ms = 0;
     if (start_ms == 0) {

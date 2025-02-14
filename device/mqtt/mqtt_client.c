@@ -1,3 +1,28 @@
+/**
+ * @file mqtt_client.c
+ * @brief 实现MQTT客户端的功能，包括初始化、连接、消息接收和断开连接等操作。
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025 Kozakemi
+ * 
+ * @par 功能描述
+ * -# 初始化MQTT客户端。
+ * -# 连接到MQTT代理。
+ * -# 设置回调函数以处理连接、消息接收和断开连接事件。
+ * -# 启动一个线程来处理MQTT消息循环。
+ * -# 提供启动和停止MQTT客户端的接口。
+ * 
+ * @par 用法描述
+ * -# 调用 `start_mqtt_client()` 函数启动MQTT客户端。
+ * -# 调用 `stop_mqtt_client()` 函数停止MQTT客户端。
+ * 
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi  <td>初始版本，实现MQTT客户端的基本功能。
+ * </table>
+ */
+
 #include <mosquitto.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +38,13 @@ pthread_t mqtt_thread_id;
 #define MQTT_BROKER_ADDR "119.91.109.180"
 #define MQTT_BROKER_PORT  9501
 
-// 回调函数：连接成功
+/**
+ * @brief  连接成功回调
+ * 
+ * @param {struct mosquitto *} mqtt 
+ * @param {void *} obj 
+ * @param {int} reason_code 
+ */
 static void on_connect_callback(struct mosquitto *mqtt, void *obj, int reason_code) {
     if (reason_code != 0) {
         fprintf(stderr, "Failed to connect to broker, reason code: %d\n", reason_code);
@@ -24,21 +55,37 @@ static void on_connect_callback(struct mosquitto *mqtt, void *obj, int reason_co
     mosquitto_subscribe(mqtt, NULL, "switch006", 0);
 }
 
-// 回调函数：接收消息
+/**
+ * @brief 接收消息回调
+ * 
+ * @param {struct mosquitto *} mqtt 
+ * @param {void *} obj 
+ * @param {const struct mosquitto_message *} msg 
+ */
 static void on_message_callback(struct mosquitto *mqtt, void *obj, const struct mosquitto_message *msg) {
     if (msg != NULL) {
         printf("Received message on topic '%s': %s\n", msg->topic, (char *)msg->payload);
     }
 }
 
-// 回调函数：连接断开
+/**
+ * @brief 连接短肽回调
+ * 
+ * @param {struct mosquitto *} mqtt 
+ * @param {void *} obj 
+ * @param {int} reason_code 
+ */
 static void on_disconnect_callback(struct mosquitto *mqtt, void *obj, int reason_code) {
     printf("Disconnected from broker, reason code: %d\n", reason_code);
     is_connected = false;
 }
 
 
-// 初始化 MQTT 客户端
+/**
+ * @brief 初始化MQTT客户端。
+ * 
+ * @return int 成功返回0，失败返回-1。
+ */
 static int mqtt_init() {
     int ret;
 
@@ -63,8 +110,13 @@ static int mqtt_init() {
     return 0;
 }
 
-
-// MQTT 客户端线程函数
+/**
+ * @brief mqtt线程
+ * 
+ * @param {type} arg 
+ * @return {void*}
+ */
+ */
 static void *mqtt_thread(void *arg) {
     while (1) {
         if (mqtt != NULL) {
@@ -75,13 +127,22 @@ static void *mqtt_thread(void *arg) {
     return NULL;
 }
 
-// 检查 MQTT 连接状态
+/**
+ * @brief mqtt连接状态
+ * 
+ * @return {true}
+ * @return {false}
+ */
 bool mqtt_is_connected() {
     return is_connected;
 }
 
 
-// 启动 MQTT 客户端
+/**
+ * @brief 启动MQTT客户端。
+ * 
+ * @return int 成功返回0，失败返回-1。
+ */
 int start_mqtt_client() {
     // 初始化 MQTT 客户端
     if (mqtt_init() != 0) {
@@ -100,7 +161,9 @@ int start_mqtt_client() {
     return 0;
 }
 
-// 停止 MQTT 客户端
+/**
+ * @brief 停止MQTT客户端。
+ */
 void stop_mqtt_client() {
     if (mqtt != NULL) {
         mosquitto_destroy(mqtt);

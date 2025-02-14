@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>lvgl_t113: C:/Users/kemik/git/lvgl_t113/page/home_page.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">lvgl_t113<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">t113-s3 86盒的LVGL桌面时钟程序</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e593d456b0a5a186577a6ffa579a0cbc.html">page</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">结构体</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">home_page.c 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;lvgl/lvgl.h&quot;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;sys/time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="calender__page_8h_source.html">calender_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="home__page_8h_source.html">home_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="message__page_8h_source.html">message_page.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_bluetuth___o_f_f_8h_source.html">source/img/Bluetuth_OFF.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_bluetuth___o_n_8h_source.html">source/img/Bluetuth_ON.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="calendar_8h_source.html">source/img/calendar.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="comment_8h_source.html">source/img/comment.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="home_8h_source.html">source/img/home.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="loading_8h_source.html">source/img/loading.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mikuimg_8h_source.html">source/img/mikuimg.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_no___wifi_8h_source.html">source/img/No_Wifi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="shezhi_8h_source.html">source/img/shezhi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_wifi-1_8h_source.html">source/img/Wifi-1.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="check__device__status_8h_source.html">device/check_device_status.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+home_page.c 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c__incl.gif" border="0" usemap="#a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2home__page_8c" alt=""/></div>
+<map name="a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2home__page_8c" id="a_c_1_2_users_2kemik_2git_2lvgl__t113_2page_2home__page_8c">
+<area shape="rect" title="实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。" alt="" coords="992,5,1137,64"/>
+<area shape="rect" title=" " alt="" coords="1208,203,1284,229"/>
+<area shape="poly" title=" " alt="" coords="992,38,753,40,444,50,294,59,164,73,67,91,36,102,17,114,10,124,8,133,10,143,17,153,33,160,68,167,184,179,532,197,916,207,1192,211,1192,217,916,212,532,202,183,184,68,172,32,165,13,157,5,145,3,133,5,122,13,110,33,97,66,86,163,67,293,54,443,44,753,35,992,33"/>
+<area shape="rect" title=" " alt="" coords="27,120,102,147"/>
+<area shape="poly" title=" " alt="" coords="992,42,543,66,294,88,192,101,114,115,106,117,104,112,113,109,191,95,294,82,543,61,991,36"/>
+<area shape="rect" title=" " alt="" coords="126,120,184,147"/>
+<area shape="poly" title=" " alt="" coords="992,42,812,50,582,65,357,86,265,100,196,115,191,116,190,111,194,109,264,94,357,81,581,60,812,45,992,36"/>
+<area shape="rect" title=" " alt="" coords="207,120,290,147"/>
+<area shape="poly" title=" " alt="" coords="992,40,862,45,689,57,496,79,398,95,302,115,293,117,292,112,301,109,397,90,495,74,689,51,861,39,992,34"/>
+<area shape="rect" href="calender__page_8h.html" title=" " alt="" coords="314,120,431,147"/>
+<area shape="poly" title=" " alt="" coords="992,44,748,68,596,88,444,115,428,118,427,113,443,109,595,83,747,63,991,39"/>
+<area shape="rect" href="home__page_8h.html" title=" " alt="" coords="455,120,554,147"/>
+<area shape="poly" title=" " alt="" coords="992,46,799,71,682,90,566,115,555,118,554,112,565,109,681,85,798,66,992,41"/>
+<area shape="rect" href="message__page_8h.html" title=" " alt="" coords="578,120,698,147"/>
+<area shape="poly" title=" " alt="" coords="992,53,710,115,697,118,695,113,709,109,991,48"/>
+<area shape="rect" href="_bluetuth___o_f_f_8h.html" title=" " alt="" coords="722,112,860,155"/>
+<area shape="poly" title=" " alt="" coords="993,64,865,109,863,104,991,59"/>
+<area shape="rect" href="_bluetuth___o_n_8h.html" title=" " alt="" coords="883,120,1059,147"/>
+<area shape="poly" title=" " alt="" coords="1039,66,995,111,992,107,1035,62"/>
+<area shape="rect" href="calendar_8h.html" title=" " alt="" coords="1083,120,1232,147"/>
+<area shape="poly" title=" " alt="" coords="1094,62,1137,107,1133,111,1090,66"/>
+<area shape="rect" href="comment_8h.html" title=" " alt="" coords="1257,120,1411,147"/>
+<area shape="poly" title=" " alt="" coords="1138,59,1285,112,1283,117,1136,64"/>
+<area shape="rect" href="home_8h.html" title=" " alt="" coords="1436,120,1568,147"/>
+<area shape="poly" title=" " alt="" coords="1138,48,1424,109,1439,113,1438,118,1423,115,1137,53"/>
+<area shape="rect" href="loading_8h.html" title=" " alt="" coords="1592,120,1734,147"/>
+<area shape="poly" title=" " alt="" coords="1137,42,1338,69,1581,109,1600,113,1599,119,1580,115,1337,74,1137,47"/>
+<area shape="rect" href="mikuimg_8h.html" title=" " alt="" coords="1758,120,1907,147"/>
+<area shape="poly" title=" " alt="" coords="1137,39,1406,64,1576,84,1746,109,1768,114,1767,119,1745,115,1575,89,1405,69,1137,44"/>
+<area shape="rect" href="_no___wifi_8h.html" title=" " alt="" coords="1931,120,2078,147"/>
+<area shape="poly" title=" " alt="" coords="1137,36,1476,58,1697,79,1920,109,1942,113,1941,119,1919,115,1696,85,1475,63,1137,42"/>
+<area shape="rect" href="shezhi_8h.html" title=" " alt="" coords="2102,120,2240,147"/>
+<area shape="poly" title=" " alt="" coords="1137,35,1307,40,1544,52,1815,74,1954,90,2090,109,2112,113,2111,119,2089,115,1954,95,1815,80,1543,58,1307,45,1137,40"/>
+<area shape="rect" href="_wifi-1_8h.html" title=" " alt="" coords="2264,120,2398,147"/>
+<area shape="poly" title=" " alt="" coords="1137,33,1331,36,1608,47,1928,70,2092,87,2253,109,2273,113,2272,118,2252,115,2092,92,1927,75,1607,52,1331,42,1137,39"/>
+<area shape="rect" href="check__device__status_8h.html" title=" " alt="" coords="2422,112,2565,155"/>
+<area shape="poly" title=" " alt="" coords="1137,33,1351,35,1663,45,2030,68,2220,86,2407,109,2406,114,2219,91,2029,73,1663,50,1351,40,1137,38"/>
+<area shape="poly" title=" " alt="" coords="412,145,444,152,550,169,660,182,873,200,1059,209,1192,212,1192,217,1059,214,873,205,659,187,550,174,443,157,411,150"/>
+<area shape="poly" title=" " alt="" coords="539,145,566,152,744,181,922,198,1077,208,1192,211,1192,217,1077,213,921,204,744,186,565,157,538,150"/>
+<area shape="poly" title=" " alt="" coords="679,145,710,152,845,174,980,191,1192,209,1192,214,980,196,845,180,709,157,678,150"/>
+<area shape="poly" title=" " alt="" coords="861,150,872,152,1047,183,1193,205,1192,210,1046,189,871,157,860,155"/>
+<area shape="poly" title=" " alt="" coords="1015,145,1193,197,1192,202,1013,150"/>
+<area shape="poly" title=" " alt="" coords="1173,145,1223,190,1219,194,1170,149"/>
+<area shape="poly" title=" " alt="" coords="1322,149,1272,194,1269,190,1318,145"/>
+<area shape="poly" title=" " alt="" coords="1463,150,1299,201,1298,196,1461,145"/>
+<area shape="poly" title=" " alt="" coords="1614,150,1581,157,1428,187,1300,209,1299,203,1427,181,1580,152,1612,145"/>
+<area shape="poly" title=" " alt="" coords="1782,150,1746,157,1621,177,1497,193,1299,213,1299,208,1496,187,1620,171,1745,152,1781,145"/>
+<area shape="poly" title=" " alt="" coords="1956,150,1920,157,1742,181,1567,198,1300,215,1299,210,1566,193,1742,176,1919,152,1955,145"/>
+<area shape="poly" title=" " alt="" coords="2126,150,2090,157,1861,186,1634,204,1438,213,1300,217,1299,211,1438,208,1634,198,1860,181,2089,152,2125,145"/>
+<area shape="poly" title=" " alt="" coords="2288,150,2253,157,2114,176,1973,190,1697,209,1461,216,1299,218,1299,212,1461,211,1697,203,1972,185,2114,171,2252,152,2287,145"/>
+</map>
+</div>
+</div>
+<p><a href="home__page_8c_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+结构体</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__lv__clock.html">_lv_clock</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">结构体用于存储时间相关的标签对象  <a href="struct__lv__clock.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__lv__status__lable.html">_lv_status_lable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">结构体用于存储状态相关的标签对象  <a href="struct__lv__status__lable.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:af8c3e4f3e15daf236569cca40d0f4a1a" id="r_af8c3e4f3e15daf236569cca40d0f4a1a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__lv__clock.html">_lv_clock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8c3e4f3e15daf236569cca40d0f4a1a">lv_clock_t</a></td></tr>
+<tr class="memdesc:af8c3e4f3e15daf236569cca40d0f4a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">结构体用于存储时间相关的标签对象  <br /></td></tr>
+<tr class="separator:af8c3e4f3e15daf236569cca40d0f4a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac248fed4921d9b39f1ed507d11614ca" id="r_aac248fed4921d9b39f1ed507d11614ca"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__lv__status__lable.html">_lv_status_lable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac248fed4921d9b39f1ed507d11614ca">lv_status_lable_t</a></td></tr>
+<tr class="memdesc:aac248fed4921d9b39f1ed507d11614ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">结构体用于存储状态相关的标签对象  <br /></td></tr>
+<tr class="separator:aac248fed4921d9b39f1ed507d11614ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a456e42045e6e1f37e290440030da0e81" id="r_a456e42045e6e1f37e290440030da0e81"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a456e42045e6e1f37e290440030da0e81">clock_date_task_callback</a> (lv_timer_t *timer)</td></tr>
+<tr class="memdesc:a456e42045e6e1f37e290440030da0e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">时钟定时回调_切换时间  <br /></td></tr>
+<tr class="separator:a456e42045e6e1f37e290440030da0e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d2fddf920b9c48e54ed0a2773f7d37" id="r_af9d2fddf920b9c48e54ed0a2773f7d37"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9d2fddf920b9c48e54ed0a2773f7d37">clock_wb_status_task_callback</a> (lv_timer_t *timer)</td></tr>
+<tr class="memdesc:af9d2fddf920b9c48e54ed0a2773f7d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">时钟定时回调_检查设备运行状态  <br /></td></tr>
+<tr class="separator:af9d2fddf920b9c48e54ed0a2773f7d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a761dc2dae7d83c28103f79fe2c3fc3de" id="r_a761dc2dae7d83c28103f79fe2c3fc3de"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a761dc2dae7d83c28103f79fe2c3fc3de">calender_img_clicked_callback</a> (lv_event_t *e)</td></tr>
+<tr class="memdesc:a761dc2dae7d83c28103f79fe2c3fc3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">日历按钮回调  <br /></td></tr>
+<tr class="separator:a761dc2dae7d83c28103f79fe2c3fc3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc52990ad5556f0e35d0318bca98a722" id="r_acc52990ad5556f0e35d0318bca98a722"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc52990ad5556f0e35d0318bca98a722">message_img_clicked_callback</a> (lv_event_t *e)</td></tr>
+<tr class="memdesc:acc52990ad5556f0e35d0318bca98a722"><td class="mdescLeft">&#160;</td><td class="mdescRight">消息按钮回调  <br /></td></tr>
+<tr class="separator:acc52990ad5556f0e35d0318bca98a722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4c440f91bdeb0c5dae7cfe227a1215" id="r_aed4c440f91bdeb0c5dae7cfe227a1215"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed4c440f91bdeb0c5dae7cfe227a1215">HomePage</a> (void)</td></tr>
+<tr class="memdesc:aed4c440f91bdeb0c5dae7cfe227a1215"><td class="mdescLeft">&#160;</td><td class="mdescRight">主页面  <br /></td></tr>
+<tr class="separator:aed4c440f91bdeb0c5dae7cfe227a1215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a5dfaac45201180965c5b03a3068e072b" id="r_a5dfaac45201180965c5b03a3068e072b"><td class="memItemLeft" align="right" valign="top">lv_obj_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dfaac45201180965c5b03a3068e072b">HomePage_OBJ</a></td></tr>
+<tr class="separator:a5dfaac45201180965c5b03a3068e072b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359afaf9af8128c9e66b6d67e4bd5979" id="r_a359afaf9af8128c9e66b6d67e4bd5979"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a359afaf9af8128c9e66b6d67e4bd5979">hor_res</a> = 480</td></tr>
+<tr class="separator:a359afaf9af8128c9e66b6d67e4bd5979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12265d0520ba942bc80ab4368bf451a2" id="r_a12265d0520ba942bc80ab4368bf451a2"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12265d0520ba942bc80ab4368bf451a2">ver_res</a> = 480</td></tr>
+<tr class="separator:a12265d0520ba942bc80ab4368bf451a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3b89eb9d3a4f2eb77c7466afa6e885" id="r_a7c3b89eb9d3a4f2eb77c7466afa6e885"><td class="memItemLeft" align="right" valign="top">static lv_coord_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c3b89eb9d3a4f2eb77c7466afa6e885">rect_width</a> =(lv_coord_t)((float)480 * 0.2f)</td></tr>
+<tr class="separator:a7c3b89eb9d3a4f2eb77c7466afa6e885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。 </p>
+<dl class="section author"><dt>作者</dt><dd>Kozakemi (<a href="#" onclick="location.href='mai'+'lto:'+'kem'+'ik'+'oza'+'@g'+'mai'+'l.'+'com'; return false;">kemik<span class="obfuscator">.nosp@m.</span>oza@<span class="obfuscator">.nosp@m.</span>gmail<span class="obfuscator">.nosp@m.</span>.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2025-02-14 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2025 Kozakemi</dd></dl>
+<dl class="section user"><dt>功能描述</dt><dd><ol type="1">
+<li>创建并显示主页。</li>
+<li>显示当前时间、日期和星期。</li>
+<li>显示WIFI和蓝牙状态图标。</li>
+<li>提供跳转到日历页面的按钮。</li>
+<li>提供跳转到消息页面的按钮。</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>用法描述</dt><dd><ol type="1">
+<li>调用 <code><a class="el" href="#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面">HomePage()</a></code> 函数初始化并显示主页。</li>
+</ol>
+</dd></dl>
+<dl class="section user"><dt>修改日志:</dt><dd><table class="doxtable">
+<tr>
+<th>Date </th><th>Version </th><th>Author </th><th>Description </th></tr>
+<tr>
+<td>2025-02-14 </td><td>1.0 </td><td>Kozakemi </td><td>初始版本，实现主页的基本功能。 </td></tr>
+</table>
+</dd></dl>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 中定义.</p>
+</div><h2 class="groupheader">类型定义说明</h2>
+<a id="af8c3e4f3e15daf236569cca40d0f4a1a" name="af8c3e4f3e15daf236569cca40d0f4a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8c3e4f3e15daf236569cca40d0f4a1a">&#9670;&#160;</a></span>lv_clock_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__lv__clock.html">_lv_clock</a> <a class="el" href="#af8c3e4f3e15daf236569cca40d0f4a1a">lv_clock_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>结构体用于存储时间相关的标签对象 </p>
+<p>包含时间、日期和星期标签对象指针。 </p>
+
+</div>
+</div>
+<a id="aac248fed4921d9b39f1ed507d11614ca" name="aac248fed4921d9b39f1ed507d11614ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac248fed4921d9b39f1ed507d11614ca">&#9670;&#160;</a></span>lv_status_lable_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__lv__status__lable.html">_lv_status_lable</a> <a class="el" href="#aac248fed4921d9b39f1ed507d11614ca">lv_status_lable_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>结构体用于存储状态相关的标签对象 </p>
+<p>包含WIFI和蓝牙状态标签对象指针。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="a761dc2dae7d83c28103f79fe2c3fc3de" name="a761dc2dae7d83c28103f79fe2c3fc3de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761dc2dae7d83c28103f79fe2c3fc3de">&#9670;&#160;</a></span>calender_img_clicked_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void calender_img_clicked_callback </td>
+          <td>(</td>
+          <td class="paramtype">lv_event_t *</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>日历按钮回调 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{lv_event_t</td><td>*} e </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00165">165</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de_icgraph.gif" border="0" usemap="#ahome__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de_icgraph" alt=""/></div>
+<map name="ahome__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de_icgraph" id="ahome__page_8c_a761dc2dae7d83c28103f79fe2c3fc3de_icgraph">
+<area shape="rect" title="日历按钮回调" alt="" coords="237,5,383,48"/>
+<area shape="rect" href="home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="103,13,189,40"/>
+<area shape="poly" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a456e42045e6e1f37e290440030da0e81" name="a456e42045e6e1f37e290440030da0e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456e42045e6e1f37e290440030da0e81">&#9670;&#160;</a></span>clock_date_task_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void clock_date_task_callback </td>
+          <td>(</td>
+          <td class="paramtype">lv_timer_t *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>时钟定时回调_切换时间 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{lv_timer_t</td><td>*} timer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00078">78</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_a456e42045e6e1f37e290440030da0e81_icgraph.gif" border="0" usemap="#ahome__page_8c_a456e42045e6e1f37e290440030da0e81_icgraph" alt=""/></div>
+<map name="ahome__page_8c_a456e42045e6e1f37e290440030da0e81_icgraph" id="ahome__page_8c_a456e42045e6e1f37e290440030da0e81_icgraph">
+<area shape="rect" title="时钟定时回调_切换时间" alt="" coords="237,5,408,32"/>
+<area shape="rect" href="home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="103,5,189,32"/>
+<area shape="poly" title=" " alt="" coords="222,21,189,21,189,16,222,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af9d2fddf920b9c48e54ed0a2773f7d37" name="af9d2fddf920b9c48e54ed0a2773f7d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d2fddf920b9c48e54ed0a2773f7d37">&#9670;&#160;</a></span>clock_wb_status_task_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void clock_wb_status_task_callback </td>
+          <td>(</td>
+          <td class="paramtype">lv_timer_t *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>时钟定时回调_检查设备运行状态 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{lv_timer_t</td><td>*} timer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00124">124</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_cgraph.gif" border="0" usemap="#ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_cgraph" alt=""/></div>
+<map name="ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_cgraph" id="ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_cgraph">
+<area shape="rect" title="时钟定时回调_检查设备运行状态" alt="" coords="5,5,157,48"/>
+<area shape="rect" href="check__device__status_8c.html#adc92373bd6f952b9457fa57fa8c37fd6" title="检查WIFI的工作状态" alt="" coords="205,13,324,40"/>
+<area shape="poly" title=" " alt="" coords="157,24,189,24,189,29,157,29"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_icgraph.gif" border="0" usemap="#ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_icgraph" alt=""/></div>
+<map name="ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_icgraph" id="ahome__page_8c_af9d2fddf920b9c48e54ed0a2773f7d37_icgraph">
+<area shape="rect" title="时钟定时回调_检查设备运行状态" alt="" coords="237,5,388,48"/>
+<area shape="rect" href="home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="103,13,189,40"/>
+<area shape="poly" title=" " alt="" coords="221,29,190,29,190,24,221,24"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aed4c440f91bdeb0c5dae7cfe227a1215" name="aed4c440f91bdeb0c5dae7cfe227a1215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed4c440f91bdeb0c5dae7cfe227a1215">&#9670;&#160;</a></span>HomePage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HomePage </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>主页面 </p>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00197">197</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_cgraph.gif" border="0" usemap="#ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_cgraph" alt=""/></div>
+<map name="ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_cgraph" id="ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_cgraph">
+<area shape="rect" title="主页面" alt="" coords="5,101,92,128"/>
+<area shape="rect" href="home__page_8c.html#a761dc2dae7d83c28103f79fe2c3fc3de" title="日历按钮回调" alt="" coords="152,5,298,48"/>
+<area shape="poly" title=" " alt="" coords="69,99,138,58,150,52,152,57,141,62,72,103"/>
+<area shape="rect" href="home__page_8c.html#a456e42045e6e1f37e290440030da0e81" title="时钟定时回调_切换时间" alt="" coords="140,72,311,99"/>
+<area shape="poly" title=" " alt="" coords="92,105,125,99,126,104,92,110"/>
+<area shape="rect" href="home__page_8c.html#af9d2fddf920b9c48e54ed0a2773f7d37" title="时钟定时回调_检查设备运行状态" alt="" coords="150,123,301,165"/>
+<area shape="poly" title=" " alt="" coords="92,119,135,126,134,132,92,124"/>
+<area shape="rect" href="home__page_8c.html#acc52990ad5556f0e35d0318bca98a722" title="消息按钮回调" alt="" coords="150,189,300,232"/>
+<area shape="poly" title=" " alt="" coords="69,126,101,150,141,175,151,180,148,185,138,180,98,155,65,131"/>
+<area shape="rect" href="check__device__status_8c.html#adc92373bd6f952b9457fa57fa8c37fd6" title="检查WIFI的工作状态" alt="" coords="359,131,478,157"/>
+<area shape="poly" title=" " alt="" coords="301,141,343,141,343,147,301,147"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_icgraph.gif" border="0" usemap="#ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_icgraph" alt=""/></div>
+<map name="ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_icgraph" id="ahome__page_8c_aed4c440f91bdeb0c5dae7cfe227a1215_icgraph">
+<area shape="rect" title="主页面" alt="" coords="103,5,189,32"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acc52990ad5556f0e35d0318bca98a722" name="acc52990ad5556f0e35d0318bca98a722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc52990ad5556f0e35d0318bca98a722">&#9670;&#160;</a></span>message_img_clicked_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void message_img_clicked_callback </td>
+          <td>(</td>
+          <td class="paramtype">lv_event_t *</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>消息按钮回调 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{lv_event_t</td><td>*} e </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00182">182</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="home__page_8c_acc52990ad5556f0e35d0318bca98a722_icgraph.gif" border="0" usemap="#ahome__page_8c_acc52990ad5556f0e35d0318bca98a722_icgraph" alt=""/></div>
+<map name="ahome__page_8c_acc52990ad5556f0e35d0318bca98a722_icgraph" id="ahome__page_8c_acc52990ad5556f0e35d0318bca98a722_icgraph">
+<area shape="rect" title="消息按钮回调" alt="" coords="237,5,387,48"/>
+<area shape="rect" href="home__page_8c.html#aed4c440f91bdeb0c5dae7cfe227a1215" title="主页面" alt="" coords="103,13,189,40"/>
+<area shape="poly" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="主程序入口函数" alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">变量说明</h2>
+<a id="a5dfaac45201180965c5b03a3068e072b" name="a5dfaac45201180965c5b03a3068e072b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dfaac45201180965c5b03a3068e072b">&#9670;&#160;</a></span>HomePage_OBJ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_obj_t* HomePage_OBJ</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00068">68</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a359afaf9af8128c9e66b6d67e4bd5979" name="a359afaf9af8128c9e66b6d67e4bd5979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359afaf9af8128c9e66b6d67e4bd5979">&#9670;&#160;</a></span>hor_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t hor_res = 480</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00069">69</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7c3b89eb9d3a4f2eb77c7466afa6e885" name="a7c3b89eb9d3a4f2eb77c7466afa6e885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3b89eb9d3a4f2eb77c7466afa6e885">&#9670;&#160;</a></span>rect_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00071">71</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a12265d0520ba942bc80ab4368bf451a2" name="a12265d0520ba942bc80ab4368bf451a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12265d0520ba942bc80ab4368bf451a2">&#9670;&#160;</a></span>ver_res</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_coord_t ver_res = 480</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="home__page_8c_source.html">home_page.c</a> 第 <a class="el" href="home__page_8c_source.html#l00070">70</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

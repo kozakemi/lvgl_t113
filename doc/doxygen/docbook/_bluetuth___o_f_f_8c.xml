@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__bluetuth___o_f_f_8c" xml:lang="zh">
+<title>C:/Users/kemik/git/lvgl_t113/source/img/Bluetuth_OFF.c 文件参考</title>
+<indexterm><primary>C:/Users/kemik/git/lvgl_t113/source/img/Bluetuth_OFF.c</primary></indexterm>
+<para>
+
+<para>蓝牙图标资源_蓝牙关闭状态 </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;Bluetuth_OFF.h&quot;<?linebreak?>#include &quot;lvgl/lvgl.h&quot;<?linebreak?></programlisting>Bluetuth_OFF.c 的引用(Include)关系图:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_bluetuth___o_f_f_8c__incl.gif"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>宏定义    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__bluetuth___o_f_f_8c_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__bluetuth___o_f_f_8c_1aafe634d71ad9ce8bdc6f12304b656238">LV_ATTRIBUTE_IMG_BLUETUTH_OFF</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>变量    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_lv__conf_8h_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link> <link linkend="_lv__conf_8h_1a9aa1f88eb217d43ff6f619e58b866d52">LV_ATTRIBUTE_LARGE_CONST</link> <link linkend="__bluetuth___o_f_f_8c_1aafe634d71ad9ce8bdc6f12304b656238">LV_ATTRIBUTE_IMG_BLUETUTH_OFF</link> uint8_t <link linkend="__bluetuth___o_f_f_8c_1a20014d4f48b15b24d9efc0f271283c64">Bluetuth_OFF_map</link> []</para>
+</listitem>
+            <listitem><para>const lv_img_dsc_t <link linkend="__bluetuth___o_f_f_8c_1a8bad9c5c5a14007937c6751e55d67c37">Bluetuth_OFF</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>详细描述</title>
+
+<para>蓝牙图标资源_蓝牙关闭状态 </para>
+
+<para><formalpara><title>作者</title>
+
+<para>Kozakemi (<link xlink:href="mailto:kemikoza@gmail.com">kemikoza@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>日期</title>
+
+<para>2025-02-14 </para>
+</formalpara>
+<formalpara><title>版权所有</title>
+
+<para>Copyright (c) 2025 Kozakemi</para>
+</formalpara>
+<formalpara>
+<title>功能描述</title>
+<para><orderedlist>
+<listitem>
+<para>蓝牙断开连接图标资源 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>用法描述</title>
+<para><orderedlist>
+<listitem>
+<para>lv_img_dsc_t 使用方法 </para>
+</listitem></orderedlist>
+</para>
+</formalpara>
+<formalpara>
+<title>修改日志:</title>
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row >
+<entry>
+<para>Date </para>
+</entry><entry>
+<para>Version </para>
+</entry><entry>
+<para>Author </para>
+</entry><entry>
+<para>Description </para>
+</entry></row>
+</thead><tbody>
+      <row >
+<entry>
+<para>2025-02-14 </para>
+</entry><entry>
+<para>1.0 </para>
+</entry><entry>
+<para>Kozakemi </para>
+</entry><entry>
+<para>null </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</formalpara>
+</para>
+<para>
+在文件 <link linkend="__bluetuth___o_f_f_8c_source">Bluetuth_OFF.c</link> 中定义.</para>
+</section>
+<section>
+<title>宏定义说明</title>
+<anchor xml:id="__bluetuth___o_f_f_8c_1aafe634d71ad9ce8bdc6f12304b656238"/><section>
+    <title>LV_ATTRIBUTE_IMG_BLUETUTH_OFF</title>
+<indexterm><primary>LV_ATTRIBUTE_IMG_BLUETUTH_OFF</primary><secondary>Bluetuth_OFF.c</secondary></indexterm>
+<indexterm><primary>Bluetuth_OFF.c</primary><secondary>LV_ATTRIBUTE_IMG_BLUETUTH_OFF</secondary></indexterm>
+<para><computeroutput>#define LV_ATTRIBUTE_IMG_BLUETUTH_OFF</computeroutput></para><para>
+在文件 <link linkend="__bluetuth___o_f_f_8c_source">Bluetuth_OFF.c</link> 第 <link linkend="__bluetuth___o_f_f_8c_source_1l00040">40</link> 行定义.</para>
+</section>
+<anchor xml:id="__bluetuth___o_f_f_8c_1a6b77dcb22fcdc624952dc307331e5db6"/><section>
+    <title>LV_ATTRIBUTE_MEM_ALIGN</title>
+<indexterm><primary>LV_ATTRIBUTE_MEM_ALIGN</primary><secondary>Bluetuth_OFF.c</secondary></indexterm>
+<indexterm><primary>Bluetuth_OFF.c</primary><secondary>LV_ATTRIBUTE_MEM_ALIGN</secondary></indexterm>
+<para><computeroutput>#define LV_ATTRIBUTE_MEM_ALIGN</computeroutput></para><para>
+在文件 <link linkend="__bluetuth___o_f_f_8c_source">Bluetuth_OFF.c</link> 第 <link linkend="__bluetuth___o_f_f_8c_source_1l00036">36</link> 行定义.</para>
+</section>
+</section>
+<section>
+<title>变量说明</title>
+<anchor xml:id="__bluetuth___o_f_f_8c_1a8bad9c5c5a14007937c6751e55d67c37"/><section>
+    <title>Bluetuth_OFF</title>
+<indexterm><primary>Bluetuth_OFF</primary><secondary>Bluetuth_OFF.c</secondary></indexterm>
+<indexterm><primary>Bluetuth_OFF.c</primary><secondary>Bluetuth_OFF</secondary></indexterm>
+<para><computeroutput>const lv_img_dsc_t Bluetuth_OFF</computeroutput></para><emphasis role="strong">初始值:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;.header.cf&#32;=&#32;LV_IMG_CF_TRUE_COLOR_ALPHA,
+&#32;&#32;.header.always_zero&#32;=&#32;0,
+&#32;&#32;.header.reserved&#32;=&#32;0,
+&#32;&#32;.header.w&#32;=&#32;32,
+&#32;&#32;.header.h&#32;=&#32;32,
+&#32;&#32;.data_size&#32;=&#32;1024&#32;*&#32;LV_IMG_PX_SIZE_ALPHA_BYTE,
+&#32;&#32;.data&#32;=&#32;<link linkend="__bluetuth___o_f_f_8c_1a20014d4f48b15b24d9efc0f271283c64">Bluetuth_OFF_map</link>,
+}
+</programlisting><para>
+在文件 <link linkend="__bluetuth___o_f_f_8c_source">Bluetuth_OFF.c</link> 第 <link linkend="__bluetuth___o_f_f_8c_source_1l00185">185</link> 行定义.</para>
+</section>
+<anchor xml:id="__bluetuth___o_f_f_8c_1a20014d4f48b15b24d9efc0f271283c64"/><section>
+    <title>Bluetuth_OFF_map</title>
+<indexterm><primary>Bluetuth_OFF_map</primary><secondary>Bluetuth_OFF.c</secondary></indexterm>
+<indexterm><primary>Bluetuth_OFF.c</primary><secondary>Bluetuth_OFF_map</secondary></indexterm>
+<para><computeroutput>const <link linkend="_lv__conf_8h_1a6b77dcb22fcdc624952dc307331e5db6">LV_ATTRIBUTE_MEM_ALIGN</link> <link linkend="_lv__conf_8h_1a9aa1f88eb217d43ff6f619e58b866d52">LV_ATTRIBUTE_LARGE_CONST</link> <link linkend="__bluetuth___o_f_f_8c_1aafe634d71ad9ce8bdc6f12304b656238">LV_ATTRIBUTE_IMG_BLUETUTH_OFF</link> uint8_t Bluetuth_OFF_map[]</computeroutput></para><para>
+在文件 <link linkend="__bluetuth___o_f_f_8c_source">Bluetuth_OFF.c</link> 第 <link linkend="__bluetuth___o_f_f_8c_source_1l00043">43</link> 行定义.</para>
+</section>
+</section>
+</section>

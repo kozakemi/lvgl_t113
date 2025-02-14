@@ -1,4 +1,24 @@
-#include "lvgl/lvgl.h"
+/**
+ * @file message_page.c
+ * @brief 实现消息页面的功能，包括显示标题、内容以及返回主页按钮。
+ * @author Kozakemi (kemikoza@gmail.com)
+ * @date 2025-02-14
+ * @copyright Copyright (c) 2025 Kozakemi
+ * 
+ * @par 功能描述
+ * -# 创建并显示消息页面。
+ * -# 显示标题和内容。
+ * -# 提供返回主页按钮，点击后返回主页。
+ * 
+ * @par 用法描述
+ * -# 调用 `MessagePage()` 函数初始化并显示消息页面。
+ * 
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi  <td>初始版本，实现消息页面的基本功能。
+ * </table>
+ */
 #include <pthread.h>
 #include <time.h>
 #include <sys/time.h>
@@ -12,11 +32,20 @@ static lv_coord_t rect_width =(lv_coord_t)((float)480 * 0.2f);
 
 lv_obj_t *MessagePage_OBJ;
 
+/**
+ * @brief 主页按键触发回调
+ * 
+ * @param {lv_event_t *} e 
+ */
 static void home_img_clicked_callback(lv_event_t *e){
     LV_LOG_USER("Clicked");
     lv_scr_load_anim(HomePage_OBJ, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
 }
 
+/**
+ * @brief 消息页面
+ * 
+ */
 void MessagePage(){
 
     MessagePage_OBJ=lv_obj_create(NULL);
@@ -58,9 +87,6 @@ void MessagePage(){
     lv_obj_add_style(contentlabel, &content_style, 0);
     lv_obj_align(contentlabel, LV_ALIGN_LEFT_MID, 25, 0);
 
-
-
-
     static lv_style_t style_rect;
     lv_obj_t *rect;
     lv_color_t c = lv_color_hex(0x71a2c6);       // 修改颜色值
@@ -78,7 +104,6 @@ void MessagePage(){
     lv_obj_align(rect, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_obj_add_style(rect, &style_rect, 0);
 
-
     lv_obj_t *home_img_btn = lv_imgbtn_create(MessagePage_OBJ); // 创建在当前活动的屏幕
     // 设置正常状态下的图片
     lv_imgbtn_set_src(home_img_btn, LV_IMGBTN_STATE_RELEASED, &home, NULL, NULL);
@@ -86,5 +111,4 @@ void MessagePage(){
     lv_obj_align(home_img_btn, LV_ALIGN_TOP_RIGHT, -1 * rect_width / 2.0 + 64 / 2, ver_res / 2.0 - 64 / 2);
     lv_obj_set_size(home_img_btn, 64, 64);
     lv_obj_add_event_cb(home_img_btn, home_img_clicked_callback, LV_EVENT_CLICKED, NULL);
-
 }
