@@ -12,7 +12,7 @@
  * @par 修改日志:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi     <td>内容
+ * <tr><td>2025-02-14 <td>1.0     <td>Kozakemi     <td>null
  * </table>
  */
 #include "calendar.h"

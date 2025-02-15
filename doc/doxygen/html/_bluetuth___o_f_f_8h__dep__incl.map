@@ -1,7 +1,0 @@
-<map id="C:/Users/kemik/git/lvgl_t113/source/img/Bluetuth_OFF.h" name="C:/Users/kemik/git/lvgl_t113/source/img/Bluetuth_OFF.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,234,64"/>
-<area shape="rect" id="Node000002" href="$home__page_8c.html" title="实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。" alt="" coords="5,112,150,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,78,103,113,98,110,127,75"/>
-<area shape="rect" id="Node000003" href="$_bluetuth___o_f_f_8c.html" title="蓝牙图标资源_蓝牙关闭状态" alt="" coords="173,112,318,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,75,225,110,220,113,192,78"/>
-</map>

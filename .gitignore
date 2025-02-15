@@ -1,0 +1,7 @@
+doc/doxygen/*
+!doc/doxygen/Doxyfile
+
+
+build/*
+!build/build_lv_taji
+!build/Makefile

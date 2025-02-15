@@ -1,7 +1,0 @@
-<map id="C:/Users/kemik/git/lvgl_t113/page/message_page.h" name="C:/Users/kemik/git/lvgl_t113/page/message_page.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="68,5,234,64"/>
-<area shape="rect" id="Node000002" href="$main_8c.html" title="主程序入口文件，初始化LVGL库并配置显示和输入设备驱动，提供不同演示模式的选择。" alt="" coords="5,120,137,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,78,89,121,84,118,118,75"/>
-<area shape="rect" id="Node000003" href="$home__page_8c.html" title="实现主页的功能，包括显示时间、日期、星期、状态图标以及跳转到日历和消息页面的按钮。" alt="" coords="160,112,304,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,75,212,110,208,113,180,78"/>
-</map>

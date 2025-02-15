@@ -1,7 +1,0 @@
-<map id="CalenderPage" name="CalenderPage">
-<area shape="rect" id="Node000001" title="日历页面" alt="" coords="5,43,109,69"/>
-<area shape="rect" id="Node000002" href="$calender__page_8c.html#a263dcd1679883713bbddf448c692c81c" title="时钟定时触发回调" alt="" coords="179,5,319,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,163,37,164,42,109,51"/>
-<area shape="rect" id="Node000003" href="$calender__page_8c.html#ad6c20a41fc6c9c98512613498c0cba1d" title="主页按键触发回调" alt="" coords="157,72,341,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,61,142,66,142,72,109,66"/>
-</map>

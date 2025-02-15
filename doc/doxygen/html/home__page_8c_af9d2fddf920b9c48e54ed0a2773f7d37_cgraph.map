@@ -1,5 +1,0 @@
-<map id="clock_wb_status_task_callback" name="clock_wb_status_task_callback">
-<area shape="rect" id="Node000001" title="时钟定时回调_检查设备运行状态" alt="" coords="5,5,157,48"/>
-<area shape="rect" id="Node000002" href="$check__device__status_8c.html#adc92373bd6f952b9457fa57fa8c37fd6" title="检查WIFI的工作状态" alt="" coords="205,13,324,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,24,189,24,189,29,157,29"/>
-</map>
