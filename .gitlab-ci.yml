@@ -1,0 +1,30 @@
+image: alpine
+
+before_script:
+# - apk update
+# - apk add doxygen
+## Uncomment the following line if you use graphviz dot graphs
+#- apk add ttf-freefont graphviz
+
+# test:
+#   script:
+#   - doxygen doxygen/Doxyfile
+#   rules:
+#     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+    # only:
+    #   # Trigger a new build and deploy only when there is a push to the
+    #   # below branch(es)
+    #   - master
+pages:
+  script:
+  # - doxygen doxygen/Doxyfile
+  - mv doc/doxygen/html/ public/
+  artifacts:
+    paths:
+    - public
+  # rules:
+  #   - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  only:
+    # Trigger a new build and deploy only when there is a push to the
+    # below branch(es)
+    - master
