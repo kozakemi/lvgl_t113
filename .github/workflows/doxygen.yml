@@ -1,0 +1,51 @@
+name: Generate and Deploy Doxygen Docs
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    container: alpine:latest  # 保持与 GitLab 相同的 Alpine 环境
+
+    steps:
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          apk update
+          apk add doxygen graphviz ttf-freefont
+          ## 如果需要其他依赖可在此添加
+
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 生成文档
+      - name: Generate Doxygen docs
+        run: |
+          mkdir -p public
+          doxygen doc/doxygen/Doxyfile
+          mv doc/doxygen/html/* public/
+
+      # 上传制品
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy-pages:
+    needs: build-docs
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
